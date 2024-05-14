@@ -1224,7 +1224,7 @@ select::-ms-expand {
 
 .menu-item.lv2 > a {
   padding: 0.8rem 0;
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 400;
   -webkit-transition: none;
   transition: none;
@@ -1437,6 +1437,9 @@ select::-ms-expand {
   }
   .menu-item.lv1 {
     max-width: 28rem;
+  }
+  .menu-item.lv2 > a {
+    font-size: 1.6rem;
   }
   .sub-menu.lv2 {
     left: 28rem;
