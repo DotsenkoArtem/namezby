@@ -1,0 +1,62 @@
+{
+  "name": "namezby",
+  "version": "1.0.0",
+  "description": "namezby site development",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DotsenkoArtem/namezby.git"
+  },
+  "author": "Artem Dots",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DotsenkoArtem/namezby/issues"
+  },
+  "homepage": "https://github.com/DotsenkoArtem/namezby#readme",
+  "dependencies": {
+    "browser-sync": "^2.27.7",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-debug": "^4.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-pug": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-svg-sprite": "^2.0.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp.spritesmith": "^6.12.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-pngquant": "^9.0.0",
+    "layout": "^2.2.0",
+    "merge-stream": "^2.0.0",
+    "stream-combiner2": "^1.1.1",
+    "swiper": "^11.1.1",
+    "through2": "^4.0.2",
+    "vinyl-buffer": "^1.0.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all",
+    "last 15 version"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "gulp-babel": "^8.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-ttf2woff": "^1.1.1",
+    "gulp-ttf2woff2": "^4.0.1",
+    "gulp-webp": "^4.0.1",
+    "sass": "^1.49.8"
+  }
+}

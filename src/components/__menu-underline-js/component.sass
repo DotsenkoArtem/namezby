@@ -1,0 +1,49 @@
+.header-menu__item > a
+  position: relative
+
+  
+.menu-dash
+  display: block
+  width: 0
+  height: 1px
+  position: absolute
+  bottom: 0
+  content: ''
+  background: $heading-color
+  &.grow-left
+    right: 0
+    left: auto
+    -webkit-animation: grow .3s ease-in forwards
+    animation: grow .3s ease-in forwards
+
+  &.grow-right 
+    left: 0
+    right: auto
+    -webkit-animation: grow .3s ease-in forwards
+    animation: grow .3s ease-in forwards
+
+  &.shrink-left
+    left: 0
+    right: auto
+    -webkit-animation: shrink .3s ease-in forwards
+    animation: shrink .3s ease-in forwards
+
+  &.shrink-right
+    right: 0
+    left: auto
+    -webkit-animation: shrink .3s ease-in forwards
+    animation: shrink .3s ease-in forwards
+
+  @keyframes grow
+    from
+      width: 0%
+
+    to
+      width: 100%
+
+  @keyframes shrink
+    from
+      width: 100%
+
+    to
+      width: 0%

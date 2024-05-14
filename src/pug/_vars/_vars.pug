@@ -1,0 +1,223 @@
+//- Common variables
+-
+  let author = 'Artem Dots'
+  let themeColor = '#0055d4'
+
+  // Если требуется заглушка для Internet Explorer
+  let ieBung = false
+
+  //- Массив наименований шрифтов для перебора в head.pug и предзагрузки
+  let fontsPreload = [
+    'GothamPro-Light.woff2',
+    'GothamPro-Regular.woff2',
+    'GothamPro-Medium.woff2',
+    'GothamPro-Bold.woff2',
+    'GothamPro-Black.woff2',
+    ]
+
+  //- ! URL определяется автоматом в миксине "меню" : pages-key+.html
+  let pages = {
+    index: {
+      name:   'Главная',
+      title:  'Namez - брендинговое агентство',
+      descr:  'Генерируем приятные эмоции и красивые картинки, чтобы ваш бренд запомнили.',
+      author:  author,
+    },
+    portfolioindex: {
+      name:   'Портфолио',
+      title:  'Namez - брендинговое агентство',
+      descr:  'Генерируем приятные эмоции и красивые картинки, чтобы ваш бренд запомнили.',
+      author:  author,
+      isMenuItemHasChildren: {
+        page21: {
+          name:   'Разработка фирменного стиля',
+          title:  'Страница 2-1 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page22: {
+          name:   'Разработка фирменного стиля',
+          title:  'Страница 2-2 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page23: {
+          name:   'Разработка фирменного стиля',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page24: {
+          name:   'Разработка фирменного стиля',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page25: {
+          name:   'Разработка фирменного стиля',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page26: {
+          name:   'Разработка фирменного стиля',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page27: {
+          name:   'Разработка фирменного стиля',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page28: {
+          name:   'Разработка фирменного стиля',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page29: {
+          name:   'Разработка фирменного стиля',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page210: {
+          name:   'Разработка фирменного стиля',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+      }
+    },
+    services: {
+      name:   'Услуги',
+      title:  'Namez - брендинговое агентство',
+      descr:  'Генерируем приятные эмоции и красивые картинки, чтобы ваш бренд запомнили.',
+      author:  author,
+      isMenuItemHasChildren: {
+        page21: {
+          name:   'Разработка бренда «под ключ»',
+          title:  'Страница 2-1 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page22: {
+          name:   'Разработка бренда «под ключ»',
+          title:  'Страница 2-2 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page23: {
+          name:   'Разработка бренда «под ключ»',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page24: {
+          name:   'Разработка бренда «под ключ»',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page25: {
+          name:   'Разработка бренда «под ключ»',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page26: {
+          name:   'Разработка бренда «под ключ»',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page27: {
+          name:   'Разработка бренда «под ключ»',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page28: {
+          name:   'Разработка бренда «под ключ»',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+        page29: {
+          nname:   'Разработка бренда «под ключ»',
+          title:  'Страница 2-3 - Название',
+          descr:  '',
+          fileStem: 'child-page',
+          author:  author,
+          isMenuItem: true,
+        },
+      }
+    },
+    about: {
+      name:   'О нас',
+      title:  'Namez - брендинговое агентство',
+      descr:  'Генерируем приятные эмоции и красивые картинки, чтобы ваш бренд запомнили.',
+      author:  author,
+    },
+    contacts: {
+      name:   'Контакты',
+      title:  'Namez - брендинговое агентство',
+      descr:  'Генерируем приятные эмоции и красивые картинки, чтобы ваш бренд запомнили.',
+      author:  author,
+    },
+  };
+
+
+
+  //- const topMenu = {
+  //-   index: {
+  //-     name:   'Главная',
+  //-   },
+  //-   opportunities: {
+  //-     name:   'Возможности',
+  //-   },
+  //-   rate: {
+  //-     name:   'Тариф',
+  //-   },
+  //-   contacts: {
+  //-     name:   'Контакты',
+  //-   },
+  //- }

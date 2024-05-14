@@ -1,0 +1,266 @@
+@use '_partials/variables' as v
+@use '_partials/mixins' as m
+
+// =====================================================================
+// TOC:
+
+// II. Styles reset		default.sass
+// III. Default styles
+//    1. Basic
+//    2. Typography
+//    3. Links
+//    4. Images
+//    5. Buttons
+//    6. Forms
+//    7. Common classes
+// =====================================================================
+
+// II. Styles reset
+
+*,
+*:before,
+*:after
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  -webkit-tap-highlight-color: transparent
+  background: none
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video
+  border: 0
+  outline: 0
+  vertical-align: baseline
+  background: transparent
+
+address
+  font-style: normal
+
+[hidden]
+  display: none
+
+button,
+input,
+textarea
+  border: none
+  outline: none
+  border-radius: 0
+
+code, kbd, pre, samp
+  font-family: monospace, serif
+  font-size: 1em
+
+i
+  display: inline-block
+
+pre
+  white-space: pre
+  white-space: pre-wrap
+  word-wrap: break-word
+
+blockquote,
+q
+  quotes: &#8220 &#8220
+  &:before,
+  &:after
+    content: ''
+    content: none
+
+ul, ol
+  list-style: none
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+// III. Default styles
+//  1. Basic
+// -------------------  
+
+// .continer_xs не нужен - достаточно функций .container
+.container
+  &,
+  &_xxl,
+  &_xl,
+  &_lg,
+  &_md,
+  &_sm
+    margin: 0 auto
+    padding: 0 v.$gutter
+    max-width: 1320px
+  &_fluid
+    padding: 0 v.$gutter
+    width: 100%
+    max-width: none
+
+.row
+  margin: 0 (- v.$gutter)
+  display: flex
+  flex-wrap: wrap
+
+
+// .has-bg
+//   position: relative
+//   &__bg
+//     position: absolute
+//     width: 100%
+//     height: 100%
+//     top: 0
+//     right: 0
+//     bottom: 0
+//     left: 0
+//     z-index: -1
+//   img
+//     width: 100%
+//     height: 100%
+
+//   &_cover
+//     img
+//       object-fit: cover
+
+//   &_contain
+//     img
+//       object-fit: cover
+
+.scroll-hidden
+  padding-right: 17px
+  overflow: hidden
+
+//  2. Typography
+// -------------------------
+html
+  font:
+    size: 10px
+
+body
+  font:
+    family: v.$ff-primary
+    size: 2rem
+    weight: 400
+  line-height: 1.2
+  // color: v.$text-primary-color
+  background: v.$body-bg-color
+
+
+
+  min-height: 500vh
+
+h1, h2, h3
+  // font-family: v.$ff-secondary
+
+h1
+  font-size: 6rem
+  // font-family: v.$ff-primary
+  line-height: 1.17
+  font-weight: 700
+
+// h2
+//   font-size: 4rem
+//   font-weight: 600
+//   line-height: 1.22
+
+// h3
+//   font-size: 2rem
+//   font-weight: 700
+//   line-height: 1.22
+
+
+// Text settings
+// .text
+//   &-center
+//     text-align: center
+//   &-light
+//     color: v.$text-light
+//   &-uppercase
+//     text-transform: uppercase
+//   &-accent
+//     color: v.$text-accent
+//   &-bold
+//     font-weight: 700
+// 	&_medium
+// 		font-weight: 500
+// 	&_semibold
+// 		font-weight: 600
+
+//  3. Links
+//  -------------------------
+
+a
+  &, &:visited
+    text-decoration: none
+    outline: none
+    // color: v.$link-color
+    transition: color .3s ease-in-out
+
+// &.text-link
+// 	&,
+// 	&:visited
+// 		color: v.$text-link-color
+// 	&:hover,
+// 	&:active
+// 		color: v.$text-link-hover-color
+// 		text-decoration: underline
+
+//   4. Images
+//  -------------------------
+
+img
+  display: block
+  max-width: 100%
+  height: auto
+
+//   5. Buttons
+//  -------------------------
+// Перенесены в components
+
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.btn
+  text-decoration: none
+  cursor: pointer
+  user-select: none
+
+// 6. Forms 
+// -------------------------
+
+input:not(input[type="checkbox"]),
+select
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  outline: none
+
+input::-ms-clear
+  display: none
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration
+  display: none
+
+select::-ms-expand
+  display: none
+
+// 7. Displays
+.d
+  &-block
+    display: block
+  &-flex
+    display: flex
+  &-inline
+    display: inline
+  &-none
+    display: none

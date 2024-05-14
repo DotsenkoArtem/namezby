@@ -1,0 +1,540 @@
+// ADDITIONAL STYLES
+// Grid
+$col-p-x: 1.2rem
+.row
+  display: flex
+  margin: 0 (-$col-p-x)
+  flex-wrap: wrap
+
+.col
+  padding: 0 $col-p-x
+  flex: 1
+  &-6
+    padding: 0 $col-p-x
+    width: 50%
+// /- ADDITIONAL STYLES
+  
+$primary-color: v.$primary-color
+
+$input-placeholder-color: #a1a1a1
+$not-txt-label-color: #4b4b4b
+
+$input-border-color: #a1a1a1
+$input-focus-border-color: #1c7effc9
+$backdrop-bgc: rgba(0, 0, 0, .75)
+
+$error-color: #cc0000
+$success-color: #009900
+
+$alert-success-desaturate: 60%
+$alert-error-desaturate: 40%
+
+$input-radius: .5rem
+$form-alert-radius: .5rem
+$form-alert-close-bg: #232323
+
+// $btn-p-x: 1.2em
+// $btn-p-y: .45em
+$btn-primary-bg:  $primary-color
+$btn-primary-radius: .3em
+
+$btn-primary-bg-hover: lighten($btn-primary-bg, 10%)
+
+// RADIO
+// Radio colors
+$radio-border-color: rgb(173, 181, 189)
+$radio-checked-border-color: rgb(11, 118, 239)
+$radio-hover-border-color: lighten($radio-checked-border-color, 10%)
+$radio-active-border-color: $radio-checked-border-color
+$radio-focus-shadow-color: rgba(0, 123, 255, 0.35)
+// Radio sizes
+$radio-offset-rigth: 0.5em
+$radio-diameter: 1em
+// Radio transition
+$radio-transition: 0.2s
+// - - - - - - - - - - - - - - - - - -
+
+
+// CHECKBOX
+// Checkbox colors
+$checkbox-border-color: rgb(173, 181, 189)
+$checkbox-checked-border-color: rgb(11, 118, 239)
+$checkbox-hover-border-color: lighten($checkbox-checked-border-color, 15%)
+$checkbox-active-border-color: $checkbox-checked-border-color
+$checkbox-focus-shadow-color: rgba(0, 123, 255, 0.35)
+$checkbox-bg: rgba(196, 196, 196, 0.25)
+// checkbox sizes
+$checkbox-offset-rigth: .5em
+$checkbox-width: 1em
+// checkbox transition
+$checkbox-transition: 0.2s
+// label
+$label-paddding-left: $checkbox-width + $checkbox-offset-rigth
+// arrow
+$arrow-width: $checkbox-width * .4
+$arrow-height: $checkbox-width * .6
+$arrow-left-offset: calc(($checkbox-width - $arrow-width) / 2)
+$arrow-translate-y: calc($checkbox-width / (-9))
+$arrow-color: rgb(0, 119, 255)
+// - - - - - - - - - - - - - - - - - -
+
+  
+input::-ms-input-placeholder
+  color: $input-placeholder-color
+textarea::-ms-input-placeholder
+  color: $input-placeholder-color
+input::-webkit-input-placeholder
+  color: $input-placeholder-color
+textarea::-webkit-input-placeholder
+  color: $input-placeholder-color
+input::-moz-placeholder
+  color: $input-placeholder-color
+textarea::-moz-placeholder
+  color: $input-placeholder-color
+  
+.form
+  font:
+    size: 1.6rem
+
+
+  &-field__title
+    margin-bottom: .4em
+    font:
+      size: 2rem
+      weight: 400
+
+
+  &-group
+    padding-bottom: 2rem
+
+
+  &-control,
+  &-control-message
+    padding: .5rem 1.2rem 
+    width: 100%
+    font:
+      family: 'Open Sans', Helvetica, sans-serif
+      size: 1.6rem
+    border: 1px solid $input-border-color
+    border-radius: $input-radius
+    &:focus
+      border: 1px solid $input-focus-border-color
+      box-shadow: 0 0 0 1px lighten($input-focus-border-color, 25%)
+
+  &-control-message
+    resize: none
+
+  
+
+
+  &-control-file
+    position: absolute
+    width: 0
+    height: 0
+    opacity: 0
+    visibility: hidden
+
+  &-control-file-info
+    display: inline-block
+    padding: 0.5rem 0
+    font-size: 1.6rem
+    line-height: 1.125em
+    color: $not-txt-label-color
+    word-break: break-all
+
+
+  &-radio
+    position: absolute
+    z-index: -1
+    width: 0
+    height: 0
+    opacity: 0
+    &-wrap
+      position: relative
+      display: inline-block
+      &:not(:last-child)
+        margin-right: 0.5em
+        // &:not(:disabled):not(:checked) + .form-label-radio:hover::before
+        //   border-color: #b3d7ff
+        // &:not(:disabled):active + .form-label-radio::before
+        //   background-color: $primary-color
+        //   border-color: #b3d7ff
+        // &:focus + .form-label-radio::before
+        //   box-shadow: 0 0 0 0.1rem $primary-color
+        // &:focus:not(:checked) + .form-label-radio::before 
+        //   border-color: #80bdff
+        // &:checked + .form-label-radio::before 
+        //   border-color: $primary-color
+        //   background-color: $primary-color
+        // &:checked + .form-label-radio::after 
+        //   transform: scale(1)
+        // &:disabled + .form-label-radio::before
+        //   background-color: #efe9e9
+
+
+    // Radio states
+    // Hover Not Checked
+    &:not(:disabled):not(:checked) + .form-label-radio:not(:active):hover::before 
+      border-color: $radio-hover-border-color
+
+    // Hover Checked
+    &:not(:disabled):checked + .form-label-radio:not(:active):hover::before 
+      border-color: $radio-hover-border-color
+
+
+    // Active
+    &:not(:disabled) + .form-label-radio:active::before 
+      border-color: $radio-active-border-color
+      border-width: 0.5em
+
+    // Active Checked
+    &:not(:disabled):checked + .form-label-radio:active::before 
+      border-color: $radio-active-border-color
+      border-width: 0.25em
+
+
+    // Focus
+    &:focus + .form-label-radio::before 
+      box-shadow: 0 0 0 0.08em $radio-focus-shadow-color
+
+
+    // Checked
+    &:checked + .form-label-radio::before 
+      border-color: $radio-checked-border-color
+      border-width: 0.25em
+
+
+    // Not disabled
+    &:not(:disabled) + .form-label-radio 
+      cursor: pointer
+
+    // Disabled
+    &:disabled + .form-label-radio 
+      color: $radio-border-color
+
+
+  &-checkbox-wrap
+    position: relative
+    display: inline-block
+    &:not(:last-child)
+      margin-right: 0.5em
+  &-checkbox
+    position: absolute
+    width: 0
+    height: 0
+    z-index: -1
+    opacity: 0
+
+
+    // Checkbox states
+    // Hover Not Checked
+    &:not(:disabled):not(:checked) + .form-label-checkbox:not(:active):hover::before 
+      border-color: $checkbox-hover-border-color
+    // Hover Checked
+    &:not(:disabled):checked + .form-label-checkbox:not(:active):hover::before 
+      border-color: $checkbox-hover-border-color
+    &:not(:disabled):checked + .form-label-checkbox:not(:active):hover::after 
+      border-color: $checkbox-hover-border-color
+
+    // Active
+    &:not(:disabled) + .form-label-checkbox:active::before
+      box-shadow: inset 0 0 0 calc($checkbox-width / 2) $checkbox-active-border-color
+    // Active Checked - состояние (как у radio) не требуется, так как при нажатии на активный checkbox состояние меняется на :not-checked и галочка пропадает. У радио кнопок же при нажатии на активную кнопуку состояние :checked не пропадает, для них целесообразно стилизовать состояние :active:checked.
+
+    // Focus
+    &:focus + .form-label-checkbox::before 
+      box-shadow: inset 0 0 0 0 $checkbox-active-border-color, 0 0 0 0.08em $checkbox-focus-shadow-color
+
+    // Checked
+    &:checked + .form-label-checkbox::before 
+      border-color: $checkbox-checked-border-color
+    &:checked + .form-label-checkbox::after
+      display: inline-block
+
+    // Not disabled
+    &:not(:disabled) + .form-label-checkbox 
+      cursor: pointer
+
+    // Disabled
+    &:disabled + .form-label-checkbox 
+      color: $checkbox-border-color
+
+
+
+  &-label
+    display: block
+    margin-bottom: 0.1em
+    font:
+      weight: 500
+    color: $primary-color
+
+    &.required::after
+      display: inline-block
+      margin-left: 0.1em
+      content: '*'
+
+  &-label-file
+    display: inline-block
+    margin-right: 1.2rem
+    padding: 0.5rem 1.2rem
+    font-size: 1.6rem
+    line-height: 1.125em
+    background-color: #fff
+    border: 1px solid $input-border-color
+    border-radius: $input-radius
+    box-shadow: 0 0 3px 0px $input-border-color
+    transition: background-color .3s
+    cursor: pointer
+    user-select: none
+    &:hover
+      background-color: darken(#fff, 7%)
+    &:active
+      transform: translateY(1px)
+
+  &-label-radio
+    display: inline-flex
+    align-items: center
+    user-select: none
+    &::before
+      content: ""
+      margin-right: $radio-offset-rigth
+      display: inline-block
+      width: $radio-diameter
+      height: $radio-diameter
+      border: 1px solid $radio-border-color
+      border-radius: 50%
+      transition: $radio-transition
+
+
+  &-label-checkbox
+    display: inline-flex
+    padding-left: $label-paddding-left
+    align-items: center
+    user-select: none
+
+    &::before,
+    &::after
+      position: absolute
+      transition: all $checkbox-transition
+
+    &::before
+      content: ''
+      display: inline-block
+      flex: none
+      width: $checkbox-width
+      height: $checkbox-width
+      left: 0
+      z-index: 1
+      border: solid 1px $checkbox-border-color
+      background-color: $checkbox-bg
+      overflow: hidden
+
+    &::after
+      content: ''
+      display: none
+      width: $arrow-width
+      height: $arrow-height
+      left: $arrow-left-offset
+      z-index: 2
+      border-right: solid 2px $arrow-color
+      border-bottom: solid 2px $arrow-color
+      transform: translateY($arrow-translate-y) rotate(45deg) skew(10deg, 10deg) 
+
+
+  &-submit
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:active
+      background-color: #aacfff
+      transform: none
+      cursor: default
+
+
+  &__loader
+    display: block
+    width: 100%
+    height: 100%
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 99999
+    background: url('../img/loader.svg') center no-repeat
+    background-size: 150px 150px
+    transition: all .3s
+
+      
+
+  &-alert
+    padding: .2rem
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    max-width: 45rem
+    position: fixed
+    // left: calc( 50vw - 50rem / 2 )
+    right: 2rem
+    bottom: 2rem
+    font-size: 1.6rem
+    font-weight: 400
+    line-height: 1.2
+    background-color: #ffffff
+    border-radius: $form-alert-radius
+    opacity: 0
+    transform: translateX(150%)
+    user-select: none
+    cursor: default
+    z-index: 99999
+    &__title
+      font-size: 1.1em
+      font-weight: 500
+      text-align: center
+      margin-bottom: 0.4em
+    &__content
+      width: 100%
+      padding: 1.5rem
+      text-align: center
+      border-radius: .4rem
+
+
+    &_success
+      color: desaturate($success-color, 60%)
+      background-color: lighten(desaturate($success-color, 60%), 55%)
+      .form-alert__content
+        border: solid 1px transparentize(desaturate($success-color, 60%), .5%)
+
+      .form-alert__close::before,
+      .form-alert__close::after
+        background-color: desaturate($success-color, 60%)
+
+      
+    &_error,
+    &_errorHttp,
+    &_limitExceeded
+      color: desaturate($error-color, $alert-error-desaturate)
+      background-color: lighten(desaturate($error-color, $alert-error-desaturate), 55%)
+      .form-alert__content
+        border: solid 1px transparentize(desaturate($error-color, $alert-error-desaturate), .5%)
+
+      .form-alert__close::before,
+      .form-alert__close::after
+        background-color: desaturate($error-color, $alert-error-desaturate)
+
+    &.active
+      animation: slideInRightBottom ease-in-out forwards
+    // &__title
+    //   margin-bottom: 2rem
+    //   color: $black
+    //   font-family: $ff-secondary
+    //   font-size: 50px
+    //   line-height: 1.2
+    //   font-weight: 400
+    //   text-align: center
+    //   text-transform: uppercase
+    &__close
+      position: absolute
+      top: .35em
+      right: .5em
+      cursor: pointer
+      width: 1em
+      height: 1em
+      background: none
+      &::before,
+      &::after
+        content: ''
+        display: inline-block
+        width: 100%
+        height: 2px
+        position: absolute
+        top: 50%
+        left: 0
+        right: 0
+        background: $form-alert-close-bg
+        border-radius: 4px
+        transition: .2s
+      &::before
+        transform: rotate(45deg)
+      &::after
+        transform: rotate(-45deg)
+
+    &-backdrop
+      display: block
+      position: fixed
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      width: 100%
+      height: 100%
+      background: $backdrop-bgc
+      opacity: 0
+      // transition: opacity .5s
+      &.active
+        opacity: 1
+        z-index: 99990
+
+  // States
+  &-label[data-required-label="valid"]::after
+    color: $success-color
+
+  &-control[data-required="valid"]
+    border-color: $success-color
+    box-shadow: 0 0 0 1px lighten($success-color, 50%)
+    &::-ms-input-placeholder
+      color: $success-color
+    &::-webkit-input-placeholder
+      color: $success-color
+    &::-moz-placeholder
+      color: $success-color
+
+
+  &-label[data-required-label="invalid"]::after
+    color: $error-color
+
+  &-control[data-required="invalid"]
+    border-color: $error-color
+    box-shadow: 0 0 0 1px lighten($error-color, 50%)
+    &::-ms-input-placeholder
+      color: $error-color
+    &::-webkit-input-placeholder
+      color: $error-color
+    &::-moz-placeholder
+      color: $error-color
+
+
+// Animations
+@keyframes slideInRightBottom
+  from
+    opacity: 0
+    transform: translateX(150%)
+
+  to
+    opacity: 1
+    transform: translateX(0)
+
+@keyframes slideOutRightBottom
+  from
+    opacity: 1
+    transform: translateX(0)
+
+  to
+    opacity: 0
+    transform: translateX(150%)
+
+
+// Media queries
+
+
+
+
+@media (max-width: 1399.98px)
+.container
+  max-width: 1140px
+
+@media (max-width: 575.98px)
+  .col-sm-12
+    width: 100%
+    flex: none

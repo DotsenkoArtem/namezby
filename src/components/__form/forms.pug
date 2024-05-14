@@ -1,0 +1,116 @@
+form.form(enctype="multipart/form-data" name="" data-action="../php/send-order.php").order__form
+
+  fieldset.form-field 
+    legend.form-field__title Personal Data
+
+    .row
+      .col.col-sm-12
+        .form-group 
+          label.form-label(for="firstName") First name
+          input#firstName.form-control(type="text", name="firstName", placeholder="Enter your first name", data-required="") 
+
+      .col.col-sm-12
+        .form-group 
+          label.form-label(for="lastName") Last name
+          input#lastName.form-control(type="text", name="lastName", placeholder="Enter your last name") 
+
+
+  fieldset.form-field 
+    legend.form-field__title Сontact information
+    .row 
+      .col.col-sm-12
+        .form-group
+          label.form-label(for="phone") Phone
+          input#phone.form-control(type="tel", name="phone", placeholder="Enter your phone number", data-required="", data-mask)
+      .col.col-sm-12
+        .form-group
+          label.form-label(for="email") Email
+          input#email.form-control(type="email", name="email", placeholder="Enter your email", data-required="")
+
+
+
+  fieldset.form-field 
+    legend.form-field__title Hobbies
+    .row 
+      .col.col-sm-12 
+        .form-group 
+          .form-label Gender
+
+          .form-radio-wrap
+            input#genderMale.form-radio(type="radio", name="gender", value="мужской")
+            label.form-label-radio(for="genderMale") Male
+
+          .form-radio-wrap
+            input#genderFemale.form-radio(type="radio", name="gender", value="женский")
+            label.form-label-radio(for="genderFemale") Female
+
+          .form-radio-wrap
+            input#disabledRadio.form-radio(type="radio", name="gender", value="Disabled", disabled)
+            label.form-label-radio(for="disabledRadio") Disabled
+          
+
+      .col.col-sm-12 
+        .form-group 
+          .form-label Hobbies
+
+          .form-checkbox-wrap
+            input#checkbox1.form-checkbox(type="checkbox", name="checkbox1", value="Музыка")
+            label.form-label-checkbox(for="checkbox1") Music
+
+          .form-checkbox-wrap
+            input#checkbox2.form-checkbox(type="checkbox", name="checkbox2", value="Спорт")
+            label.form-label-checkbox(for="checkbox2") Sports
+
+          .form-checkbox-wrap
+            input#checkbox3.form-checkbox(type="checkbox", name="checkbox3", value="Путешествия")
+            label.form-label-checkbox(for="checkbox3") Travel
+
+          .form-checkbox-wrap
+            input#checkbox4.form-checkbox(type="checkbox", name="checkbox4", value="Фильмы" disabled)
+            label.form-label-checkbox(for="checkbox4") Movies
+
+          //- .form-checkbox-wrap
+          //-   input#checkboxDisabled.form-checkbox(type="checkbox", name="checkboxDisabled", disabled)
+          //-   label.form-label-checkbox(for="checkboxDisabled") checkbox disabled
+
+
+
+  
+  fieldset.form-field 
+    legend.form-field__title Uploads
+    .row 
+      .col.col-sm-12
+        .form-group
+          .form-label Upload profile files
+          label.form-label-file(for="file") Choose file
+          input#file.form-control-file(type="file", name="file[]", multiple)
+
+      .col.col-sm-12 
+        .form-group 
+          label.form-label(for="msg") Messsage 
+          textarea#msg.form-control-message(name="msg", cols="30", rows="10", placeholder="Enter your message")
+
+
+
+  //- fieldset.form-field 
+    legend.form-field__title Employment
+    .row 
+      .col.col-sm-12
+        .form-group 
+          label.form-label(for="income") Income
+          input.form-control(type="range", name="income", id="income", min= "150", max="200", step="10", value="200")
+          
+
+
+    .row 
+      .col.col-sm-12
+        .form-group 
+
+
+
+  fieldset.form-field 
+    .form-fgoup.submit-btn-align-right
+      button.form-submit.btn.btn_primary(type="button") Submit
+
+
+

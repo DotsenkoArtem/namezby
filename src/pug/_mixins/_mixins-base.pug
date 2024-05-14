@@ -1,0 +1,43 @@
+//- M E N U S
+//- TOP MENU BY PAGES - 1 level
+mixin topMenuByPages
+  nav.menu
+    ul
+      each menuItem, key in pages
+        li.menu-item.lv1.js-menu-item(class= (menuItem.name == page.name) ? 'current-menu-item': '')
+          a(href= `${key}.html`)= menuItem.name
+          
+           
+//- TOP MENU - 1 level
+
+mixin menu(menuClass)
+  nav
+    ul(class = menuClass).menu_underlined
+      each menuItem, key in topMenu
+        li(class = `${menuClass}__item js-menu-item`)
+          a(href= `#${key}`)= menuItem.name
+
+
+//- ДВУХУРОВНЕВОЕ МЕНЮ С КЛАССАМИ ПОД WORDPRESS
+//- нет класса активной страниы
+
+mixin menu2LevelForWP
+  nav.header-menu__nav
+    ul.menu.menu-mobile-collapse
+      each menuItem, key in pages
+
+        if (menuItem.isMenuItemHasChildren)
+          li.menu-item.menu-item-has-children.lv1.js-menu-item(class= (menuItem.name == page.name) ? 'current-menu-item': '')
+            //- a= menuItem.name
+            a(href= `${key}.html`)= menuItem.name
+
+            ul.sub-menu.lv2
+              each subMenuItem, subkey in menuItem.isMenuItemHasChildren
+                li.menu-item.lv2
+                  //- a(href= `${subMenuItem.fileStem}.html`)= subMenuItem.name
+                  a(href= `#`)= subMenuItem.name
+                
+            
+        else
+          li.menu-item.lv1.js-menu-item(class= (menuItem.name == page.name) ? 'current-menu-item': '')
+            a(href= `${key}.html`)= menuItem.name

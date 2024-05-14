@@ -1,0 +1,394 @@
+$primary-color: v.$primary-color
+
+$input-placeholder-color: $text-primary-color
+$not-txt-label-color: #4b4b4b
+
+$input-border-color: #a1a1a1
+$input-focus-border-color: #1c7effc9
+$backdrop-bgc: rgba(0, 0, 0, .2)
+
+$error-color: #E5007E
+$success-color: #5EC05C
+
+$alert-success-desaturate: 60%
+$alert-error-desaturate: 40%
+
+$input-radius: 1.2rem
+$form-alert-radius: 2.4rem
+$form-alert-width: 40rem
+$form-alert-close-bg: #8B8FBB
+
+$btn-primary-bg:  $primary-color
+$btn-primary-radius: .3em
+
+$btn-primary-bg-hover: lighten($btn-primary-bg, 10%)
+
+$btn-disbled-bg: #E6EBFB
+// - - - - - - - - - - - - - - - - - -
+  // CHECKBOX
+// Checkbox colors
+$checkbox-border-color: rgb(173, 181, 189)
+$checkbox-checked-border-color: rgb(11, 118, 239)
+$checkbox-hover-border-color: lighten($checkbox-checked-border-color, 15%)
+$checkbox-active-border-color: $checkbox-checked-border-color
+$checkbox-focus-shadow-color: rgba(0, 123, 255, 0.35)
+$checkbox-bg: rgba(196, 196, 196, 0.25)
+// checkbox sizes
+$checkbox-offset-rigth: .5em
+$checkbox-width: 1em
+// checkbox transition
+$checkbox-transition: 0.2s
+// label
+$label-paddding-left: $checkbox-width + $checkbox-offset-rigth
+// arrow
+$arrow-width: $checkbox-width * .4
+$arrow-height: $checkbox-width * .6
+$arrow-left-offset: calc(($checkbox-width - $arrow-width) / 2)
+$arrow-translate-y: calc($checkbox-width / (-9))
+$arrow-color: rgb(0, 119, 255)
+// - - - - - - - - - - - - - - - - - -
+
+  
+input::-ms-input-placeholder
+  color: $input-placeholder-color
+textarea::-ms-input-placeholder
+  color: $input-placeholder-color
+input::-webkit-input-placeholder
+  color: $input-placeholder-color
+textarea::-webkit-input-placeholder
+  color: $input-placeholder-color
+input::-moz-placeholder
+  color: $input-placeholder-color
+textarea::-moz-placeholder
+  color: $input-placeholder-color
+  
+.form
+  font:
+    size: 1.6rem
+  &-group
+    padding-bottom: 2rem
+
+
+  &-control
+    padding: .8125em 1em 
+    width: 100%
+    height: 3.5em
+    font:
+      family: $ff-primary
+      size: 1.6rem
+    line-height: 1.875
+    color: $text-primary-color
+    border: 1px solid $input-border-color
+    border-radius: $input-radius
+
+    &:focus
+      border: 1px solid $input-focus-border-color
+      box-shadow: 0 0 1px 1px rgb(255, 255, 255)
+
+  &-label
+    display: block
+    margin-bottom: 0.1em
+    font:
+      weight: 500
+    color: $primary-color
+
+    &.required::after
+      display: inline-block
+      margin-left: 0.1em
+      content: '*'
+
+
+  &-checkbox-wrap
+    position: relative
+    display: inline-block
+    &:not(:last-child)
+      margin-right: 0.5em
+  &-checkbox
+    position: absolute
+    width: 0
+    height: 0
+    z-index: -1
+    opacity: 0
+
+
+    // Checkbox states
+    // Hover Not Checked
+    &:not(:disabled):not(:checked) + .form-label-checkbox:not(:active):hover::before 
+      border-color: $checkbox-hover-border-color
+    // Hover Checked
+    &:not(:disabled):checked + .form-label-checkbox:not(:active):hover::before 
+      border-color: $checkbox-hover-border-color
+    &:not(:disabled):checked + .form-label-checkbox:not(:active):hover::after 
+      border-color: $checkbox-hover-border-color
+
+    // Active
+    &:not(:disabled) + .form-label-checkbox:active::before
+      box-shadow: inset 0 0 0 calc($checkbox-width / 2) $checkbox-active-border-color
+    // Active Checked - состояние (как у radio) не требуется, так как при нажатии на активный checkbox состояние меняется на :not-checked и галочка пропадает. У радио кнопок же при нажатии на активную кнопуку состояние :checked не пропадает, для них целесообразно стилизовать состояние :active:checked.
+
+    // Focus
+    &:focus + .form-label-checkbox::before 
+      box-shadow: inset 0 0 0 0 $checkbox-active-border-color, 0 0 0 0.08em $checkbox-focus-shadow-color
+
+    // Checked
+    &:checked + .form-label-checkbox::before 
+      border-color: $checkbox-checked-border-color
+    &:checked + .form-label-checkbox::after
+      display: inline-block
+
+    // Not disabled
+    &:not(:disabled) + .form-label-checkbox 
+      cursor: pointer
+
+    // Disabled
+    &:disabled + .form-label-checkbox 
+      color: $checkbox-border-color
+
+  &-label-checkbox
+    display: inline-flex
+    padding-left: $label-paddding-left
+    align-items: center
+    user-select: none
+
+    &::before,
+    &::after
+      position: absolute
+      transition: all $checkbox-transition
+
+    &::before
+      content: ''
+      display: inline-block
+      flex: none
+      width: $checkbox-width
+      height: $checkbox-width
+      left: 0
+      z-index: 1
+      border: solid 1px $checkbox-border-color
+      background-color: $checkbox-bg
+      overflow: hidden
+
+    &::after
+      content: ''
+      display: none
+      width: $arrow-width
+      height: $arrow-height
+      left: $arrow-left-offset
+      z-index: 2
+      border-right: solid 2px $arrow-color
+      border-bottom: solid 2px $arrow-color
+      transform: translateY($arrow-translate-y) rotate(45deg) skew(10deg, 10deg) 
+
+
+
+  &-submit
+    padding: .8125em 1em 
+    height: 3.5em
+    line-height: 1.875
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:active
+      background-color: $btn-disbled-bg
+      transform: none
+      cursor: default
+
+
+  &__loader
+    display: block
+    width: 100%
+    height: 100%
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 99999
+    background: url('../img/loader.svg') center no-repeat
+    background-size: 150px 150px
+    transition: all .3s
+
+      
+
+  &-alert
+    padding: 2.4rem
+    display: flex
+    justify-content: center
+    align-items: center
+    // width: 100%
+    width: $form-alert-width
+    height: $form-alert-width
+    position: fixed
+    left: calc( 50vw - $form-alert-width / 2 )
+    // right: 2rem
+    top: calc( 50vh - $form-alert-width / 2 )
+    font-family: $ff-primary
+    font-size: 1.6rem
+    font-weight: 400
+    line-height: 1.37
+    background-color: #ffffff
+    border-radius: $form-alert-radius
+    box-shadow: 0 4px 12px 0 rgba(25, 30, 81, 0.2)
+    opacity: 0
+    transform: translateX(150%)
+    user-select: none
+    cursor: default
+    z-index: 99999
+    &__icon
+      margin-left: auto
+      margin-right: auto
+      margin-bottom: .4rem
+      width: 8rem
+      height: 8rem
+      background-repeat: no-repeat
+      background-size: contain
+      background-position: center
+    &__title
+      font-family: $ff-secondary
+      font-size: 4rem
+      font-weight: 500
+      text-align: center
+      margin-bottom: 2.4rem
+    &__content
+      width: 100%
+      max-width: 30rem
+      // padding: 1.5rem
+      text-align: center
+      // border-radius: .4rem
+
+
+    &_success
+      .form-alert__title
+        color: $success-color
+      // color: desaturate($success-color, 60%)
+      // background-color: lighten(desaturate($success-color, 60%), 55%)
+      // .form-alert__content
+        // border: solid 1px transparentize(desaturate($success-color, 60%), .5%)
+
+      // .form-alert__close::before,
+      // .form-alert__close::after
+      //   background-color: desaturate($success-color, 60%)
+
+      
+    &_error,
+    &_errorHttp,
+    &_limitExceeded
+      .form-alert__title
+        color: $error-color
+        // color: desaturate($error-color, $alert-error-desaturate)
+      // background-color: lighten(desaturate($error-color, $alert-error-desaturate), 55%)
+      // .form-alert__content
+        // border: solid 1px transparentize(desaturate($error-color, $alert-error-desaturate), .5%)
+
+      // .form-alert__close::before,
+      // .form-alert__close::after
+      //   background-color: desaturate($error-color, $alert-error-desaturate)
+
+    &.active
+      animation: slideInUp ease-in-out forwards
+
+    &__close
+      position: absolute
+      top: 2.4rem
+      right: 2.4rem
+      cursor: pointer
+      width: 2.4rem
+      height: 2.4rem
+      background: none
+      &::before,
+      &::after
+        content: ''
+        display: inline-block
+        width: 100%
+        height: 1px
+        position: absolute
+        top: 50%
+        left: 0
+        right: 0
+        background: $form-alert-close-bg
+        border-radius: 4px
+        transition: .2s
+      &::before
+        transform: rotate(45deg)
+      &::after
+        transform: rotate(-45deg)
+
+    &-backdrop
+      display: block
+      position: fixed
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      width: 100%
+      height: 100%
+      background: $backdrop-bgc
+      opacity: 0
+      &.active
+        opacity: 1
+        z-index: 99990
+
+  // States
+  // &-label[data-required-label="valid"]::after
+  //   color: $success-color
+
+  &-control[data-required="valid"]
+    border-color: $success-color
+    box-shadow: 0 0 0 1px lighten($success-color, 50%)
+    &::-ms-input-placeholder
+      color: $success-color
+    &::-webkit-input-placeholder
+      color: $success-color
+    &::-moz-placeholder
+      color: $success-color
+
+
+  // &-label[data-required-label="invalid"]::after
+  //   color: $error-color
+
+  &-control[data-required="invalid"]
+    border-color: $error-color
+    box-shadow: 0 0 0 1px lighten($error-color, 50%)
+    &::-ms-input-placeholder
+      color: $error-color
+    &::-webkit-input-placeholder
+      color: $error-color
+    &::-moz-placeholder
+      color: $error-color
+
+
+// Animations
+// @keyframes slideInRightBottom
+//   from
+//     opacity: 0
+//     transform: translateX(150%)
+
+//   to
+//     opacity: 1
+//     transform: translateX(0)
+
+// @keyframes slideOutRightBottom
+//   from
+//     opacity: 1
+//     transform: translateX(0)
+
+//   to
+//     opacity: 0
+//     transform: translateX(150%)
+
+@keyframes slideInUp
+  from
+    opacity: 0
+    transform: translateY(1.5rem)
+
+  to
+    opacity: 1
+    transform: translateY(0)
+
+@keyframes slideOutDown
+  from
+    opacity: 1
+    transform: translateY(0)
+
+  to
+    opacity: 0
+    transform: translateY(1.5rem)

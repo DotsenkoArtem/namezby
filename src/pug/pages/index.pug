@@ -1,0 +1,33 @@
+extends ../_templates/_base.pug
+
+block page-vars
+  -
+    let page = pages.index;
+
+
+
+
+
+block main 
+  main.main
+
+    section.section.entry 
+      .swiper.entry-slider
+        .swiper-wrapper
+          .swiper-slide.entry-slide 
+            a(href="#")
+              img(src="img/entry-slide-1.jpg", alt="") 
+          .swiper-slide.entry-slide 
+            a(href="#")
+              img(src="img/entry-slide-2.jpg", alt="") 
+          .swiper-slide.entry-slide 
+            a(href="#")
+              img(src="img/entry-slide-3.jpg", alt="") 
+          .swiper-slide.entry-slide 
+            a(href="#")
+              img(src="img/entry-slide-4.jpg", alt="") 
+    
+        .swiper-button-next
+        .swiper-button-prev
+  
+

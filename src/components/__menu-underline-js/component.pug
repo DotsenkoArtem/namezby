@@ -1,0 +1,6 @@
+mixin menuUnderlined 
+  nav
+    ul.menu_underlined
+      each menuItem, key in pages
+        li.menu__item(class= (menuItem.name == page.name) ? 'current': '')
+          a(href= `${key}.html`)= menuItem.name
