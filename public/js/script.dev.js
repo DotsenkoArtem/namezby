@@ -144,6 +144,34 @@ var swiper = new Swiper(".entry-slider", {
     prevEl: ".swiper-button-prev"
   }
 });
+// ======================================================
+
+// T A B S
+var tabsBoxes = document.querySelectorAll(".tabs-wrap");
+var _loop2 = function _loop2() {
+  var tabs = tabsBoxes[_i].querySelectorAll(".tabs__btn");
+  var tabsContent = tabsBoxes[_i].querySelector(".tabs-content");
+  var tabsContentItems = tabsContent.querySelectorAll(".tabs-content__item");
+  for (var _i2 = 0; _i2 < tabs.length; _i2++) {
+    var tab = tabs[_i2];
+    tab.addEventListener("click", function () {
+      for (var j = 0; j < tabs.length; j++) {
+        tabs[j].classList.remove("active");
+      }
+      var tabContentId = "#" + this.dataset.target;
+      this.classList.add("active");
+      for (var k = 0; k < tabsContentItems.length; k++) {
+        tabsContentItems[k].classList.remove("active");
+      }
+      tabsContent.querySelector(tabContentId).classList.add("active");
+    });
+  }
+};
+for (var _i = 0; _i < tabsBoxes.length; _i++) {
+  _loop2();
+}
+
+// ======================================================
 
 // TIMER
 /* function setTimer(startHours, startMinutes, startSeconds) {

@@ -74,15 +74,18 @@
   // @import "../../components/form/component-lg"
   // @import "../../components/modal/component-lg"
 
+  h1
+    font-size: 60px
+
 
   $menu-item-lv1-max-width: 28rem
   .menu
     &-item > a
-      font-size: 3rem 
+      font-size: 30px 
     &-item.lv1
       max-width: $menu-item-lv1-max-width
     &-item.lv2 > a
-      font-size: 1.6rem
+      font-size: 16px
   
   .sub-menu.lv2
     left: $menu-item-lv1-max-width
@@ -115,6 +118,40 @@
       max-width: 720px
     &_lg
       max-width: 100%
+
+  
+  h1
+    font-size: 50px
+
+
+
+  /* Tabs */
+  .tabs 
+    margin-bottom: 4rem
+
+  .service-item
+    flex-direction: column-reverse
+    align-items: center
+    &__thumb
+      margin-bottom: 4rem
+      width: 100%
+      max-width: 70rem
+    &__content
+      display: flex
+      width: 100%
+      max-width: none
+    &__title
+      margin-right: calc( 2 * v.$gutter )
+      width: 25%
+      flex: none
+
+  .service-item_reverse
+    .service-item__content
+      padding-left: 0
+      display: flex
+      width: 100%
+      max-width: none
+  
 
 
 
@@ -150,7 +187,7 @@
 
   .menu
     &-item > a
-      font-size: 2.8rem 
+      font-size: 28px
 
 
 
@@ -176,7 +213,9 @@
 /* SM */
 @media (max-width: 768px)
   $index: calc(100vw / 768) 
-  $gutter: 12px
+  // $gutter: 12px
+  html
+    font-size: 9px
   .container
     &,
     &_sm
@@ -184,6 +223,8 @@
     &_md
       max-width: 100%
 
+  h1
+    font-size: 40px
 
 
   // @import "../../components/form/component-sm"
@@ -207,7 +248,7 @@
   $menu-item-lv1-max-width: 22rem
   .menu
     &-item > a
-      font-size: 2.4rem 
+      font-size: 24px
     &-item.lv1
       max-width: $menu-item-lv1-max-width
 
@@ -231,15 +272,22 @@
 /* XS */
 @media (max-width: 575.98px)
   $index: calc(100vw / 576) 
+  html
+    font-size: 8px
   .container
     max-width: 410px
     &_sm
       max-width: 100%
 
+  h1
+    font-size: 31px
 
 
+  @import "../../components/buttons/component-xs"
   // @import "../../components/form/component-xs"
   // @import "../../components/modal/component-xs"
+  .menu-item.lv2 > a 
+    font-size: 16px
 
   // vars
   $menu-trigger-offset-r: v.$gutter
@@ -267,7 +315,7 @@
     &.lv2
       position: static
     &-item > a
-      font-size: 1.6rem 
+      font-size: 16px
 
 
   .menu-mobile-collapse
@@ -324,7 +372,7 @@
   .menu
     &-item:not(.current-menu-item):hover > a
       color: v.$grey-primary
-      background-clip: none
+      background-clip: unset
       background-image: none
 
     &-item-has-children:hover > .sub-menu
@@ -335,6 +383,46 @@
   .menu
     &-item:not(.current-menu-item):active > a
       color: v.$yellow-start
+
+
+
+  /* Tabs */
+  .tabs 
+    margin-bottom: 3rem
+    flex-wrap: nowrap
+    justify-content: flex-start
+    overflow-x: auto
+  
+  // Че за херь
+  // .tabs::-webkit-scrollbar 
+  //   height: 0
+  //   width: 0
+  
+
+  .tabs__btn 
+    margin-bottom: 0
+    flex: none
+  
+
+
+  
+
+  .service-item
+    &__content
+      display: block
+    &__title
+      width: auto
+      max-width: none
+      
+  .service-item_reverse
+    .service-item
+      &__content
+        display: block
+      &__title
+        width: auto
+        max-width: none
+
+  
 
 
 
@@ -358,19 +446,38 @@
   $index: calc(100vw / 480) 
   // @import "../../components/form/component-xs"
 
+
 /* XXS */
+// ИНДЕКС ДЛЯ ШРИФТОВ ИСПОЛЬЗУЕМ ЗДЕСЬ
 @media (max-width: 413.98px)
   $index: calc(100vw / 414) 
+  body
+    font-size: calc(20 * $index)
   .container
     max-width: 100%
 
+  h1
+    font-size: 28px
+
+  @import "../../components/buttons/component-xxs"
   // @import "../../components/form/component-xxs"
   // @import "../../components/modal/component-xxs"
+
+  .menu-item.lv2 > a 
+    font-size: calc( 14 * $index )
+
+  .service-item 
+    h3
+      font-size: calc(24 * $index) 
+    p
+      font-size: calc(17 * $index) 
+
+
 
   .d
     &-block
       &_xxs
-        display: block2
+        display: block
     &-inline
       &_xxs
         display: inline
@@ -378,5 +485,16 @@
       &_xxs
         display: none
 
+
+
+
+
 @media (max-width: 359.99px)
   $index: calc(100vw / 360) 
+
+  
+  h1
+    font-size: calc($index * 28)
+
+  .menu-item.lv2 > a 
+    font-size: calc( 12 * $index )

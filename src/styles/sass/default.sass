@@ -133,8 +133,12 @@ table
 //       object-fit: cover
 
 .scroll-hidden
-  padding-right: 17px
+  --scroll-bar-w: 17px
+  padding-right: var(--scroll-bar-w)
   overflow: hidden
+  // .header
+  //   right: var(--scroll-bar-w)
+
 
 //  2. Typography
 // -------------------------
@@ -145,10 +149,10 @@ html
 body
   font:
     family: v.$ff-primary
-    size: 2rem
+    size: 20px
     weight: 400
   line-height: 1.2
-  // color: v.$text-primary-color
+  color: v.$grey-primary
   background: v.$body-bg-color
 
 
@@ -156,35 +160,44 @@ body
   min-height: 500vh
 
 h1, h2, h3
-  // font-family: v.$ff-secondary
+  font-family: v.$ff-primary
+  font-weight: 400
+  color: v.$grey-primary
 
 h1
-  font-size: 6rem
-  // font-family: v.$ff-primary
-  line-height: 1.17
-  font-weight: 700
+  font-size: 74px
+  line-height: 1.05
 
-// h2
-//   font-size: 4rem
-//   font-weight: 600
-//   line-height: 1.22
+h2
+  font-size: 53px
+  line-height: 1.2
 
-// h3
-//   font-size: 2rem
-//   font-weight: 700
-//   line-height: 1.22
+h3
+  font-size: 24px
+  line-height: 1.2
 
+h3
+  margin-bottom: 1em
+p
+  margin-bottom: 1em
 
 // Text settings
-// .text
+.text
+  &-accent
+    display: inline-block
+    color: transparent
+    background: v.$gradient-text-primary
+    background-clip: text
+    animation: bg-gradient 3s ease infinite
+    background-size: 400% 200%
+    
 //   &-center
 //     text-align: center
 //   &-light
 //     color: v.$text-light
 //   &-uppercase
 //     text-transform: uppercase
-//   &-accent
-//     color: v.$text-accent
+
 //   &-bold
 //     font-weight: 700
 // 	&_medium

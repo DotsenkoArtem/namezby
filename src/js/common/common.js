@@ -84,12 +84,11 @@ const menuItemCollapses = document.querySelectorAll(
 
 if (menuItemCollapses) {
   for (let i = 0; i < menuItemCollapses.length; i++) {
-
     let menuItemCollapse = menuItemCollapses[i];
 
     let menuItemCollapseLink = menuItemCollapse.firstElementChild;
     menuItemCollapseLink.addEventListener("click", setLinkBehaviour);
-    
+
     function setLinkBehaviour(event) {
       // Если да, то отменяем действие ссылки по-умолчанию
       if (isTouchDevice() && !event.defaultPrevented) {
@@ -128,10 +127,6 @@ if (menuItemCollapses) {
   }
 }
 
-
-
-
-
 // Swiper
 const swiper = new Swiper(".entry-slider", {
   // autoplay: {
@@ -144,6 +139,37 @@ const swiper = new Swiper(".entry-slider", {
     prevEl: ".swiper-button-prev",
   },
 });
+// ======================================================
+
+// T A B S
+const tabsBoxes = document.querySelectorAll(".tabs-wrap");
+
+for (let i = 0; i < tabsBoxes.length; i++) {
+  const tabs = tabsBoxes[i].querySelectorAll(".tabs__btn");
+  const tabsContent = tabsBoxes[i].querySelector(".tabs-content");
+  const tabsContentItems = tabsContent.querySelectorAll(".tabs-content__item");
+
+  for (let i = 0; i < tabs.length; i++) {
+    let tab = tabs[i];
+
+    tab.addEventListener("click", function () {
+      for (let j = 0; j < tabs.length; j++) {
+        tabs[j].classList.remove("active");
+      }
+
+      let tabContentId = "#" + this.dataset.target;
+      this.classList.add("active");
+
+      for (let k = 0; k < tabsContentItems.length; k++) {
+        tabsContentItems[k].classList.remove("active");
+      }
+
+      tabsContent.querySelector(tabContentId).classList.add("active");
+    });
+  }
+}
+
+// ======================================================
 
 // TIMER
 /* function setTimer(startHours, startMinutes, startSeconds) {
