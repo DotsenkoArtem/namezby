@@ -39,6 +39,9 @@
     &_xxl
       max-width: 100%
 
+  .clients-slider
+    max-width: 1140px
+
   
   // @import "../../components/form/component-xl"
   // @import "../../components/modal/component-xl"
@@ -70,6 +73,10 @@
       max-width: 1010px
     &_xl
       max-width: 100%
+
+
+  .clients-slider
+    max-width: 1010px
 
   // @import "../../components/form/component-lg"
   // @import "../../components/modal/component-lg"
@@ -120,6 +127,10 @@
       max-width: 720px
     &_lg
       max-width: 100%
+
+
+  .clients-slider
+    max-width: 720px
 
   
   h1
@@ -233,6 +244,10 @@
     &_md
       max-width: 100%
 
+
+  .clients-slider
+    max-width: 540px
+
   h1
     font-size: 40px
   h2
@@ -305,6 +320,10 @@
     max-width: 410px
     &_sm
       max-width: 100%
+
+
+  .clients-slider
+    max-width: 410px
 
   h1
     font-size: 31px
@@ -431,10 +450,9 @@
   .tabs__btn 
     margin-bottom: 0
     flex: none
-  
 
 
-  
+ 
 
   .service-item
     &__content
@@ -468,6 +486,28 @@
     &__item-descr
       font-size: 10px
   
+
+  /* Clients section */
+  .clients
+    &-slider-wrapper
+      height: 30rem
+      .swiper-button-prev
+        left: 1.5rem
+      .swiper-button-next
+        right: 1.5rem
+
+    &-slider
+      height: 100%
+    &-slide
+      display: flex
+      justify-content: center
+      align-items: center
+      filter: grayscale(1)
+      transition: filter v.$transition-main
+
+
+
+
 
 
 
@@ -530,6 +570,12 @@
         font-size: 14px
     &__item-descr
       font-size: 10px
+
+  
+  /* Clients section */
+  .clients
+    &-slider-wrapper
+      height: calc(240 * $index) 
 
 
     

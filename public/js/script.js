@@ -139,6 +139,35 @@ const swiper = new Swiper(".entry-slider", {
     prevEl: ".swiper-button-prev",
   },
 });
+
+const clientsSlider = new Swiper(".clients-slider", {
+  slidesPerView: 2,
+  slidesPerGroup: 2,
+    autoplay: {
+    delay: 5000,
+  },
+  loop: true,
+  speed: 500,
+  grid: {
+    rows: 2,
+  },
+  spaceBetween: 15,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+    // Responsive breakpoints
+    breakpoints: {
+      // when window width is >= 640px
+      576: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+        grid: {
+          rows: 1,
+        },
+      }
+    }
+});
 // ======================================================
 
 // T A B S

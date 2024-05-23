@@ -40,6 +40,10 @@
     padding-bottom: 0
   &_bg-grey
     background-color: #edeeef
+
+  &_light
+    *
+      color: v.$white
 //   &_py-60
 //     padding-top: 6rem
 //     padding-bottom: 6rem
@@ -664,17 +668,138 @@ $menu-item-lv1-max-width: 36rem
 
 
 
-
-
-
-
-
 /* Clients section */
+.clients
+  &-slider
+    
+    width: 100%
+    max-width: 1320px
+    height: 100%
+  &-slider-wrapper
+    --swiper-navigation-size: 4.4rem
+    position: relative
+    height: 16rem
 
+
+
+    .swiper-button-prev,
+    .swiper-button-next
+      width: calc( var(--swiper-navigation-size) * .68 )
+      height: calc( var(--swiper-navigation-size) * .68 )
+      color: v.$white
+      background: v.$grey-light
+      border-radius: 50%
+      transition: v.$transition-main
+      &::after
+        font-size: calc(var(--swiper-navigation-size) * .3)
+    .swiper-button-prev
+      left: 3rem
+    .swiper-button-next
+      right: 3rem
+      
+  &-slide
+    display: flex
+    justify-content: center
+    align-items: center
+    filter: grayscale(1)
+    transition: filter v.$transition-main
+
+    img
+      max-height: 14rem
+
+
+@media (hover:hover) and (pointer: fine)
+  .clients-slider-wrapper
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover
+        background: v.$grey-primary
+      
+
+.clients-slide:hover
+  filter: grayscale(0)
+
+    
+
+// Actives
+.clients-slide:active
+  filter: grayscale(0)
+  
+.clients-slider-wrapper
+  .swiper-button-prev:active,
+  .swiper-button-next:active
+      background: v.$grey-primary
   
 
 
 /* Presentation section */
+.presentation
+  background: v.$grey-primary
+  position: relative
+  overflow: hidden
+
+  height: 524px
+  &__container
+    position: relative
+    z-index: 2
+  .mooving-bg
+    position: absolute
+    z-index: 0
+    background: center no-repeat
+    background-size: contain
+  .mooving-bg-1
+    left: 37vw
+    top: -30%
+    width: 60%
+    max-width: 85rem
+    height: 163%
+    max-height: 85rem
+    background-color: rgba(255, 255, 255, 0.35)
+    background-image: url(../img/mooving-bg-1.svg)
+    animation: mooving-bg-2  4.9s infinite linear
+  .mooving-bg-2
+    left: 4vw
+    top: -65%
+    width: 60%
+    max-width: 116rem
+    height: 229%
+    max-height: 120rem
+    background-color: rgba(255, 255, 255, 0.35)
+    background-image: url(../img/mooving-bg-2.svg)
+    animation: mooving-bg-1  4.9s infinite linear
+
+
+@keyframes mooving-bg-1 
+  0% 
+    transform: rotate(354deg) translateX(0px)translateY(0px)
+    animation-timing-function: linear
+  32% 
+    transform: rotate(354deg) translateX(-70px)translateY(160px)
+    animation-timing-function: linear
+
+  64% 
+    transform: rotate(354deg) translateX(-70px)translateY(-40px)
+    animation-timing-function: linear
+
+  100% 
+    transform: rotate(354deg) translateX(0px)translateY(0px)
+
+@keyframes mooving-bg-2
+  0% 
+    transform: translateX(0px)translateY(0px)
+    animation-timing-function: linear
+
+  32% 
+    transform: translateX(-130px)translateY(60px)
+    animation-timing-function: linear
+
+  64% 
+    transform: translateX(30px)translateY(-40px)
+    animation-timing-function: linear
+
+  100% 
+    transform: translateX(0px)translateY(0px)
+
+
 
   
 
