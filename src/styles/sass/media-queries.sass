@@ -98,6 +98,30 @@
   
   .sub-menu.lv2
     left: $menu-item-lv1-max-width
+
+  
+
+
+  /* Presentation section */
+  .presentation
+    --item-padding: 2.8rem
+    --item-radius: 1.5rem
+    padding-bottom: 10rem
+    &__item
+      padding: var(--item-padding, 2.8rem)
+      font-size: 24px
+      border-radius: var(--item-radius, 1.5rem)
+      &::after
+        border-radius: var(--item-radius, 1.5rem)
+      &-badge
+        top: var(--item-padding, 2.8rem)
+        right: var(--item-padding, 2.8rem)
+        font-size: 13px
+      &-icon
+        margin-bottom: 2rem
+        width: 5rem
+        height: 5rem
+
     
 
   .d
@@ -210,6 +234,26 @@
   /* Advantages section */
   .advantages
     --item-content-max-width: 44rem
+
+
+
+
+
+  /* Presentation section */
+  .presentation
+    &__box
+      flex-wrap: wrap
+    &__item
+      min-width: 33%
+
+  .mooving-bg-1
+    top: -15%
+    width: 90%
+    height: 250%
+  .mooving-bg-2
+    top: -40%
+    width: 90%
+    height: 330%
 
 
   // @import "../../components/form/component-md"
@@ -487,6 +531,8 @@
       font-size: 10px
   
 
+
+
   /* Clients section */
   .clients
     &-slider-wrapper
@@ -505,6 +551,23 @@
       filter: grayscale(1)
       transition: filter v.$transition-main
 
+
+
+
+
+  /* Presentation section */
+  .presentation
+    &__item
+      width: 100%
+      min-width: auto
+      flex: none
+    &__item-badge
+      font-size: 14px
+    &__item-icon
+      width: 4rem
+      height: 4rem
+    &__item-title
+      font-size: 18px
 
 
 

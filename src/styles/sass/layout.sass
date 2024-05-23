@@ -733,39 +733,114 @@ $menu-item-lv1-max-width: 36rem
 
 /* Presentation section */
 .presentation
+  --item-padding: 4rem
+  --item-radius: 3rem
+  padding-bottom: 10rem
   background: v.$grey-primary
   position: relative
   overflow: hidden
 
-  height: 524px
+  // height: 524px
   &__container
     position: relative
     z-index: 2
-  .mooving-bg
-    position: absolute
-    z-index: 0
-    background: center no-repeat
-    background-size: contain
-  .mooving-bg-1
-    left: 37vw
-    top: -30%
-    width: 60%
-    max-width: 85rem
-    height: 163%
-    max-height: 85rem
-    background-color: rgba(255, 255, 255, 0.35)
-    background-image: url(../img/mooving-bg-1.svg)
-    animation: mooving-bg-2  4.9s infinite linear
-  .mooving-bg-2
-    left: 4vw
-    top: -65%
-    width: 60%
-    max-width: 116rem
-    height: 229%
-    max-height: 120rem
-    background-color: rgba(255, 255, 255, 0.35)
-    background-image: url(../img/mooving-bg-2.svg)
-    animation: mooving-bg-1  4.9s infinite linear
+  &__box
+    display: flex
+    flex-wrap: nowrap
+    gap: v.$gutter
+    width: 100%
+  &__item
+    padding: var(--item-padding, 2rem)
+    position: relative
+    flex: 1
+    font-size: 27px
+    font-weight: 500
+    line-height: 1.2
+    border-radius: var(--item-radius, 3rem)
+    transition: calc( v.$transition-main / 3 )
+    
+    &::after
+      content: ''
+      display: block
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      background-image: linear-gradient(168deg, rgba(65,4,189,1) 0%, rgba(48,19,107,1) 57%, rgba(27,21,40,1) 100%)
+      border-radius: var(--item-radius, 3rem)
+    &-badge,
+    &-title
+      transition: v.$transition-main
+    &-badge
+      position: absolute
+      top: var(--item-padding, 2rem)
+      right: var(--item-padding, 2rem)
+      font-size: 15px
+      font-weight: 500
+      color: #ff9d2e
+    &-icon
+      margin-bottom: 2rem
+      width: 6.4rem
+      height: 6.4rem
+      background-position: center
+      background-repeat: no-repeat
+      background-size: contain
+      &--store-branding
+        background-image: url(../img/icons/icon-store-branding.svg)
+      &--beauty
+        background-image: url(../img/icons/icon-beauty.svg)
+      &--services
+        background-image: url(../img/icons/icon-services.svg)
+      &--corp-branding
+        background-image: url(../img/icons/icon-corp-branding.svg)
+
+@media (hover:hover) and (pointer:fine)
+  .presentation__item:hover::after
+    opacity: 0.8
+  .presentation__item-title:hover
+    color: #ff9d2e
+  .presentation__item-badge:hover
+    color: v.$grey-light
+
+
+
+.presentation__item:active::after
+  opacity: 0.8
+  transition: none
+.presentation__item-title:active
+  color: #ff9d2e
+.presentation__item-badge:active
+  color: v.$grey-light
+
+
+
+
+
+.mooving-bg
+  position: absolute
+  z-index: 0
+  background: center no-repeat
+  background-size: contain
+.mooving-bg-1
+  left: 37vw
+  top: -30%
+  width: 60%
+  max-width: 85rem
+  height: 163%
+  max-height: 85rem
+  background-image: url(../img/mooving-bg-1.svg)
+  animation: mooving-bg-2  4.9s infinite linear
+.mooving-bg-2
+  left: 4vw
+  top: -65%
+  width: 60%
+  max-width: 116rem
+  height: 229%
+  max-height: 120rem
+  background-image: url(../img/mooving-bg-2.svg)
+  animation: mooving-bg-1  4.9s infinite linear
 
 
 @keyframes mooving-bg-1 

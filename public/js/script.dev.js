@@ -210,7 +210,7 @@ for (var _i = 0; _i < tabsBoxes.length; _i++) {
   let timerTmpStartValue = parseInt(
     window.localStorage.getItem("timerTmpStartValueCoin2")
   );
-
+ 
   // Очистка хранилища при изменении диапазона таймера
   if (timerTmpStartValue && timerTmpStartValue !== timerStartValue) {
     localStorage.clear();
