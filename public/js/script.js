@@ -293,3 +293,51 @@ function setPreloader() {
   }, PRELOADERTRANSITION);
 }
 // - - - - - - - - - - - - - - - - - - -
+
+
+// FORMS
+const forms = Array.from(document.forms);
+forms.forEach((form) => {
+  setRequiredMark(form);
+  fixLabel(form)
+})
+
+// Functions
+// Установка маркеров обязательных для заполнения полей
+function setRequiredMark(form) {
+  let required = form.querySelectorAll("[required]");
+  required.forEach((item) => {
+    let label = item.parentNode.querySelector(".form-label");
+    label.classList.add("required");
+  });
+}
+
+function fixLabel(form) {
+  const groups = form.querySelectorAll('.form-group_float-label ')
+  groups.forEach((group) => {
+    let input = group.firstElementChild
+    let label = group.lastElementChild
+    input.addEventListener('focus', function() {
+      label.classList.add('form-label_fixed')
+    })
+    input.addEventListener('blur', function() {
+      if(!this.value) label.classList.remove('form-label_fixed')
+    })
+  })
+}
+
+
+window.addEventListener("load", setPreloader)
+
+// PAGE PRELOADER FUNCTION
+// добавить #preloader.preloader в html
+function setPreloader() {
+  const PRELOADERTRANSITION = 500;
+  preloader.style.transition = `opacity ${PRELOADERTRANSITION}ms`;
+  preloader.classList.add("fade-out");
+
+  setTimeout(function () {
+    preloader.remove();
+  }, PRELOADERTRANSITION);
+}
+// - - - - - - - - - - - - - - - - - - -

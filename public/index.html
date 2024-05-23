@@ -397,6 +397,43 @@
               <h2>
                  Получите <span class="text-accent">коммерческое предложение</span></h2>
             </div>
+            <div class="proposal-form-wrap"> 
+              <form class="form proposal-form">
+                <div class="proposal-form__inner">
+                  <div class="proposal-form__part">
+                    <div class="form-group form-group_float-label"> 
+                      <input class="form-control" id="firstName" type="text" name="firstName" required>
+                      <label class="form-label" for="firstName">Ваше имя</label>
+                    </div>
+                    <div class="form-group form-group_float-label">
+                      <input class="form-control" id="phone" type="tel" name="phone" required data-mask>
+                      <label class="form-label" for="phone">Ваш телефон</label>
+                    </div>
+                    <div class="form-group form-group_float-label">
+                      <input class="form-control" id="email" type="email" name="email">
+                      <label class="form-label" for="email">E-mail</label>
+                    </div>
+                    <div class="form-group form-group_float-label"> 
+                      <textarea class="form-control-message" id="msg" name="msg" cols="30" rows="10"></textarea>
+                      <label class="form-label" for="msg">Комментарий </label>
+                    </div>
+                    <div class="form-checkbox-wrap">
+                      <input class="form-checkbox" id="checkbox1" type="checkbox" name="checkbox1" value="true">
+                      <label class="form-label-checkbox" for="checkbox1">Я даю согласие на обработку моих персональных данных</label>
+                    </div>
+                  </div>
+                  <div class="proposal-form__part proposal-form__action"> 
+                    <div class="proposal-form__action-title">Введите ваши данные и кратко опишите задачу.</div>
+                    <p>Мы подготовим коммерческое предложение и свяжемся с вами для дальнейшего обсуждения.</p>
+                  </div>
+                  <div class="proposal-form__part">
+                    <div class="form-fgoup submit-btn-align-right">
+                      <button class="form-submit btn btn_primary" type="button">Отправить</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </section>
       </main>

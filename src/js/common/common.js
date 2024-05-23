@@ -139,6 +139,35 @@ const swiper = new Swiper(".entry-slider", {
     prevEl: ".swiper-button-prev",
   },
 });
+
+const clientsSlider = new Swiper(".clients-slider", {
+  slidesPerView: 2,
+  slidesPerGroup: 2,
+    autoplay: {
+    delay: 5000,
+  },
+  loop: true,
+  speed: 500,
+  grid: {
+    rows: 2,
+  },
+  spaceBetween: 15,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+    // Responsive breakpoints
+    breakpoints: {
+      // when window width is >= 640px
+      576: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+        grid: {
+          rows: 1,
+        },
+      }
+    }
+});
 // ======================================================
 
 // T A B S
@@ -180,7 +209,7 @@ for (let i = 0; i < tabsBoxes.length; i++) {
   let timerTmpStartValue = parseInt(
     window.localStorage.getItem("timerTmpStartValueCoin2")
   );
-
+ 
   // Очистка хранилища при изменении диапазона таймера
   if (timerTmpStartValue && timerTmpStartValue !== timerStartValue) {
     localStorage.clear();
@@ -247,3 +276,52 @@ for (let i = 0; i < tabsBoxes.length; i++) {
   }
 } */
 // ---------------------------------------
+
+
+
+window.addEventListener("load", setPreloader)
+
+// PAGE PRELOADER FUNCTION
+// добавить #preloader.preloader в html
+function setPreloader() {
+  const PRELOADERTRANSITION = 500;
+  preloader.style.transition = `opacity ${PRELOADERTRANSITION}ms`;
+  preloader.classList.add("fade-out");
+
+  setTimeout(function () {
+    preloader.remove();
+  }, PRELOADERTRANSITION);
+}
+// - - - - - - - - - - - - - - - - - - -
+
+
+// FORMS
+const forms = Array.from(document.forms);
+forms.forEach((form) => {
+  setRequiredMark(form);
+  fixLabel(form)
+})
+
+// Functions
+// Установка маркеров обязательных для заполнения полей
+function setRequiredMark(form) {
+  let required = form.querySelectorAll("[required]");
+  required.forEach((item) => {
+    let label = item.parentNode.querySelector(".form-label");
+    label.classList.add("required");
+  });
+}
+
+function fixLabel(form) {
+  const groups = form.querySelectorAll('.form-group_float-label ')
+  groups.forEach((group) => {
+    let input = group.firstElementChild
+    let label = group.lastElementChild
+    input.addEventListener('focus', function() {
+      label.classList.add('form-label_fixed')
+    })
+    input.addEventListener('blur', function() {
+      if(!this.value) label.classList.remove('form-label_fixed')
+    })
+  })
+}

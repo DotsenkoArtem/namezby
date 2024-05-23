@@ -315,6 +315,47 @@ block main
             |Получите 
             span.text-accent коммерческое предложение
 
+        .proposal-form-wrap 
+          form.form.proposal-form
+            .proposal-form__inner
+
+
+              .proposal-form__part
+                .form-group.form-group_float-label 
+                  input#firstName.form-control(type="text", name="firstName", required)
+                  label.form-label(for="firstName") Ваше имя
+
+                .form-group.form-group_float-label
+                  input#phone.form-control(type="tel", name="phone", required, data-mask)
+                  label.form-label(for="phone") Ваш телефон
+
+                .form-group.form-group_float-label
+                  input#email.form-control(type="email", name="email")
+                  label.form-label(for="email") E-mail
+
+                .form-group.form-group_float-label 
+                  textarea#msg.form-control-message(name="msg", cols="30", rows="10")
+                  label.form-label(for="msg") Комментарий 
+                  
+
+                .form-checkbox-wrap
+                  input#checkbox1.form-checkbox(type="checkbox", name="checkbox1", value="true")
+                  label.form-label-checkbox(for="checkbox1") Я даю согласие на обработку моих персональных данных
+        
+
+
+              .proposal-form__part.proposal-form__action 
+                .proposal-form__action-title Введите ваши данные и кратко опишите задачу.
+                p Мы подготовим коммерческое предложение и свяжемся с вами для дальнейшего обсуждения.
+
+
+              .proposal-form__part
+                .form-fgoup.submit-btn-align-right
+                  button.form-submit.btn.btn_primary(type="button") Отправить
+
+
+              
+
 
 
 
