@@ -988,12 +988,19 @@ select::-ms-expand {
   position: relative;
 }
 
+.section-title h2 {
+  margin-bottom: 6rem;
+}
+
 .section {
-  padding: 4rem 0;
+  padding: 7.5rem 0;
 }
 .section_py-0 {
   padding-top: 0;
   padding-bottom: 0;
+}
+.section_bg-grey {
+  background-color: #edeeef;
 }
 
 /* Header */
@@ -1002,7 +1009,7 @@ select::-ms-expand {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 2;
+  z-index: 10;
   -webkit-transition: background-color 0.6s;
   transition: background-color 0.6s;
 }
@@ -1493,7 +1500,7 @@ select::-ms-expand {
 
 /* Services section */
 .services__title {
-  margin-bottom: 4rem;
+  margin-bottom: 7.5rem;
   max-width: 92rem;
 }
 
@@ -1661,6 +1668,118 @@ select::-ms-expand {
   transition: none;
 }
 
+/* Advantages section */
+.advantages {
+  --item-content-max-width: 52rem;
+}
+.advantages__title {
+  max-width: 80rem;
+}
+.advantages__box {
+  position: relative;
+  overflow: hidden;
+}
+.advantages__box-img {
+  width: calc(100% - var(--item-content-max-width));
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.advantages__box-img img {
+  height: 90%;
+}
+.advantages__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 5rem 2.5rem 5rem 0;
+  min-height: 20rem;
+  max-height: 24rem;
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
+  background-color: rgba(242, 243, 244, 0.85);
+  overflow: hidden;
+}
+.advantages__item::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
+  border-radius: 2rem;
+  background-image: linear-gradient(139deg, rgb(0, 102, 255) 0%, rgb(22, 78, 251) 31%, rgba(111, 15, 247, 0.77) 100%);
+  -webkit-transition: all ease-out 0.1s;
+  transition: all ease-out 0.1s;
+}
+.advantages__item-content {
+  max-width: var(--item-content-max-width);
+}
+.advantages__item-title h3 {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+.advantages__item-title h3::before {
+  -ms-flex-item-align: baseline;
+  align-self: baseline;
+  -webkit-transform: translateY(-0.15em);
+  -ms-transform: translateY(-0.15em);
+  transform: translateY(-0.15em);
+  -webkit-box-flex: 0;
+  -ms-flex: none;
+  flex: none;
+  content: "";
+  margin-right: 1em;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-image: linear-gradient(175deg, rgb(0, 102, 255) 0%, rgb(91, 1, 237) 100%);
+}
+.advantages__item-descr {
+  font-size: 15px;
+}
+.advantages__item-descr p {
+  margin-bottom: unset;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .advantages__item:hover::after {
+    opacity: 0.3;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+/* Clients section */
+/* Presentation section */
+/* Proposal section */
+/* Footer section */
 .fake-class-to-add-import-rule {
   visibility: inherit;
 }
@@ -1727,6 +1846,9 @@ select::-ms-expand {
   h1 {
     font-size: 60px;
   }
+  h2 {
+    font-size: 47px;
+  }
   .menu-item > a {
     font-size: 30px;
   }
@@ -1763,6 +1885,9 @@ select::-ms-expand {
   }
   h1 {
     font-size: 50px;
+  }
+  h2 {
+    font-size: 45px;
   }
   /* Tabs */
   .tabs {
@@ -1831,6 +1956,10 @@ select::-ms-expand {
   .menu-item > a {
     font-size: 28px;
   }
+  /* Advantages section */
+  .advantages {
+    --item-content-max-width: 44rem;
+  }
   .d-block_md {
     display: block;
   }
@@ -1860,6 +1989,9 @@ select::-ms-expand {
   h1 {
     font-size: 40px;
   }
+  h2 {
+    font-size: 40px;
+  }
   .contacts-link--phone {
     display: none;
   }
@@ -1881,6 +2013,22 @@ select::-ms-expand {
   .sub-menu.lv2 {
     padding-top: unset;
     left: 22rem;
+  }
+  .advantages {
+    --item-content-max-width: 37rem;
+  }
+  .advantages__box-img {
+    width: auto;
+  }
+  .advantages__item {
+    padding: 2.5rem 2.5rem 2.5rem 0;
+  }
+  .advantages__item-title h3 {
+    margin-bottom: 0.75em;
+    font-size: 20px;
+  }
+  .advantages__item-descr {
+    font-size: 14px;
   }
   .d-block_sm {
     display: block;
@@ -1904,6 +2052,9 @@ select::-ms-expand {
     max-width: 100%;
   }
   h1 {
+    font-size: 31px;
+  }
+  h2 {
     font-size: 31px;
   }
   .btn {
@@ -2051,6 +2202,22 @@ select::-ms-expand {
     width: auto;
     max-width: none;
   }
+  .advantages {
+    --item-content-max-width: 28rem;
+  }
+  .advantages__item {
+    padding: 1.5rem 1.5rem 1.5rem 0;
+  }
+  .advantages__box-img {
+    width: calc(100% - var(--item-content-max-width));
+  }
+  .advantages__item-title h3 {
+    margin-bottom: 0.5em;
+    font-size: 14px;
+  }
+  .advantages__item-descr {
+    font-size: 10px;
+  }
   .d-block_xs {
     display: block;
   }
@@ -2073,6 +2240,9 @@ select::-ms-expand {
   h1 {
     font-size: 28px;
   }
+  h2 {
+    font-size: 28px;
+  }
   .btn {
     padding: 1.04em 3.04em;
     font-size: 3.3816425121vw;
@@ -2085,6 +2255,19 @@ select::-ms-expand {
   }
   .service-item p {
     font-size: 4.1062801932vw;
+  }
+  .advantages {
+    --item-content-max-width: 28rem;
+  }
+  .advantages__box-img {
+    width: 18rem;
+  }
+  .advantages__item-title h3 {
+    margin-bottom: 0.5em;
+    font-size: 14px;
+  }
+  .advantages__item-descr {
+    font-size: 10px;
   }
   .d-block_xxs {
     display: block;
@@ -2100,8 +2283,23 @@ select::-ms-expand {
   h1 {
     font-size: 7.7777777778vw;
   }
+  h2 {
+    font-size: 7.7777777778vw;
+  }
   .menu-item.lv2 > a {
     font-size: 3.3333333333vw;
+  }
+  .advantages {
+    --item-content-max-width: 24rem;
+  }
+  .advantages__box-img {
+    width: 16rem;
+  }
+  .advantages__item-title h3 {
+    font-size: 4.1666666667vw;
+  }
+  .advantages__item-descr {
+    font-size: 3.0555555556vw;
   }
 }
 /*# sourceMappingURL=style.css.map */

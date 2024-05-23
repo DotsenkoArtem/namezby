@@ -19,7 +19,9 @@
   overflow: hidden
   position: relative
 
-// .section-title
+.section-title
+  h2
+    margin-bottom: 6rem
 //   color: $heading-color
 //   h1
 //     margin-bottom: 1.5rem
@@ -36,6 +38,8 @@
   &_py-0
     padding-top: 0
     padding-bottom: 0
+  &_bg-grey
+    background-color: #edeeef
 //   &_py-60
 //     padding-top: 6rem
 //     padding-bottom: 6rem
@@ -62,7 +66,7 @@ $menu-trigger-dash-height: .3rem
   top: 0
   right: 0
   left: 0
-  z-index: 2
+  z-index: 10
   transition: background-color calc( v.$transition-main * 2 )
   &__inner
     padding: 1.35rem 0
@@ -507,7 +511,6 @@ $menu-item-lv1-max-width: 36rem
   color: v.$white
   background-image: linear-gradient(93deg, rgba(0,0,255,1) 0%, rgba(184,0,255,1) 100%)
   
-
 .service-item
   display: flex
   justify-content: space-between
@@ -555,7 +558,6 @@ $menu-item-lv1-max-width: 36rem
     .order-link
       margin-left: 1.5rem
 
-
 .order-link
   display: inline-flex
   align-items: center
@@ -573,7 +575,6 @@ $menu-item-lv1-max-width: 36rem
     background-size: contain
     transition: transform v.$transition-main
 
-
 @media (hover:hover) and (pointer:fine)
   .order-link:hover::before
     transform: scale(1.1)
@@ -582,6 +583,108 @@ $menu-item-lv1-max-width: 36rem
   transform: scale(1.1)
   transition: none
 
+
+
+
+/* Advantages section */
+.advantages
+  --item-content-max-width: 52rem
+  &__title
+    max-width: 80rem
+  &__box
+    position: relative
+    overflow: hidden
+  &__box-img
+    width: calc( 100% - var(--item-content-max-width) )
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    z-index: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    img
+      height: 90%
+  &__item
+    display: flex
+    justify-content: flex-end
+    padding: 5rem 2.5rem 5rem 0
+    min-height: 20rem
+    max-height: 24rem
+    position: relative
+    z-index: 1
+    border-radius: 20px
+    background-color: rgb(242, 243, 244, .85)
+    overflow: hidden
+    &::after
+      content:''
+      display: block
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      // opacity: 0.3
+      opacity: 0
+      transform: scale(.9)
+      border-radius: 2rem
+      background-image: linear-gradient(139deg, rgba(0,102,255,1) 0%, rgba(22,78,251,1) 31%, rgba(111,15,247,0.77) 100%)
+      transition: all ease-out calc( v.$transition-main / 3 )
+  &__item-content
+    max-width: var(--item-content-max-width)
+  &__item-title
+    h3
+      display: inline-flex
+      align-items: baseline
+      &::before
+        align-self: baseline
+        transform: translateY(-.15em)
+        flex: none
+        content: ''
+        margin-right: 1em
+        display: inline-block
+        width: 8px
+        height: 8px
+        border-radius: 50%
+        background-image: linear-gradient(175deg, rgba(0,102,255,1) 0%, rgba(91,1,237,1) 100%)
+
+  &__item-descr
+    font-size: 15px
+    p
+      margin-bottom: unset
+
+@media (hover: hover) and (pointer: fine)
+  .advantages__item:hover
+    &::after
+      opacity: .3
+      transform: scale(1)
+
+
+
+
+
+
+
+
+
+/* Clients section */
+
+  
+
+
+/* Presentation section */
+
+  
+
+
+/* Proposal section */
+
+  
+
+
+/* Footer section */
 
 
 
