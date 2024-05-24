@@ -70,7 +70,7 @@ $menu-trigger-dash-height: .3rem
   top: 0
   right: 0
   left: 0
-  z-index: 10
+  z-index: 100
   transition: background-color calc( v.$transition-main * 2 )
   &__inner
     padding: 1.35rem 0
@@ -881,13 +881,33 @@ $menu-item-lv1-max-width: 36rem
 
 /* Proposal section */
 .proposal
+  background-image: linear-gradient(102deg, rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%)
   &-form
   &-form__inner
+    max-height: 60rem
     display: flex
     flex-direction: column
     flex-wrap: wrap
-  &-form__part
-    width: 50%
+  // &-form__part
+  //   max-width: 60rem
+  &-form__part-fields
+    margin-right: 5rem
+    width: 60rem
+    // min-height: 60rem
+    min-height: 46rem
+    flex: none
+  &-form__submit
+    transform: rotate(-10deg)
+  &-form__action 
+    margin-bottom: 3rem
+    padding-top: 1.5rem
+    max-width: 36rem
+    font-size: 15px
+    p
+      max-width: 28rem
+    &-title
+      margin-bottom: 3rem
+      font-size: 24px
   
 
 

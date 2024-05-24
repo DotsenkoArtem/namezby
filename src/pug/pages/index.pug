@@ -310,7 +310,7 @@ block main
 
     section.section.proposal
       .container 
-        .section-title
+        .section-title.proposal__title
           h2 
             |Получите 
             span.text-accent коммерческое предложение
@@ -320,7 +320,7 @@ block main
             .proposal-form__inner
 
 
-              .proposal-form__part
+              .proposal-form__part.proposal-form__part-fields
                 .form-group.form-group_float-label 
                   input#firstName.form-control(type="text", name="firstName", required)
                   label.form-label(for="firstName") Ваше имя
@@ -334,11 +334,11 @@ block main
                   label.form-label(for="email") E-mail
 
                 .form-group.form-group_float-label 
-                  textarea#msg.form-control-message(name="msg", cols="30", rows="10")
+                  textarea#msg.form-control-message(name="msg", cols="30", rows="4")
                   label.form-label(for="msg") Комментарий 
                   
 
-                .form-checkbox-wrap
+                .form-checkbox-wrap.form-personal-data
                   input#checkbox1.form-checkbox(type="checkbox", name="checkbox1", value="true")
                   label.form-label-checkbox(for="checkbox1") Я даю согласие на обработку моих персональных данных
         
@@ -349,9 +349,9 @@ block main
                 p Мы подготовим коммерческое предложение и свяжемся с вами для дальнейшего обсуждения.
 
 
-              .proposal-form__part
-                .form-fgoup.submit-btn-align-right
-                  button.form-submit.btn.btn_primary(type="button") Отправить
+              .proposal-form__part.proposal-form__submit-wrap
+                .form-fgoup.submit-btn-align-right-xs
+                  button.form-submit.btn.btn_circle.proposal-form__submit(type="button") Отправить
 
 
               

@@ -122,18 +122,34 @@
         width: 5rem
         height: 5rem
 
-    
 
-  .d
-    &-block
-      &_lg
-        display: block
-    &-inline
-      &_lg
-        display: inline
-    &-none
-      &_lg
-        display: none
+
+
+
+  /* Proposal section */
+  .proposal
+    &-form__inner
+      align-content: flex-start
+    &-form__part-fields
+      margin-right: 8rem
+      width: 49%
+    &-form__action 
+      width: calc( 51% - 8rem )
+      font-size: 14px
+      &-title
+        font-size: 22px
+      
+
+    .d
+      &-block
+        &_lg
+          display: block
+      &-inline
+        &_lg
+          display: inline
+      &-none
+        &_lg
+          display: none
 
 
 
@@ -341,6 +357,52 @@
         font-size: 20px
     &__item-descr
       font-size: 14px
+
+
+
+
+  /* Proposal section */
+  .proposal
+    &__title
+      h2
+        margin-bottom: 2rem
+    &-form-wrap
+      padding-bottom: 15rem
+    &-form__inner
+      position: relative
+      max-height: none
+      flex-wrap: nowrap
+    &-form__part-fields
+      order: 2
+      margin-right: unset
+      width: 100%
+      min-height: auto
+    &-form__submit-wrap
+      order: 3
+      position: absolute
+      right: -3rem
+      bottom: -15rem
+    &-form__submit
+      transform: rotate(-10deg)
+    &-form__action 
+      order: 1
+      margin-bottom: 3rem
+      padding-top: 1.5rem
+      width: auto
+      max-width: none
+      p
+        max-width: none
+      &-title
+        margin-bottom: 2rem
+    .form-personal-data
+      .form-label-checkbox
+        display: inline
+
+
+
+
+
+
 
   .d
     &-block
@@ -573,6 +635,16 @@
 
 
 
+  /* Proposal section */
+  .proposal
+    &-form-wrap
+      padding-bottom: unset
+    &-form__submit-wrap
+      position: static
+  .submit-btn-align-right-xs
+    text-align: right
+
+
 
 
 
@@ -641,6 +713,18 @@
       height: calc(240 * $index) 
 
 
+
+
+  /* Proposal section */
+  .proposal
+    &-form__action 
+      font-size: calc( 17 * $index )
+      &-title
+        font-size: calc( 24 * $index )
+
+
+
+ 
     
 
 
@@ -686,3 +770,8 @@
         font-size: calc(15 * $index) 
     &__item-descr
       font-size: calc(11 * $index) 
+
+  /* Proposal section */
+
+  .form-personal-data
+    font-size: calc(14 * $index) 
