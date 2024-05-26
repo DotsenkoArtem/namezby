@@ -2,12 +2,10 @@
 window.addEventListener("load", function () {
   handleHeader();
 
-  // setTimer(3, 24, 57);
-
   // INPUT MASK
-  // const selector = document.querySelectorAll('[name="userPhone"]');
-  // const im = new Inputmask("+7 (\\999) 999-99-99");
-  // im.mask(selector);
+  const selector = document.querySelectorAll('[type="tel"]');
+  const im = new Inputmask("+7 (\\999) 999-99-99");
+  im.mask(selector);
   // - - - - - - - - - - - - - - - - - - -
 });
 
@@ -127,6 +125,53 @@ if (menuItemCollapses) {
   }
 }
 
+
+// Collapses - used in footer
+const footerCollapses = document.querySelectorAll(
+  ".js-footer-collapse"
+);
+
+if (footerCollapses) {
+  for (let i = 0; i < footerCollapses.length; i++) {
+    let footerCollapse = footerCollapses[i];
+
+    let footerCollapseBtn = footerCollapse.firstElementChild;
+
+
+/*     footerCollapseBtn.addEventListener("click", setLinkBehaviour);
+    function setLinkBehaviour(event) {
+      // Если да, то отменяем действие ссылки по-умолчанию
+      if (isTouchDevice() && !event.defaultPrevented) {
+        event.preventDefault();
+      }
+      //В противном случае восстанавливаем -- НЕ УВЕРЕН, ЧТО ХОРОШО ПОДДЕРЖИВАЕТСЯ, НО ВРОДЕ НОРМ
+      if (!isTouchDevice() && event.defaultPrevented) {
+        event.defaultPrevented = false;
+      }
+    }
+    // Определение поддержки сенсорного ввода
+    function isTouchDevice() {
+      return (
+        "ontouchstart" in window ||
+        navigator.maxTouchPoints > 0 ||
+        navigator.msMaxTouchPoints > 0
+      );
+    } */
+
+    let collapseContent = footerCollapse.querySelector(".footer-menu");
+
+    footerCollapseBtn.addEventListener("click", function () {
+      if (!collapseContent.offsetHeight) {
+        footerCollapse.classList.add("open");
+        collapseContent.style.maxHeight = collapseContent.scrollHeight + "px";
+      } else {
+        footerCollapse.classList.remove("open");
+        collapseContent.style.maxHeight = "";
+      }
+    });
+  }
+}
+
 // Swiper
 const swiper = new Swiper(".entry-slider", {
   // autoplay: {
@@ -200,82 +245,7 @@ for (let i = 0; i < tabsBoxes.length; i++) {
 
 // ======================================================
 
-// TIMER
-/* function setTimer(startHours, startMinutes, startSeconds) {
-  // Высчитали время таймера
-  let timerStartValue =
-    (startHours * 3600 + startMinutes * 60 + startSeconds) * 1000;
 
-  let timerTmpStartValue = parseInt(
-    window.localStorage.getItem("timerTmpStartValueCoin2")
-  );
- 
-  // Очистка хранилища при изменении диапазона таймера
-  if (timerTmpStartValue && timerTmpStartValue !== timerStartValue) {
-    localStorage.clear();
-  }
-
-  window.localStorage.setItem("timerTmpStartValueCoin2", timerStartValue);
-
-  // Таймстамп-окончание таймера
-  let timerStopStamp = new Date().getTime() + timerStartValue;
-
-  let finishTimer = parseInt(localStorage.getItem("timerEndCoin2"));
-  if (finishTimer) {
-    timerStopStamp = finishTimer;
-  }
-
-  const hours = document.querySelectorAll(".timer .js-timer-hour");
-  const minutes = document.querySelectorAll(".timer .js-timer-min");
-  const seconds = document.querySelectorAll(".timer .js-timer-sec");
-  const timerLamp = document.querySelectorAll(".js-timer-lamp");
-
-
-  let timerId = setTimeout(function updateTimer() {
-    // timerLamp.classList.toggle("turned-off");
-    timerLamp.forEach((elem) => {
-      elem.classList.toggle("turned-off");
-    });
-    // Текущий timestamp
-    let currentTime = new Date().getTime();
-
-    // Возобновление счетчика
-    if (timerStopStamp <= currentTime) {
-      // timerStopStamp += timerStartValue;
-      timerStopStamp = currentTime + timerStartValue;
-    }
-
-    // Текущий таймстамп-остаток таймера
-    let timerCurrentValue = timerStopStamp - currentTime;
-
-    // Получение значений таймера
-    let timerCurrentHours = new Date(timerCurrentValue).getUTCHours();
-    let timerCurrentMinutes = new Date(timerCurrentValue).getUTCMinutes();
-    let timerCurrentSeconds = new Date(timerCurrentValue).getUTCSeconds();
-
-    // Вставка значений с добавлением нуля
-    hours.forEach((elem) => {
-      elem.innerHTML = `${setZero(timerCurrentHours)}`;
-    });
-    minutes.forEach((elem) => {
-      elem.innerHTML = `${setZero(timerCurrentMinutes)}`;
-    });
-    seconds.forEach((elem) => {
-      elem.innerHTML = `${setZero(timerCurrentSeconds)}`;
-    });
-
-    // Запись в LocalStorage
-    window.localStorage.setItem("timerEndCoin2", timerStopStamp);
-
-    timerId = setTimeout(updateTimer, 1000);
-  }, 0);
-
-
-  function setZero(val) {
-    return val < 10 ? `0${val}` : `${val}`;
-  }
-} */
-// ---------------------------------------
 
 
 
@@ -317,11 +287,8 @@ function fixLabel(form) {
   groups.forEach((group) => {
     let input = group.firstElementChild
     let label = group.lastElementChild
-    input.addEventListener('focus', function() {
-      label.classList.add('form-label_fixed')
-    })
     input.addEventListener('blur', function() {
-      if(!this.value) label.classList.remove('form-label_fixed')
+      (this.value) ? this.classList.add('has-value') : this.classList.remove('has-value');
     })
   })
 }

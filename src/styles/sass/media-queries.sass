@@ -272,6 +272,21 @@
     height: 330%
 
 
+
+
+  /* Footer section */
+  .footer
+    &-top
+      padding-bottom: unset
+    &-top__row
+      flex-wrap: wrap
+    &-top__col
+      margin-bottom: calc( v.$section-py / 2 )
+      width: 50%
+        
+        
+
+
   // @import "../../components/form/component-md"
   // @import "../../components/modal/component-md"
 
@@ -648,6 +663,71 @@
 
 
 
+  /* Footer section */
+  .footer
+    &-top__col
+      margin-bottom: 2rem
+      width: 100%
+      &-contacts
+        .footer-menu
+          margin-bottom: 4rem
+    &-top__col-title
+      span
+        margin-bottom: 0.5em
+      
+
+
+
+  .js-footer-collapse
+    .footer-menu
+      max-height: 0px
+      transition: v.$transition-main
+      overflow: hidden
+      opacity: 1
+      visibility: visible
+    span
+      position: relative
+      padding-right: 1em
+      display: block
+      max-width: 32rem
+    span:before,
+    span:after
+      content: ""
+      display: inline-block
+      position: absolute
+      top: .6em
+      width: .5em
+      height: 2px
+      background: v.$white
+      transition: transform v.$transition-main, background-color v.$transition-main
+    span:before
+      right: .3em
+      transform: rotate(45deg)
+    span:after
+      right: 0em
+      transform: rotate(-45deg)
+
+    span:active
+      color: v.$yellow-start
+    span:active::before,
+    span:active::after
+      background: v.$yellow-start
+
+
+  // open
+  .js-footer-collapse.open
+    span
+      color: v.$yellow-start
+    span::before,
+    span::after
+      background: v.$yellow-start
+    span::before
+      transform: rotate(-45deg)
+    span::after
+      transform: rotate(45deg)
+
+
+
 
   .d
     &-block
@@ -724,6 +804,20 @@
 
 
 
+
+
+  /* Footer section */
+  .footer
+    &-menu-item
+      font-size: calc( 16 * $index )
+    &-top__col-title span
+      font-size: calc( 20 * $index )
+    &__copy 
+      font-size: calc( 15 * $index )
+
+  .js-footer-collapse span
+    max-width: none
+
  
     
 
@@ -775,3 +869,12 @@
 
   .form-personal-data
     font-size: calc(14 * $index) 
+
+  /* Footer section */
+  .footer
+    &-menu-item
+      font-size: calc( 16 * $index )
+    &-top__col-title span
+      font-size: calc( 20 * $index )
+    &__copy 
+      font-size: calc( 15 * $index )

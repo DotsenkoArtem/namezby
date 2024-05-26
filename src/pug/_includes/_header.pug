@@ -8,10 +8,10 @@ header.header
             picture
               //- source(media='(max-width: 575px)', srcset='img/', type='image/webp')
               //- source(media='(max-width: 575px)', srcset='img/', type='image/png')
-              source(srcset='img/logo.webp', type='image/webp')
+              //- source(srcset='img/logo.webp', type='image/webp')
               |
               |
-              img(src='img/logo.png', alt='Логотип', width="200", height="45.02")
+              img(src='img/logo.svg', alt='Логотип', width="200", height="45.02")
 
       .header__right
         .header__contacts 
@@ -28,7 +28,7 @@ header.header
           .header-menu__header
             .header-menu__logo
               a(href="#") 
-                img(src='img/logo.png', alt='Логотип', width="200", height="45.02")
+                img(src='img/logo.svg', alt='Логотип', width="200", height="45.02")
           .header-menu__body.header-menu-scrollable
             +menu2LevelForWP
           .header-menu__footer

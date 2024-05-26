@@ -3,7 +3,7 @@
 $col-p-x: 1.2rem
 .row
   display: flex
-  margin: 0 (-$col-p-x)
+  // margin: 0 (-$col-p-x)
   flex-wrap: wrap
 
 .col
@@ -108,6 +108,26 @@ textarea::-moz-placeholder
   &-group
     padding-bottom: 1rem
     position: relative
+
+    // Float label
+    &_float-label 
+
+      .form-control,
+      .form-control-message
+        &.has-value + .form-label
+          transform: translateY(-1.2em) scale(.75) 
+
+      .form-control,
+      .form-control-message
+        &:hover + .form-label
+          transform: translateY(-1.2em) scale(.75)      
+
+      .form-control,
+      .form-control-message
+        &:focus + .form-label
+          transform: translateY(-1.2em) scale(.75)
+
+          
 
 
   &-control,
@@ -284,8 +304,8 @@ textarea::-moz-placeholder
     opacity: 0.5
     transform-origin: 0% 50%
     transition: transform v.$transition-main
-    &_fixed
-      transform: translateY(-1.2em) scale(.75)
+    // &_fixed
+    //   transform: translateY(-1.2em) scale(.75)
 
     &.required::after
       display: inline-block
