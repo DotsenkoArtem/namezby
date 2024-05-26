@@ -72,66 +72,60 @@ footer.footer
           a.footer__social-link.footer__social-link--vk(href="#", target="_blank", title="ВКонтакте") 
           a.footer__social-link.footer__social-link--tg(href="#", target="_blank", title="Телеграм") 
 
+
+#orderBtn.order-btn-fixed.order-btn-fixed_hidden.btn.btn_secondary.btn_rounded.js-modal-trigger(data-target="callback-modal", data-duration="350") Рассчитать стоимость
       
 
 
 
-//- ПОЧТА info@namez.by
+      //- ПОЧТА info@namez.by
 
 
 
 
-//- // MODAL
-//- .modal#callbackModal
-//-   .modal__inner
-//-     button.modal__close 
+    
+.modal.order-modal#callback-modal
+  .modal__inner
+    button.modal__close 
 
-//-     .modal__content
-//-       .modal__header
-//-         h2 This is modal 1 heading
-//-       .modal__body
-//- // /MODAL
-//- |
-//- // MODAL
-//- .modal#formModal
-//-   .modal__inner
-//-     button.modal__close 
+    .modal__content
+      .modal__header
+        .modal__title 
+          p Введите ваши данные и кратко опишите задачу.
+        .modal__subtitle 
+          p Мы подготовим коммерческое предложение и свяжемся с вами для дальнейшего обсуждения.
+      .modal__body
 
-//-     .modal__content
-//-       .modal__header
-//-         h2 This is modal 1 heading
-//-       .modal__body
-//-         form.form(enctype="multipart/form-data" name="" data-action="../php/send-order.php").order__form
-
-//-           fieldset.form-field 
-//-             legend.form-field__title Personal Data
+        .modal-form-wrap 
+          form.form.modal-form
+            .modal-form__inner
 
 
-//-               .form-group 
-//-                 label.form-label(for="firstName2") First name
-//-                 input#firstName2.form-control(type="text", name="firstName2", placeholder="Enter your first name", data-required="") 
+              .form-group.form-group_float-label 
+                input#firstName2.form-control(type="text", name="firstName", required)
+                label.form-label(for="firstName2") Ваше имя
 
-          
-//-               .form-group 
-//-                 label.form-label(for="lastName2") Last name
-//-                 input#lastName2.form-control(type="text", name="lastName2", placeholder="Enter your last name") 
+              .form-group.form-group_float-label
+                input#phone2.form-control(type="tel", name="phone", required, data-mask)
+                label.form-label(for="phone2") Ваш телефон
+
+              .form-group.form-group_float-label
+                input#email2.form-control(type="email", name="email")
+                label.form-label(for="email2") E-mail
+
+              .form-group.form-group_float-label 
+                textarea#msg2.form-control-message(name="msg", cols="30", rows="4")
+                label.form-label(for="msg2") Комментарий 
+                
+
+              .form-checkbox-wrap
+                input#checkbox2.form-checkbox(type="checkbox", name="checkbox1", value="true")
+                label.form-label-checkbox(for="checkbox2") Я даю согласие на обработку моих персональных данных
+      
+
+              .form-fgoup
+                button.form-submit.btn.btn_secondary.btn_rounded.modal-form__submit(type="button") Отправить
 
 
-//-           fieldset.form-field 
-//-             legend.form-field__title Сontact information
-
-//-               .form-group
-//-                 label.form-label(for="phone2") Phone
-//-                 input#phone2.form-control(type="tel", name="phone2", placeholder="Enter your phone number", data-required="", data-mask)
-            
-//-               .form-group
-//-                 label.form-label(for="email2") Email
-//-                 input#email2.form-control(type="email", name="email2", placeholder="Enter your email", data-required="")
 
 
-//-           fieldset.form-field 
-//-             .form-fgoup.submit-btn-align-right
-//-               button.form-submit.btn.btn_primary(type="button") Submit
-
-
-//- // /MODAL

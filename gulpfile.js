@@ -150,7 +150,7 @@ function getComponentJsPath(name) {
 // const jsSrcConcatFiles = ['src/js/common/*.js', ...getComponentJsPath('preloader', 'form', 'modal')];
 const components = [
   'preloader',
-  // 'modal',
+  'modal',
   
   // 'form',
   // 'menu-underline-js',

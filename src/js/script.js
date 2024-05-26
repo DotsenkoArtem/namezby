@@ -125,11 +125,8 @@ if (menuItemCollapses) {
   }
 }
 
-
 // Collapses - used in footer
-const footerCollapses = document.querySelectorAll(
-  ".js-footer-collapse"
-);
+const footerCollapses = document.querySelectorAll(".js-footer-collapse");
 
 if (footerCollapses) {
   for (let i = 0; i < footerCollapses.length; i++) {
@@ -137,8 +134,7 @@ if (footerCollapses) {
 
     let footerCollapseBtn = footerCollapse.firstElementChild;
 
-
-/*     footerCollapseBtn.addEventListener("click", setLinkBehaviour);
+    /*     footerCollapseBtn.addEventListener("click", setLinkBehaviour);
     function setLinkBehaviour(event) {
       // Если да, то отменяем действие ссылки по-умолчанию
       if (isTouchDevice() && !event.defaultPrevented) {
@@ -188,7 +184,7 @@ const swiper = new Swiper(".entry-slider", {
 const clientsSlider = new Swiper(".clients-slider", {
   slidesPerView: 2,
   slidesPerGroup: 2,
-    autoplay: {
+  autoplay: {
     delay: 5000,
   },
   loop: true,
@@ -201,17 +197,17 @@ const clientsSlider = new Swiper(".clients-slider", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-    // Responsive breakpoints
-    breakpoints: {
-      // when window width is >= 640px
-      576: {
-        slidesPerView: 4,
-        spaceBetween: 40,
-        grid: {
-          rows: 1,
-        },
-      }
-    }
+  // Responsive breakpoints
+  breakpoints: {
+    // when window width is >= 640px
+    576: {
+      slidesPerView: 4,
+      spaceBetween: 40,
+      grid: {
+        rows: 1,
+      },
+    },
+  },
 });
 // ======================================================
 
@@ -245,32 +241,12 @@ for (let i = 0; i < tabsBoxes.length; i++) {
 
 // ======================================================
 
-
-
-
-
-window.addEventListener("load", setPreloader)
-
-// PAGE PRELOADER FUNCTION
-// добавить #preloader.preloader в html
-function setPreloader() {
-  const PRELOADERTRANSITION = 500;
-  preloader.style.transition = `opacity ${PRELOADERTRANSITION}ms`;
-  preloader.classList.add("fade-out");
-
-  setTimeout(function () {
-    preloader.remove();
-  }, PRELOADERTRANSITION);
-}
-// - - - - - - - - - - - - - - - - - - -
-
-
 // FORMS
 const forms = Array.from(document.forms);
 forms.forEach((form) => {
   setRequiredMark(form);
-  fixLabel(form)
-})
+  fixLabel(form);
+});
 
 // Functions
 // Установка маркеров обязательных для заполнения полей
@@ -283,15 +259,43 @@ function setRequiredMark(form) {
 }
 
 function fixLabel(form) {
-  const groups = form.querySelectorAll('.form-group_float-label ')
+  const groups = form.querySelectorAll(".form-group_float-label ");
   groups.forEach((group) => {
-    let input = group.firstElementChild
-    let label = group.lastElementChild
-    input.addEventListener('blur', function() {
-      (this.value) ? this.classList.add('has-value') : this.classList.remove('has-value');
-    })
-  })
+    let input = group.firstElementChild;
+    let label = group.lastElementChild;
+    input.addEventListener("blur", function () {
+      this.value
+        ? this.classList.add("has-value")
+        : this.classList.remove("has-value");
+    });
+  });
 }
+
+let scrollHeight = Math.max(
+  document.body.scrollHeight,
+  document.documentElement.scrollHeight,
+  document.body.offsetHeight,
+  document.documentElement.offsetHeight,
+  document.body.clientHeight,
+  document.documentElement.clientHeight
+);
+window.addEventListener("load", showOrderBtn);
+function showOrderBtn() {
+  // console.log('scrollY: ', scrollY);
+  // console.log('scrollHeight: ', scrollHeight);
+  // console.log('clientHeight: ', document.documentElement.clientHeight);
+
+  setTimeout(function () {
+    if((scrollHeight !== scrollY + document.documentElement.clientHeight))
+    orderBtn.classList.remove("order-btn-fixed_hidden");
+  }, 5000);
+}
+window.addEventListener("scroll", function () {
+  (scrollHeight === scrollY + document.documentElement.clientHeight)
+    ? orderBtn.classList.add("order-btn-fixed_hidden")
+    : orderBtn.classList.remove("order-btn-fixed_hidden");
+});
+
 
 
 window.addEventListener("load", setPreloader)
@@ -299,7 +303,7 @@ window.addEventListener("load", setPreloader)
 // PAGE PRELOADER FUNCTION
 // добавить #preloader.preloader в html
 function setPreloader() {
-  const PRELOADERTRANSITION = 500;
+  const PRELOADERTRANSITION = 1500;
   preloader.style.transition = `opacity ${PRELOADERTRANSITION}ms`;
   preloader.classList.add("fade-out");
 
@@ -308,3 +312,49 @@ function setPreloader() {
   }, PRELOADERTRANSITION);
 }
 // - - - - - - - - - - - - - - - - - - -
+
+
+function handleModals() {
+  let modalBtns = document.querySelectorAll(".js-modal-trigger");
+
+  modalBtns.forEach((modalBtn) => {
+    // Продолжительность анимации
+    let duration;
+    let modal = document.querySelector(`#${modalBtn.dataset.target}`);
+    let modalClose = modal.querySelector(".modal__close");
+
+    let modalBackdrop = document.createElement("div");
+    modalBackdrop.className = "modal-backdrop";
+
+    modalBtn.addEventListener("click", openModal);
+    modalBackdrop.addEventListener("click", closeModal);
+    modalClose.addEventListener("click", closeModal);
+
+    // Open-close functions
+    function openModal() {
+      // Если в дата-атрибуте значение указано равным 0, то продолжительность анимации 0.
+      modalBtn.dataset.duration === "0"
+        ? (duration = 0)
+        : // В остальных случаях, если указано целочисленное значение, то берем его, если нет, то 350 по умолчанию.
+          (duration = +modalBtn.dataset.duration || 350); // В
+      modal.style.transition = `${duration}ms ease-out`;
+
+      modal.style.display = `flex`;
+      // Таймаут для того, чтобы отрабатывала анимация
+      setTimeout(() => {
+        modal.classList.add("shown");
+      }, 0);
+      modal.append(modalBackdrop);
+    }
+
+    function closeModal() {
+      modal.classList.remove("shown");
+      setTimeout(() => {
+        modal.style = ``;
+        modalBackdrop.remove();
+      }, duration);
+    }
+  });
+}
+
+handleModals();

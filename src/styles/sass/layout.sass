@@ -10,7 +10,7 @@
 @import "../../components/buttons/component"
 // @import "../../components/menu-underline-js/component"
 // @import "../../components/btn-vawe/component"
-// @import "../../components/modal/component"
+@import "../../components/modal/component"
 @import "../../components/form/component"
 
 .wrapper
@@ -445,7 +445,7 @@ $menu-item-lv1-max-width: 36rem
 @media (hover: hover) and (pointer: fine)
     .swiper-button-prev:hover,
     .swiper-button-next:hover
-      background: v.$grey-primary
+      background: v.$blue
       &::after
         color: v.$white
 
@@ -453,7 +453,7 @@ $menu-item-lv1-max-width: 36rem
 // Entry Active
 .swiper-button-prev:active,
 .swiper-button-next:active
-  background: v.$grey-primary
+  background: v.$blue
   transition: none
   &::after
     color: v.$white
@@ -480,9 +480,8 @@ $menu-item-lv1-max-width: 36rem
 
   &__btn.active 
     color: v.$grey-primary
-    background: linear-gradient(#FBFBFB 0 0) padding-box, linear-gradient(to right, #0085FF, #5B01ED) border-box
+    background: linear-gradient(#FBFBFB 0 0) padding-box, linear-gradient(90deg, #fe672e 0%, #c90678 100%) border-box
     border: 1px solid transparent
-
 
   &-content 
     position: relative
@@ -511,12 +510,14 @@ $menu-item-lv1-max-width: 36rem
 @media (hover: hover) and (pointer: fine) 
   .tabs__btn.active:hover
     color: v.$white
-    background-image: linear-gradient(93deg, rgba(0,0,255,1) 0%, rgba(184,0,255,1) 100%)
+    // background-image: linear-gradient(93deg, rgba(0,0,255,1) 0%, rgba(184,0,255,1) 100%)
+    background-image: linear-gradient(90deg, #fe672e 0%, #c90678 100%)
 
 // Actives
 .tabs__btn.active:active
   color: v.$white
-  background-image: linear-gradient(93deg, rgba(0,0,255,1) 0%, rgba(184,0,255,1) 100%)
+  // background-image: linear-gradient(93deg, rgba(0,0,255,1) 0%, rgba(184,0,255,1) 100%)
+  background-image: linear-gradient(90deg, #fe672e 0%, #c90678 100%)
   
 .service-item
   display: flex
@@ -622,7 +623,7 @@ $menu-item-lv1-max-width: 36rem
     position: relative
     z-index: 1
     border-radius: 20px
-    background-color: rgb(242, 243, 244, .85)
+    // background-color: rgb(242, 243, 244, .85)
     overflow: hidden
     &::after
       content:''
@@ -708,7 +709,7 @@ $menu-item-lv1-max-width: 36rem
     display: flex
     justify-content: center
     align-items: center
-    filter: grayscale(1)
+    filter: grayscale(.65)
     transition: filter v.$transition-main
 
     img
@@ -719,7 +720,7 @@ $menu-item-lv1-max-width: 36rem
   .clients-slider-wrapper
     .swiper-button-prev:hover,
     .swiper-button-next:hover
-        background: v.$grey-primary
+        background: v.$blue
       
 
 .clients-slide:hover
@@ -734,7 +735,7 @@ $menu-item-lv1-max-width: 36rem
 .clients-slider-wrapper
   .swiper-button-prev:active,
   .swiper-button-next:active
-      background: v.$grey-primary
+      background: v.$blue
   
 
 
@@ -997,9 +998,77 @@ $menu-item-lv1-max-width: 36rem
     color: v.$yellow-start
 
 
-
-
   
+
+
+// Order-btn-fixed
+.order-btn-fixed
+  position: fixed
+  right: 5rem
+  bottom: 5rem
+  z-index: 500
+  transform: translateX(0)
+  transition: transform ease v.$transition-main
+  &_hidden
+    transform: translateX(100rem)
+    // z-index: -1
+    // visibility: hidden
+
+
+
+
+/* Order modal */
+.order-modal
+
+  .modal__content
+    overflow-x: hidden
+    overflow-y: auto
+    &::-webkit-scrollbar
+      width: 5px
+      background: #eeeeee
+      border-radius: 5px
+    &::-webkit-scrollbar-thumb
+      background: transparentize(v.$grey-primary, .5)
+      border-radius: 5px
+
+    // &::-webkit-scrollbar-button
+    //   background: #000
+    //   color: red
+
+    //     ::-webkit-scrollbar
+
+    // ::-webkit-scrollbar-button
+
+    // ::-webkit-scrollbar-thumb
+
+    // ::-webkit-scrollbar-track
+  .modal__body
+    flex: none
+    overflow: hidden
+/* Modal form */
+.modal-form
+  &-wrap 
+    padding: 1px
+  &__inner
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+  .form-checkbox-wrap
+    margin-bottom: 1em
+    font-size: 14px
+  .form-control,
+  .form-control-message
+    padding: 2rem
+  .form-control
+    height: auto
+  .form-label
+    top: 1.5em
+
+
+  // &-form__submit
+
+
+
 
 
 
