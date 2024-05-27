@@ -117,13 +117,16 @@ $btn-radius: .5em
 // Actives
 .btn_outline:active
   color: v.$white
-  background-image: linear-gradient(93deg, rgba(0,0,255,1) 0%, rgba(184,0,255,1) 100%)
+  // background-image: linear-gradient(93deg, rgba(0,0,255,1) 0%, rgba(184,0,255,1) 100%)
+  background-image: linear-gradient(90deg, #fe672e 0%, #c90678 100%)
   transition: none
 
 .btn_secondary:active
-  background-color: v.$secondary-color
-  background-image: none
-  color: v.$grey-primary
+  // background-color: v.$secondary-color
+  background-position-y: top 
+  // background-image: none
+  // color: v.$grey-primary
+  transform: translateY(1px)
   transition: none
     
 

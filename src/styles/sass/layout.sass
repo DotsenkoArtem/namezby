@@ -97,6 +97,8 @@ $menu-trigger-dash-height: .3rem
 
   &.bg-painted
     background-color: rgba(251, 251, 251, .5)
+    background-color: rgba(251, 251, 251, .95)
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, .2 )
     .header__contacts-link a
         color: v.$grey-primary
     .header__contacts-link svg path
@@ -414,14 +416,15 @@ $menu-item-lv1-max-width: 36rem
     height: 100%
     .swiper-button-prev,
     .swiper-button-next
-      width: calc( var(--swiper-navigation-size) * .68 )
-      height: calc( var(--swiper-navigation-size) * .68 )
-      background: v.$white
-      border-radius: 50%
-      box-shadow: v.$swiper-nav-shadow
+      // width: calc( var(--swiper-navigation-size) * .68 )
+      // height: calc( var(--swiper-navigation-size) * .68 )
+      // background: v.$white
+      // border-radius: 50%
+      // box-shadow: v.$swiper-nav-shadow
       transition: v.$transition-main
       &::after
-        font-size: calc(var(--swiper-navigation-size) * .3)
+        // font-size: calc(var(--swiper-navigation-size) * .3)
+        font-size: calc(var(--swiper-navigation-size) * .75)
         color: var(--swiper-navigation-color)
     .swiper-button-prev
       left: 3rem
@@ -445,18 +448,20 @@ $menu-item-lv1-max-width: 36rem
 @media (hover: hover) and (pointer: fine)
     .swiper-button-prev:hover,
     .swiper-button-next:hover
-      background: v.$blue
+      // background: v.$blue
       &::after
-        color: v.$white
+        // color: v.$white
+        color: var(--swiper-navigation-color)
 
 
 // Entry Active
 .swiper-button-prev:active,
 .swiper-button-next:active
-  background: v.$blue
+  // background: v.$blue
   transition: none
   &::after
-    color: v.$white
+    // color: v.$white
+    color: var(--swiper-navigation-color)
 
 
 
@@ -596,21 +601,22 @@ $menu-item-lv1-max-width: 36rem
 
 /* Advantages section */
 .advantages
-  --item-content-max-width: 52rem
+  --item-content-max-width: 78rem
   &__title
     max-width: 80rem
   &__box
     position: relative
     overflow: hidden
   &__box-img
-    width: calc( 100% - var(--item-content-max-width) )
+    // width: calc( 100% - var(--item-content-max-width) )
     position: absolute
     top: 0
     left: 0
     bottom: 0
     z-index: 0
     display: flex
-    justify-content: center
+    // justify-content: center
+    justify-content: flex-start
     align-items: center
     img
       height: 90%
@@ -642,7 +648,11 @@ $menu-item-lv1-max-width: 36rem
       transition: all ease-out calc( v.$transition-main / 3 )
   &__item-content
     max-width: var(--item-content-max-width)
+    display: flex
   &__item-title
+    flex: none
+    padding-right: calc( v.$gutter * 2 )
+    width: 30rem
     h3
       display: inline-flex
       align-items: baseline
@@ -652,7 +662,8 @@ $menu-item-lv1-max-width: 36rem
         transform: translateY(-.15em)
         flex: none
         content: ''
-        margin-right: 1em
+        // margin-right: 1em
+        margin-right: .5em
         display: inline-block
         width: 8px
         height: 8px
@@ -721,6 +732,8 @@ $menu-item-lv1-max-width: 36rem
     .swiper-button-prev:hover,
     .swiper-button-next:hover
         background: v.$blue
+        &::after
+          color: v.$white
       
 
 .clients-slide:hover
@@ -736,6 +749,8 @@ $menu-item-lv1-max-width: 36rem
   .swiper-button-prev:active,
   .swiper-button-next:active
       background: v.$blue
+      &::after
+        color: v.$white
   
 
 
@@ -894,43 +909,61 @@ $menu-item-lv1-max-width: 36rem
   &-form__inner
     max-height: 60rem
     display: flex
-    flex-direction: column
-    flex-wrap: wrap
-  // &-form__part
-  //   max-width: 60rem
-  &-form__part-fields
-    margin-right: 5rem
-    width: 60rem
-    // min-height: 60rem
-    min-height: 46rem
+    justify-content: space-between
+    // flex-direction: column
+    // flex-wrap: wrap
+  &-form__part
+    width: calc( 50% - .5rem )
     flex: none
+  &-form__part-fields
+    // margin-right: 5rem
+    // width: 60rem
+    // min-height: 60rem
+    // min-height: 46rem
+    flex: none
+  &-form__control
+    height: 6rem
   &-form__submit
-    transform: rotate(-10deg)
+    // transform: rotate(-10deg)
+    width: 100%
+    height: 6rem
+    font-size: 18px
   &-form__action 
     margin-bottom: 3rem
-    padding-top: 1.5rem
-    max-width: 36rem
-    font-size: 15px
+    // padding-top: 1.5rem
+    // max-width: 36rem
+    // font-size: 15px
     p
       max-width: 28rem
     &-title
       margin-bottom: 3rem
-      font-size: 24px
+      // font-size: 24px
+      font-size: 18px
+
+  &__form-control-message
+    display: block
+    height: 13rem
+  &__form-label
+    top: 1.5em
   
 
 
 /* Footer section */
 .footer
-  background-color: v.$grey-primary
+  // background-color: v.$grey-primary
+  background-color: #d2d2d2
   color: v.$white
+  color: v.$grey-primary
   h3
     color: v.$white
   &-menu-item
     margin-bottom: 1rem
     font-size: 16px
-    font-weight: 300
+    // font-weight: 300
+    font-weight: 400
     a, span
-      color: v.$white
+      // color: v.$white
+      color: v.$grey-primary
       transition: .1s
 
 
@@ -948,7 +981,8 @@ $menu-item-lv1-max-width: 36rem
         display: inline-block
         margin-bottom: 1em
         font-size: 20px
-        font-weight: 400
+        // font-weight: 400
+        font-weight: 500
         line-height: 1.2
       &-contacts
         .footer-menu
@@ -958,7 +992,8 @@ $menu-item-lv1-max-width: 36rem
     padding-top: calc( v.$section-py / 4 )
     padding-bottom: calc( v.$section-py / 4 )
     font-size: 18px
-    background-color: darken(v.$grey-primary, 2%)
+    // background-color: darken(v.$grey-primary, 2%)
+    background-color: darken(#d2d2d2, 2%)
     &__row
       display: flex
       justify-content: space-between
@@ -988,14 +1023,15 @@ $menu-item-lv1-max-width: 36rem
 @media (hover:hover) and (pointer: fine)
   .footer
     &-menu-item a:hover
-      // text-decoration: underline
-      color: v.$yellow-start
+      // color: v.$yellow-start
+      color: lighten(v.$grey-primary, 40%)
     &__social-link:hover
       transform: translateY(-1px)
 
 .footer
   &-menu-item a:active
-    color: v.$yellow-start
+    // color: v.$yellow-start
+    color: lighten(v.$grey-primary, 40%)
 
 
   
@@ -1019,7 +1055,17 @@ $menu-item-lv1-max-width: 36rem
 
 /* Order modal */
 .order-modal
-
+  
+  &__title
+    text-align: center
+    font-size: 24px
+    p
+      margin-bottom: 0.5em
+  &__subtitle
+    text-align: center
+    font-size: 18px
+    p
+      margin-bottom: 1em
   .modal__content
     overflow-x: hidden
     overflow-y: auto
@@ -1031,20 +1077,12 @@ $menu-item-lv1-max-width: 36rem
       background: transparentize(v.$grey-primary, .5)
       border-radius: 5px
 
-    // &::-webkit-scrollbar-button
-    //   background: #000
-    //   color: red
+                // ::-webkit-scrollbar-button
+                // ::-webkit-scrollbar
+                // ::-webkit-scrollbar-button
+                // ::-webkit-scrollbar-thumb
+                // ::-webkit-scrollbar-track
 
-    //     ::-webkit-scrollbar
-
-    // ::-webkit-scrollbar-button
-
-    // ::-webkit-scrollbar-thumb
-
-    // ::-webkit-scrollbar-track
-  .modal__body
-    flex: none
-    overflow: hidden
 /* Modal form */
 .modal-form
   &-wrap 
@@ -1063,9 +1101,6 @@ $menu-item-lv1-max-width: 36rem
     height: auto
   .form-label
     top: 1.5em
-
-
-  // &-form__submit
 
 
 

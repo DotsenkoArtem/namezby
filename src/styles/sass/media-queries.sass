@@ -101,6 +101,14 @@
 
   
 
+  /* Advantages section */
+  .advantages
+    --item-content-max-width: 65rem
+    &__item-title
+      width: 28rem
+
+
+
 
   /* Presentation section */
   .presentation
@@ -255,6 +263,8 @@
       &-img
         transform: translateX(-42px)
         width: auto
+    &__item-content
+      display: block
 
 
 
@@ -745,7 +755,7 @@
 
 
   /* Modal form */
-  .modal
+  .order-modal
     &__title
       font-size: 18px
     &__subtitle
@@ -893,7 +903,7 @@
   /* Proposal section */
 
   .form-personal-data,
-  .modal-form .form-checkbox-wrap
+  .order-modal-form .form-checkbox-wrap
     font-size: calc(14 * $index) 
 
   /* Footer section */
@@ -906,6 +916,6 @@
       font-size: calc( 15 * $index )
 
   /* Modal form */
-  .modal
+  .order-modal
     &__title
       font-size: calc( 18 * $index )

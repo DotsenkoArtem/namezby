@@ -311,10 +311,13 @@ block main
 
     section.section.proposal
       .container 
-        .section-title.proposal__title
+        .section-title.proposal__title.text-center
           h2 
             |Получите 
             span.text-accent коммерческое предложение
+
+        .proposal-form__action.text-center 
+          .proposal-form__action-title Введите ваши данные и кратко опишите задачу. Мы подготовим коммерческое предложение и свяжемся с вами для дальнейшего обсуждения.
 
         .proposal-form-wrap 
           form.form.proposal-form
@@ -323,20 +326,20 @@ block main
 
               .proposal-form__part.proposal-form__part-fields
                 .form-group.form-group_float-label 
-                  input#firstName.form-control(type="text", name="firstName", required)
-                  label.form-label(for="firstName") Ваше имя
+                  input#firstName.form-control.proposal-form__control(type="text", name="firstName", required)
+                  label.form-label.proposal__form-label(for="firstName") Ваше имя
 
                 .form-group.form-group_float-label
-                  input#phone.form-control(type="tel", name="phone", required, data-mask)
-                  label.form-label(for="phone") Ваш телефон
+                  input#phone.form-control.proposal-form__control(type="tel", name="phone", required, data-mask)
+                  label.form-label.proposal__form-label(for="phone") Ваш телефон
 
                 .form-group.form-group_float-label
-                  input#email.form-control(type="email", name="email")
-                  label.form-label(for="email") E-mail
+                  input#email.form-control.proposal-form__control(type="email", name="email")
+                  label.form-label.proposal__form-label(for="email") E-mail
 
-                .form-group.form-group_float-label 
-                  textarea#msg.form-control-message(name="msg", cols="30", rows="4")
-                  label.form-label(for="msg") Комментарий 
+                //- .form-group.form-group_float-label 
+                //-   textarea#msg.form-control-message(name="msg", cols="30", rows="4")
+                //-   label.form-label(for="msg") Комментарий 
                   
 
                 .form-checkbox-wrap.form-personal-data
@@ -345,14 +348,17 @@ block main
         
 
 
-              .proposal-form__part.proposal-form__action 
-                .proposal-form__action-title Введите ваши данные и кратко опишите задачу.
-                p Мы подготовим коммерческое предложение и свяжемся с вами для дальнейшего обсуждения.
+
 
 
               .proposal-form__part.proposal-form__submit-wrap
+                .form-group.form-group_float-label 
+                  textarea#msg.form-control-message.proposal__form-control-message(name="msg", cols="30", rows="5")
+                  label.form-label.proposal__form-label(for="msg") Комментарий 
+
                 .form-fgoup.submit-btn-align-right-xs
-                  button.form-submit.btn.btn_circle.proposal-form__submit(type="button") Отправить
+                  //- button.form-submit.btn.btn_circle.proposal-form__submit(type="button") Отправить
+                  button.form-submit.btn.btn_secondary.btn_rounded.proposal-form__submit(type="button") Отправить
 
 
               
