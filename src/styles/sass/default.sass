@@ -171,7 +171,7 @@ h1
   line-height: 1.05
 
 h2
-  font-size: 53px
+  font-size: 51px
   line-height: 1.2
 
 h3
@@ -186,12 +186,17 @@ p
 // Text settings
 .text
   &-accent
-    display: inline-block
-    color: transparent
-    background: v.$gradient-text-primary
-    background-clip: text
-    animation: bg-gradient 3s ease infinite
-    background-size: 400% 200%
+    display: inline
+    position: relative
+    // color: transparent
+    // background: v.$gradient-text-primary
+    // background-clip: text
+    // animation: bg-gradient 3s ease infinite
+    background: linear-gradient(0deg, transparent 15%, transparentize(v.$pink-end, .3) 15% 45%, transparent 55%) 
+    
+
+      
+      
     
   &-center
     text-align: center

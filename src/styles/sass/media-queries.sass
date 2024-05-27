@@ -121,14 +121,11 @@
       border-radius: var(--item-radius, 1.5rem)
       &::after
         border-radius: var(--item-radius, 1.5rem)
-      &-badge
-        top: var(--item-padding, 2.8rem)
-        right: var(--item-padding, 2.8rem)
-        font-size: 13px
       &-icon
         margin-bottom: 2rem
         width: 5rem
         height: 5rem
+
 
 
 
@@ -618,14 +615,10 @@
     --item-content-max-width: 28rem
     &__item
       padding: 1.5rem 1.5rem 1.5rem 0
-    // &__box-img
-    //   width: calc( 100% - var(--item-content-max-width) )
     &__item-title
       h3
         margin-bottom: 0.5em
-        // font-size: 14px
-    // &__item-descr
-    //   font-size: 10px
+
   
 
 
@@ -658,8 +651,6 @@
       width: 100%
       min-width: auto
       flex: none
-    &__item-badge
-      font-size: 14px
     &__item-icon
       width: 4rem
       height: 4rem
@@ -748,12 +739,6 @@
 
 
 
-  // Order-btn-fixed
-  .order-btn-fixed 
-    right: 2rem
-    bottom: 2rem
-
-
   /* Modal form */
   .order-modal
     &__title
@@ -812,14 +797,9 @@
 
   .advantages
     --item-content-max-width: 28rem
-    // &__box-img
-    //   width: 18rem
     &__item-title
       h3
         margin-bottom: 0.5em
-    //     font-size: 14px
-    // &__item-descr
-    //   font-size: 10px
 
   
   /* Clients section */
@@ -903,7 +883,7 @@
   /* Proposal section */
 
   .form-personal-data,
-  .order-modal-form .form-checkbox-wrap
+  .modal-form .form-checkbox-wrap
     font-size: calc(14 * $index) 
 
   /* Footer section */

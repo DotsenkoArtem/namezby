@@ -55,14 +55,11 @@
 //   h2, p
 //     color: $text-light
 
-
-
 // vars
 $menu-trigger-offset-r: calc(v.$gutter + 2rem)
 $menu-trigger-width: 2.8rem
 $menu-trigger-height: 2.1rem
 $menu-trigger-dash-height: .3rem
-
 
 /* Header */
 .header
@@ -82,8 +79,8 @@ $menu-trigger-dash-height: .3rem
     align-items: center
     margin-left: auto
     margin-right: calc( $menu-trigger-offset-r + $menu-trigger-width + 3rem )
-  
-  &-logo 
+
+  &-logo
     padding: .4rem 1rem
     max-width: 22rem
     background: v.$white
@@ -94,26 +91,23 @@ $menu-trigger-dash-height: .3rem
     right: $menu-trigger-offset-r
     z-index: 1000
 
-
   &.bg-painted
     background-color: rgba(251, 251, 251, .5)
     background-color: rgba(251, 251, 251, .95)
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, .2 )
     .header__contacts-link a
-        color: v.$grey-primary
+      color: v.$grey-primary
     .header__contacts-link svg path
       fill: v.$grey-primary
       stroke: v.$grey-primary
     .menu-trigger__dash
       background-color: v.$grey-primary
 
-
 .header-menu
   &__logo,
   &-trigger,
   &-overl
     display: none
-
 
 .contacts-link
   display: flex
@@ -135,7 +129,6 @@ $menu-trigger-dash-height: .3rem
     font-weight: 500
     color: v.$grey-light
     transition: color v.$transition-main
-
 
 .header-menu
   // display: none
@@ -213,8 +206,6 @@ $menu-trigger-dash-height: .3rem
       transform: none
       opacity: 1
 
-
-
   &-overl
     display: block
     position: fixed
@@ -234,14 +225,8 @@ $menu-trigger-dash-height: .3rem
       visibility: visible
       background: rgba(0, 0, 0, 0.5)
 
-
-
-
-
-
   // &__footer
   //   display: block
-
 
 .menu-trigger
   display: block
@@ -261,10 +246,10 @@ $menu-trigger-dash-height: .3rem
     &:first-child
       top: 0
     &:nth-child(2)
-        top: calc( ($menu-trigger-height / 2) - ($menu-trigger-dash-height * .5) )
+      top: calc( ($menu-trigger-height / 2) - ($menu-trigger-dash-height * .5) )
     &:last-child
-        top: calc( $menu-trigger-height - $menu-trigger-dash-height )
-  
+      top: calc( $menu-trigger-height - $menu-trigger-dash-height )
+
   &.open
     right: 17px
     .menu-trigger__dash
@@ -277,9 +262,6 @@ $menu-trigger-dash-height: .3rem
         transform-origin: 2px 2px
         transform: rotate(-45deg)
 
-
-
-
 // Menu
 // Vars
 $menu-item-lv1-max-width: 36rem
@@ -287,7 +269,6 @@ $menu-item-lv1-max-width: 36rem
 .header-menu__nav
   display: flex
   flex: 1
-
 
 .menu
   flex: 1
@@ -303,7 +284,6 @@ $menu-item-lv1-max-width: 36rem
   &-item.current-menu-item > a
     color: v.$accent-color
 
-
 .sub-menu.lv2
   padding-top: 1rem
   position: absolute
@@ -316,14 +296,12 @@ $menu-item-lv1-max-width: 36rem
   visibility: hidden
   transition: v.$transition-main
 
-
 .menu-item.lv2 > a
   // padding: 0.8rem 0
   padding: 0.6rem 0
   font-size: 20px
   font-weight: 400
   transition: none
-
 
 .menu
   // &-item:not(.current-menu-item):hover > a
@@ -336,7 +314,6 @@ $menu-item-lv1-max-width: 36rem
   &-item-has-children:hover > .sub-menu
     opacity: 1
     visibility: visible
-
 
 @media (hover: hover) and (pointer: fine)
   .menu-trigger:hover
@@ -360,13 +337,11 @@ $menu-item-lv1-max-width: 36rem
       fill: v.$grey-primary
       stroke: v.$grey-primary
 
-
 // Active
 .menu-trigger:active
   .menu-trigger__dash
     background-color: v.$grey-primary
     transition: background-color 0
-
 
 .menu-trigger:not(.open):active
   .menu-trigger__dash
@@ -375,12 +350,10 @@ $menu-item-lv1-max-width: 36rem
     &:last-child
       transform: translateY(-1px)
 
-
 .menu-trigger.open:active
   transform: scale(.92)
   .menu-trigger__dash
     transition: background-color 0
-
 
 .contacts-link:active
   a
@@ -391,7 +364,6 @@ $menu-item-lv1-max-width: 36rem
     stroke: v.$grey-primary
     transition: none
 
-
 .menu
   &-item:not(.current-menu-item):active > a
     // color: v.$yellow-start
@@ -400,12 +372,9 @@ $menu-item-lv1-max-width: 36rem
     background-clip: text
     background-image: linear-gradient(94.72deg, v.$yellow-start -12.19%, v.$yellow-end 108.86%)
     transition: none
-      
-
-
 
 /* Entry section */
-.entry 
+.entry
   width: 100%
   height: 100vh
 
@@ -443,28 +412,19 @@ $menu-item-lv1-max-width: 36rem
       object-fit: cover
       user-select: none
 
-  
 // Entry Hover
 @media (hover: hover) and (pointer: fine)
-    .swiper-button-prev:hover,
-    .swiper-button-next:hover
-      // background: v.$blue
-      &::after
-        // color: v.$white
-        color: var(--swiper-navigation-color)
-
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover
+    &::after
+      color: var(--swiper-navigation-color)
 
 // Entry Active
 .swiper-button-prev:active,
 .swiper-button-next:active
-  // background: v.$blue
   transition: none
   &::after
-    // color: v.$white
     color: var(--swiper-navigation-color)
-
-
-
 
 /* Services section */
 .services
@@ -472,27 +432,27 @@ $menu-item-lv1-max-width: 36rem
     margin-bottom: v.$section-py
     max-width: 92rem
 
-.tabs 
+.tabs
   display: flex
   flex-wrap: wrap
   margin-bottom: 5rem
 
-  &__btn 
+  &__btn
     margin-bottom: 1rem
 
-  &__btn:not(:last-child) 
+  &__btn:not(:last-child)
     margin-right: 1rem
 
-  &__btn.active 
+  &__btn.active
     color: v.$grey-primary
     background: linear-gradient(#FBFBFB 0 0) padding-box, linear-gradient(90deg, #fe672e 0%, #c90678 100%) border-box
     border: 1px solid transparent
 
-  &-content 
+  &-content
     position: relative
     // overflow: hidden
 
-  &-content__item 
+  &-content__item
     position: absolute
     top: 0
     right: 0
@@ -503,16 +463,15 @@ $menu-item-lv1-max-width: 36rem
     opacity: 0
     transition: opacity 0.3s
 
-  &-content__item.active 
+  &-content__item.active
     position: relative
     z-index: 5
     opacity: 1
-  
-  &-content__item h3 
+
+  &-content__item h3
     margin: 10px auto
 
-
-@media (hover: hover) and (pointer: fine) 
+@media (hover: hover) and (pointer: fine)
   .tabs__btn.active:hover
     color: v.$white
     // background-image: linear-gradient(93deg, rgba(0,0,255,1) 0%, rgba(184,0,255,1) 100%)
@@ -523,7 +482,7 @@ $menu-item-lv1-max-width: 36rem
   color: v.$white
   // background-image: linear-gradient(93deg, rgba(0,0,255,1) 0%, rgba(184,0,255,1) 100%)
   background-image: linear-gradient(90deg, #fe672e 0%, #c90678 100%)
-  
+
 .service-item
   display: flex
   justify-content: space-between
@@ -546,7 +505,7 @@ $menu-item-lv1-max-width: 36rem
   &__thumb
     position: relative
     width: calc( 55% - v.$gutter )
-    max-width: 60rem 
+    max-width: 60rem
     border-radius: 2rem
     box-shadow: 0px 4px 34px 0px rgba(217, 217, 217, 1)
     overflow: hidden
@@ -596,9 +555,6 @@ $menu-item-lv1-max-width: 36rem
   transform: scale(1.1)
   transition: none
 
-
-
-
 /* Advantages section */
 .advantages
   --item-content-max-width: 78rem
@@ -608,14 +564,12 @@ $menu-item-lv1-max-width: 36rem
     position: relative
     overflow: hidden
   &__box-img
-    // width: calc( 100% - var(--item-content-max-width) )
     position: absolute
     top: 0
     left: 0
     bottom: 0
     z-index: 0
     display: flex
-    // justify-content: center
     justify-content: flex-start
     align-items: center
     img
@@ -629,23 +583,7 @@ $menu-item-lv1-max-width: 36rem
     position: relative
     z-index: 1
     border-radius: 20px
-    // background-color: rgb(242, 243, 244, .85)
     overflow: hidden
-    &::after
-      content:''
-      display: block
-      position: absolute
-      top: 0
-      right: 0
-      bottom: 0
-      left: 0
-      z-index: -1
-      // opacity: 0.3
-      opacity: 0
-      transform: scale(.9)
-      border-radius: 2rem
-      background-image: linear-gradient(139deg, rgba(0,102,255,1) 0%, rgba(22,78,251,1) 31%, rgba(111,15,247,0.77) 100%)
-      transition: all ease-out calc( v.$transition-main / 3 )
   &__item-content
     max-width: var(--item-content-max-width)
     display: flex
@@ -657,19 +595,6 @@ $menu-item-lv1-max-width: 36rem
       display: inline-flex
       align-items: baseline
 
-      &::before
-        align-self: baseline
-        transform: translateY(-.15em)
-        flex: none
-        content: ''
-        // margin-right: 1em
-        margin-right: .5em
-        display: inline-block
-        width: 8px
-        height: 8px
-        border-radius: 50%
-        // background-image: linear-gradient(175deg, rgba(0,102,255,1) 0%, rgba(91,1,237,1) 100%)
-        background-image: v.$gradient-text-primary
 
   &__item-descr
     font-size: 15px
@@ -682,13 +607,10 @@ $menu-item-lv1-max-width: 36rem
       opacity: .3
       transform: scale(1)
 
-
-
-
 /* Clients section */
 .clients
   &-slider
-    
+
     width: 100%
     max-width: 1320px
     height: 100%
@@ -698,24 +620,22 @@ $menu-item-lv1-max-width: 36rem
     position: relative
     height: 16rem
 
-
-
     .swiper-button-prev,
     .swiper-button-next
-      width: calc( var(--swiper-navigation-size) * .68 )
-      height: calc( var(--swiper-navigation-size) * .68 )
+      // width: calc( var(--swiper-navigation-size) * .68 )
+      // height: calc( var(--swiper-navigation-size) * .68 )
       // color: v.$white
-      background: rgba(255, 255, 255, 0.99)
-      border-radius: 50%
-      box-shadow: v.$swiper-nav-shadow
+      // background: rgba(255, 255, 255, 0.99)
+      // border-radius: 50%
+      // box-shadow: v.$swiper-nav-shadow
       transition: v.$transition-main
       &::after
-        font-size: calc(var(--swiper-navigation-size) * .3)
+        font-size: calc(var(--swiper-navigation-size) * .75)
     .swiper-button-prev
       left: 3rem
     .swiper-button-next
       right: 3rem
-      
+
   &-slide
     display: flex
     justify-content: center
@@ -726,33 +646,26 @@ $menu-item-lv1-max-width: 36rem
     img
       max-height: 14rem
 
-
 @media (hover:hover) and (pointer: fine)
   .clients-slider-wrapper
     .swiper-button-prev:hover,
     .swiper-button-next:hover
-        background: v.$blue
-        &::after
-          color: v.$white
-      
+      &::after
+        color: var(--swiper-navigation-color)
 
 .clients-slide:hover
   filter: grayscale(0)
 
-    
-
 // Actives
 .clients-slide:active
   filter: grayscale(0)
-  
+
 .clients-slider-wrapper
   .swiper-button-prev:active,
   .swiper-button-next:active
-      background: v.$blue
-      &::after
-        color: v.$white
-  
-
+    transition: none
+    &::after
+      color: var(--swiper-navigation-color)
 
 /* Presentation section */
 .presentation
@@ -781,7 +694,7 @@ $menu-item-lv1-max-width: 36rem
     line-height: 1.2
     border-radius: var(--item-radius, 3rem)
     transition: calc( v.$transition-main / 3 )
-    
+
     &::after
       content: ''
       display: block
@@ -793,17 +706,11 @@ $menu-item-lv1-max-width: 36rem
       z-index: -1
       background-image: linear-gradient(168deg, rgba(65,4,189,1) 0%, rgba(48,19,107,1) 57%, rgba(27,21,40,1) 100%)
       border-radius: var(--item-radius, 3rem)
-    &-badge,
     &-title
+      text-align: center
       transition: v.$transition-main
-    &-badge
-      position: absolute
-      top: var(--item-padding, 2rem)
-      right: var(--item-padding, 2rem)
-      font-size: 15px
-      font-weight: 500
-      color: #ff9d2e
     &-icon
+      margin-inline: auto
       margin-bottom: 2rem
       width: 6.4rem
       height: 6.4rem
@@ -824,9 +731,6 @@ $menu-item-lv1-max-width: 36rem
     opacity: 0.8
   .presentation__item-title:hover
     color: #ff9d2e
-  .presentation__item-badge:hover
-    color: v.$grey-light
-
 
 
 .presentation__item:active::after
@@ -834,11 +738,6 @@ $menu-item-lv1-max-width: 36rem
   transition: none
 .presentation__item-title:active
   color: #ff9d2e
-.presentation__item-badge:active
-  color: v.$grey-light
-
-
-
 
 
 .mooving-bg
@@ -854,7 +753,7 @@ $menu-item-lv1-max-width: 36rem
   height: 163%
   max-height: 85rem
   background-image: url(../img/mooving-bg-1.svg)
-  animation: mooving-bg-2  4.9s infinite linear
+  animation: mooving-bg-2 4.9s infinite linear
 .mooving-bg-2
   left: 4vw
   top: -65%
@@ -863,44 +762,38 @@ $menu-item-lv1-max-width: 36rem
   height: 229%
   max-height: 120rem
   background-image: url(../img/mooving-bg-2.svg)
-  animation: mooving-bg-1  4.9s infinite linear
+  animation: mooving-bg-1 4.9s infinite linear
 
-
-@keyframes mooving-bg-1 
-  0% 
+@keyframes mooving-bg-1
+  0%
     transform: rotate(354deg) translateX(0px)translateY(0px)
     animation-timing-function: linear
-  32% 
+  32%
     transform: rotate(354deg) translateX(-70px)translateY(160px)
     animation-timing-function: linear
 
-  64% 
+  64%
     transform: rotate(354deg) translateX(-70px)translateY(-40px)
     animation-timing-function: linear
 
-  100% 
+  100%
     transform: rotate(354deg) translateX(0px)translateY(0px)
 
 @keyframes mooving-bg-2
-  0% 
+  0%
     transform: translateX(0px)translateY(0px)
     animation-timing-function: linear
 
-  32% 
+  32%
     transform: translateX(-130px)translateY(60px)
     animation-timing-function: linear
 
-  64% 
+  64%
     transform: translateX(30px)translateY(-40px)
     animation-timing-function: linear
 
-  100% 
+  100%
     transform: translateX(0px)translateY(0px)
-
-
-
-  
-
 
 /* Proposal section */
 .proposal
@@ -928,7 +821,7 @@ $menu-item-lv1-max-width: 36rem
     width: 100%
     height: 6rem
     font-size: 18px
-  &-form__action 
+  &-form__action
     margin-bottom: 3rem
     // padding-top: 1.5rem
     // max-width: 36rem
@@ -945,28 +838,20 @@ $menu-item-lv1-max-width: 36rem
     height: 13rem
   &__form-label
     top: 1.5em
-  
-
 
 /* Footer section */
 .footer
-  // background-color: v.$grey-primary
-  background-color: #d2d2d2
+  background-color: v.$grey-primary
   color: v.$white
-  color: v.$grey-primary
   h3
     color: v.$white
   &-menu-item
     margin-bottom: 1rem
     font-size: 16px
-    // font-weight: 300
-    font-weight: 400
+    font-weight: 300
     a, span
-      // color: v.$white
-      color: v.$grey-primary
+      color: v.$white
       transition: .1s
-
-
 
   &-top
     padding-top: calc( v.$section-py / 2 )
@@ -981,24 +866,22 @@ $menu-item-lv1-max-width: 36rem
         display: inline-block
         margin-bottom: 1em
         font-size: 20px
-        // font-weight: 400
-        font-weight: 500
+        font-weight: 400
         line-height: 1.2
       &-contacts
         .footer-menu
           margin-bottom: 2rem
-  
+
   &-bottom
     padding-top: calc( v.$section-py / 4 )
     padding-bottom: calc( v.$section-py / 4 )
     font-size: 18px
-    // background-color: darken(v.$grey-primary, 2%)
-    background-color: darken(#d2d2d2, 2%)
+    background-color: darken(v.$grey-primary, 2%)
     &__row
       display: flex
       justify-content: space-between
       align-items: center
-  &__copy 
+  &__copy
     font-size: 15px
   &__social-link
     display: inline-block
@@ -1015,47 +898,27 @@ $menu-item-lv1-max-width: 36rem
     &--tg
       background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20130.5%20109.4%22%20width%3D%2215%22%20height%3D%2212.5%22%3E%3Cpath%20fill%3D%22%2337aee2%22%20d%3D%22M49.1%20102.8c-3.9%200-3.2-1.5-4.6-5.2L33.1%2060l88-52.2%22%2F%3E%3Cpath%20fill%3D%22rgba(255%2C255%2C255%2C.5)%22%20d%3D%22M49.1%20102.8c-3.9%200-3.2-1.5-4.6-5.2L33.1%2060l88-52.2%22%2F%3E%3Cpath%20fill%3D%22%2337aee2%22%20d%3D%22M49.1%20102.8c3%200%204.3-1.4%206-3l16-15.6%20-20-12%22%2F%3E%3Cpath%20fill%3D%22rgba(0%2C0%2C0%2C.25)%22%20d%3D%22M49.1%20102.8c3%200%204.3-1.4%206-3l16-15.6%20-20-12%22%2F%3E%3Cpath%20fill%3D%22%2337aee2%22%20d%3D%22M51.1%2072.2L99.5%20108c5.5%203%209.5%201.5%2010.9-5.1L130%2010.1c2-8.1-3.1-11.7-8.4-9.3L6.1%2045.3c-7.9%203.2-7.8%207.6-1.4%209.5l29.7%209.3L103%2020.8c3.2-2%206.2-0.9%203.8%201.3%22%2F%3E%3C%2Fsvg%3E")
 
-  &__logo 
+  &__logo
     margin-top: auto
     max-width: 22rem
-
 
 @media (hover:hover) and (pointer: fine)
   .footer
     &-menu-item a:hover
-      // color: v.$yellow-start
-      color: lighten(v.$grey-primary, 40%)
+      color: v.$yellow-start
     &__social-link:hover
       transform: translateY(-1px)
 
 .footer
   &-menu-item a:active
-    // color: v.$yellow-start
-    color: lighten(v.$grey-primary, 40%)
-
-
-  
-
-
-// Order-btn-fixed
-.order-btn-fixed
-  position: fixed
-  right: 5rem
-  bottom: 5rem
-  z-index: 500
-  transform: translateX(0)
-  transition: transform ease v.$transition-main
-  &_hidden
-    transform: translateX(100rem)
-    // z-index: -1
-    // visibility: hidden
-
+    color: v.$yellow-start
 
 
 
 /* Order modal */
 .order-modal
-  
+  &__inner
+    padding-top: 2rem
   &__title
     text-align: center
     font-size: 24px
@@ -1085,7 +948,7 @@ $menu-item-lv1-max-width: 36rem
 
 /* Modal form */
 .modal-form
-  &-wrap 
+  &-wrap
     padding: 1px
   &__inner
     display: flex
@@ -1101,19 +964,6 @@ $menu-item-lv1-max-width: 36rem
     height: auto
   .form-label
     top: 1.5em
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Lazy 
 // -------------------------

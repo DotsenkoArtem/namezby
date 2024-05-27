@@ -271,31 +271,6 @@ function fixLabel(form) {
   });
 }
 
-let scrollHeight = Math.max(
-  document.body.scrollHeight,
-  document.documentElement.scrollHeight,
-  document.body.offsetHeight,
-  document.documentElement.offsetHeight,
-  document.body.clientHeight,
-  document.documentElement.clientHeight
-);
-window.addEventListener("load", showOrderBtn);
-function showOrderBtn() {
-  // console.log('scrollY: ', scrollY);
-  // console.log('scrollHeight: ', scrollHeight);
-  // console.log('clientHeight: ', document.documentElement.clientHeight);
-
-  setTimeout(function () {
-    if((scrollHeight !== scrollY + document.documentElement.clientHeight))
-    orderBtn.classList.remove("order-btn-fixed_hidden");
-  }, 5000);
-}
-window.addEventListener("scroll", function () {
-  (scrollHeight === scrollY + document.documentElement.clientHeight)
-    ? orderBtn.classList.add("order-btn-fixed_hidden")
-    : orderBtn.classList.remove("order-btn-fixed_hidden");
-});
-
 
 
 window.addEventListener("load", setPreloader)
