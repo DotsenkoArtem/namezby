@@ -333,28 +333,25 @@ block main
                   input#email.form-control.proposal-form__control(type="email", name="email")
                   label.form-label.proposal__form-label(for="email") E-mail
 
-                //- .form-group.form-group_float-label 
-                //-   textarea#msg.form-control-message(name="msg", cols="30", rows="4")
-                //-   label.form-label(for="msg") Комментарий 
-                  
-
-                .form-checkbox-wrap.form-personal-data
-                  input#checkbox1.form-checkbox(type="checkbox", name="checkbox1", value="true")
-                  label.form-label-checkbox(for="checkbox1") Я даю согласие на обработку моих персональных данных
-        
-
-
 
 
 
               .proposal-form__part.proposal-form__submit-wrap
                 .form-group.form-group_float-label 
-                  textarea#msg.form-control-message.proposal__form-control-message(name="msg", cols="30", rows="5")
+                  textarea#msg.form-control-message.proposal__form-control-message(name="msg", cols="30", rows="4")
                   label.form-label.proposal__form-label(for="msg") Комментарий 
+
+                .form-checkbox-wrap.form-personal-data.proposal__checkbox-wrap
+                  input#checkbox1.form-checkbox(type="checkbox", name="checkbox1", value="true")
+                  label.form-label-checkbox(for="checkbox1") Я даю согласие на обработку моих персональных данных
 
                 .form-fgoup.submit-btn-align-right-xs
                   //- button.form-submit.btn.btn_circle.proposal-form__submit(type="button") Отправить
                   button.form-submit.btn.btn_secondary.btn_rounded.proposal-form__submit(type="button") Отправить
+
+
+
+
 
 
               

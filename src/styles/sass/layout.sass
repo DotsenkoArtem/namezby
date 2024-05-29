@@ -44,6 +44,7 @@
   &_light
     *
       color: v.$white
+
 //   &_py-60
 //     padding-top: 6rem
 //     padding-bottom: 6rem
@@ -57,9 +58,12 @@
 
 // vars
 $menu-trigger-offset-r: calc(v.$gutter + 2rem)
-$menu-trigger-width: 2.8rem
-$menu-trigger-height: 2.1rem
-$menu-trigger-dash-height: .3rem
+// $menu-trigger-width: 2.8rem
+$menu-trigger-width: 5.4rem
+// $menu-trigger-height: 2.1rem
+$menu-trigger-height: 2.6rem
+// $menu-trigger-dash-height: .3rem
+$menu-trigger-dash-height: 2px
 
 /* Header */
 .header
@@ -229,6 +233,9 @@ $menu-trigger-dash-height: .3rem
   //   display: block
 
 .menu-trigger
+  --burger-item-translate-y: 670%
+  --burger-item-negative-translate-y: calc(var(--burger-item-translate-y) * (-1))
+
   display: block
   width: $menu-trigger-width
   height: $menu-trigger-height
@@ -237,30 +244,39 @@ $menu-trigger-dash-height: .3rem
 
   &__dash
     position: absolute
+    right: 0
     display: block
-    width: 2.8rem
+    // width: 2.8rem
     height: $menu-trigger-dash-height
     background-color: v.$grey-light
     transition: inherit
   &__dash
     &:first-child
+      width: calc( $menu-trigger-width * .8 )
       top: 0
     &:nth-child(2)
-      top: calc( ($menu-trigger-height / 2) - ($menu-trigger-dash-height * .5) )
+      width: calc( $menu-trigger-width * .68 )
+      // top: calc( ($menu-trigger-height / 2) - ($menu-trigger-dash-height * .5) )
+      top: 50%
     &:last-child
-      top: calc( $menu-trigger-height - $menu-trigger-dash-height )
+      width: $menu-trigger-width
+      // top: calc( $menu-trigger-height - $menu-trigger-dash-height )
+      top: 100%
 
   &.open
     right: 17px
     .menu-trigger__dash
       &:first-child
-        transform-origin: 0px 2px
-        transform: rotate(45deg)
+        width: 100%
+        transform-origin: center center
+        transform: translate(10%, var(--burger-item-translate-y)) rotate(-45deg)
       &:nth-child(2)
+        transform: scaleX(0)
         opacity: 0
       &:last-child
-        transform-origin: 2px 2px
-        transform: rotate(-45deg)
+        width: 100%
+        
+        transform: translate(10%, var(--burger-item-negative-translate-y)) rotate(45deg)
 
 // Menu
 // Vars
@@ -323,9 +339,11 @@ $menu-item-lv1-max-width: 36rem
   .menu-trigger:not(.open):hover
     .menu-trigger__dash
       &:first-child
-        transform: translateY(1px)
+        width: calc( $menu-trigger-width * .7 )
+      &:nth-child(2)
+        width: calc( $menu-trigger-width * .83 )
       &:last-child
-        transform: translateY(-1px)
+        width: $menu-trigger-width
 
   .menu-trigger.open:hover
     transform: scale(.92)
@@ -473,15 +491,17 @@ $menu-item-lv1-max-width: 36rem
 
 @media (hover: hover) and (pointer: fine)
   .tabs__btn.active:hover
-    color: v.$white
+    color: v.$grey-primary
     // background-image: linear-gradient(93deg, rgba(0,0,255,1) 0%, rgba(184,0,255,1) 100%)
-    background-image: linear-gradient(90deg, #fe672e 0%, #c90678 100%)
+    // background-image: linear-gradient(90deg, #fe672e 0%, #c90678 100%)
+    background: linear-gradient(#FBFBFB 0 0) padding-box, linear-gradient(90deg, #fe672e 0%, #c90678 100%) border-box
 
 // Actives
 .tabs__btn.active:active
-  color: v.$white
+  color: v.$grey-primary
   // background-image: linear-gradient(93deg, rgba(0,0,255,1) 0%, rgba(184,0,255,1) 100%)
-  background-image: linear-gradient(90deg, #fe672e 0%, #c90678 100%)
+  // background-image: linear-gradient(90deg, #fe672e 0%, #c90678 100%)
+  background: linear-gradient(#FBFBFB 0 0) padding-box, linear-gradient(90deg, #fe672e 0%, #c90678 100%) border-box
 
 .service-item
   display: flex
@@ -670,9 +690,10 @@ $menu-item-lv1-max-width: 36rem
 /* Presentation section */
 .presentation
   --item-padding: 4rem
-  --item-radius: 3rem
+  --item-radius: 2rem
   padding-bottom: 10rem
   background: v.$grey-primary
+  background: darken(v.$pink-end, 25%)
   position: relative
   overflow: hidden
 
@@ -692,7 +713,7 @@ $menu-item-lv1-max-width: 36rem
     font-size: 27px
     font-weight: 500
     line-height: 1.2
-    border-radius: var(--item-radius, 3rem)
+    border-radius: var(--item-radius, 2rem)
     transition: calc( v.$transition-main / 3 )
 
     &::after
@@ -704,7 +725,15 @@ $menu-item-lv1-max-width: 36rem
       bottom: 0
       left: 0
       z-index: -1
-      background-image: linear-gradient(168deg, rgba(65,4,189,1) 0%, rgba(48,19,107,1) 57%, rgba(27,21,40,1) 100%)
+      // background-image: linear-gradient(168deg, rgba(65,4,189,1) 0%, rgba(48,19,107,1) 57%, rgba(27,21,40,1) 100%)
+
+      background-image: linear-gradient(168deg, v.$yellow-start 0%, v.$yellow-end 57%, darken(v.$yellow-end, 25%) 100%)
+
+      // background-image: $btn-second-bg
+      background-size: 100% 150%
+      background-position-y: bottom 
+      transition: background v.$transition-main
+
       border-radius: var(--item-radius, 3rem)
     &-title
       text-align: center
@@ -728,9 +757,9 @@ $menu-item-lv1-max-width: 36rem
 
 @media (hover:hover) and (pointer:fine)
   .presentation__item:hover::after
-    opacity: 0.8
-  .presentation__item-title:hover
-    color: #ff9d2e
+    background-position-y: top
+  // .presentation__item-title:hover
+  //   color: #ff9d2e
 
 
 .presentation__item:active::after
@@ -802,6 +831,7 @@ $menu-item-lv1-max-width: 36rem
   &-form__inner
     max-height: 60rem
     display: flex
+    flex-wrap: wrap
     justify-content: space-between
     // flex-direction: column
     // flex-wrap: wrap
@@ -815,7 +845,7 @@ $menu-item-lv1-max-width: 36rem
     // min-height: 46rem
     flex: none
   &-form__control
-    height: 6rem
+    height: 7rem
   &-form__submit
     // transform: rotate(-10deg)
     width: 100%
@@ -837,7 +867,8 @@ $menu-item-lv1-max-width: 36rem
     display: block
     height: 13rem
   &__form-label
-    top: 1.5em
+    // top: 1.5em
+    top: 1.3em
 
 /* Footer section */
 .footer

@@ -82,11 +82,12 @@
   // @import "../../components/modal/component-lg"
 
   h1
-    font-size: 60px
+    font-size: 59px
   h2
     font-size: 47px
 
 
+  $menu-trigger-width: 40px
   $menu-item-lv1-max-width: 28rem
   .menu
     &-item > a
@@ -99,7 +100,16 @@
   .sub-menu.lv2
     left: $menu-item-lv1-max-width
 
-  
+  .menu-trigger
+    width: $menu-trigger-width
+    &__dash
+      &:first-child
+        width: calc( $menu-trigger-width * .8 )
+      &:nth-child(2)
+        width: calc( $menu-trigger-width * .68 )
+      &:last-child
+        width: $menu-trigger-width
+    
 
   /* Advantages section */
   .advantages
@@ -135,14 +145,13 @@
   .proposal
     &-form__inner
       align-content: flex-start
-    &-form__part-fields
-      margin-right: 8rem
-      width: 49%
+    // &-form__part-fields
+    //   margin-right: 8rem
+    //   width: 49%
     &-form__action 
-      width: calc( 51% - 8rem )
       font-size: 14px
-      &-title
-        font-size: 22px
+      // &-title
+      //   font-size: 22px
       
 
     .d
@@ -179,7 +188,7 @@
 
   
   h1
-    font-size: 50px
+    font-size: 49px
   h2
     font-size: 45px
 
@@ -286,6 +295,21 @@
 
 
 
+  /* Proposal section */
+  .proposal
+    &-form__inner
+      flex-direction: column
+    &-form
+      margin-inline: auto
+      max-width: 60rem
+    &-form__part
+      width: 100%
+    &__checkbox-wrap
+      margin-top: 1rem
+      margin-bottom: 2rem
+
+
+
   /* Footer section */
   .footer
     &-top
@@ -336,9 +360,9 @@
     max-width: 540px
 
   h1
-    font-size: 40px
+    font-size: 39px
   h2
-    font-size: 40px
+    font-size: 39px
 
 
   // @import "../../components/form/component-sm"
@@ -358,6 +382,9 @@
     &__footer
       .contacts-link
         display: flex
+
+  .menu-trigger
+    --burger-item-translate-y: 570%
   
   $menu-item-lv1-max-width: 22rem
   .menu
@@ -395,34 +422,33 @@
     &__title
       h2
         margin-bottom: 2rem
-    &-form-wrap
-      padding-bottom: 15rem
+
     &-form__inner
       position: relative
       max-height: none
       flex-wrap: nowrap
     &-form__part-fields
-      order: 2
+      // order: 2
       margin-right: unset
-      width: 100%
+      
       min-height: auto
-    &-form__submit-wrap
-      order: 3
-      position: absolute
-      right: -3rem
-      bottom: -15rem
-    &-form__submit
-      transform: rotate(-10deg)
+    // &-form__submit-wrap
+      // order: 3
+      // position: absolute
+      // right: -3rem
+      // bottom: -15rem
+    // &-form__submit
+    //   transform: rotate(-10deg)
     &-form__action 
-      order: 1
+      // order: 1
       margin-bottom: 3rem
       padding-top: 1.5rem
       width: auto
       max-width: none
       p
         max-width: none
-      &-title
-        margin-bottom: 2rem
+
+        
     .form-personal-data .form-label-checkbox
       display: inline
 
@@ -464,9 +490,9 @@
     max-width: 410px
 
   h1
-    font-size: 31px
+    font-size: 30px
   h2
-    font-size: 31px
+    font-size: 30px
 
 
   @import "../../components/buttons/component-xs"
@@ -477,6 +503,21 @@
 
   // vars
   $menu-trigger-offset-r: v.$gutter
+  $menu-trigger-width: 35px
+
+  .menu-trigger
+    --burger-item-translate-y: 450%
+    width: $menu-trigger-width
+    height: 18px
+    &__dash
+      &:first-child
+        width: calc( $menu-trigger-width * .8 )
+      &:nth-child(2)
+        width: calc( $menu-trigger-width * .68 )
+      &:last-child
+        width: $menu-trigger-width
+
+
   .header
     &__menu-trigger
       right: $menu-trigger-offset-r
@@ -815,7 +856,7 @@
     &-form__action 
       font-size: calc( 17 * $index )
       &-title
-        font-size: calc( 24 * $index )
+        font-size: calc( 18 * $index )
 
 
 
@@ -880,7 +921,13 @@
     &__item-descr
       font-size: calc(14 * $index) 
 
+
   /* Proposal section */
+  .proposal
+    &-form__action 
+      font-size: calc( 17 * $index )
+      &-title
+        font-size: calc( 18 * $index )
 
   .form-personal-data,
   .modal-form .form-checkbox-wrap
