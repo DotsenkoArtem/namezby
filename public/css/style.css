@@ -2647,13 +2647,9 @@ textarea::-moz-placeholder {
   }
 }
 .presentation__item:active::after {
-  opacity: 0.8;
+  background-position-y: 50%;
   -webkit-transition: none;
   transition: none;
-}
-
-.presentation__item-title:active {
-  color: #ff9d2e;
 }
 
 .mooving-bg {
