@@ -938,10 +938,10 @@ select::-ms-expand {
 }
 .btn_secondary {
   color: #fbfbfb;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#feb72e), color-stop(98%, #fe672e));
-  background-image: linear-gradient(180deg, #feb72e 0%, #fe672e 98%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fdcc75), color-stop(98%, #fe672e));
+  background-image: linear-gradient(180deg, #fdcc75 0%, #fe672e 98%);
   background-size: 100% 200%;
-  background-position-y: bottom;
+  background-position-y: 100%;
   -webkit-box-shadow: 0px 4px 24px 0px rgba(254, 103, 46, 0.5);
   box-shadow: 0px 4px 24px 0px rgba(254, 103, 46, 0.5);
 }
@@ -962,8 +962,8 @@ select::-ms-expand {
   font-size: 22px;
   font-weight: 400;
   color: #fbfbfb;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#feb72e), color-stop(98%, #fe672e));
-  background-image: linear-gradient(180deg, #feb72e 0%, #fe672e 98%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fdcc75), color-stop(98%, #fe672e));
+  background-image: linear-gradient(180deg, #fdcc75 0%, #fe672e 98%);
   -webkit-box-shadow: 0px 4px 24px 0px rgba(244, 114, 19, 0.3);
   box-shadow: 0px 4px 24px 0px rgba(244, 114, 19, 0.3);
   border-radius: 50%;
@@ -971,20 +971,20 @@ select::-ms-expand {
 
 @media (hover: hover) and (pointer: fine) {
   .btn_outline:hover {
-    color: #feb72e;
+    color: #fdcc75;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FBFBFB)) padding-box, -webkit-gradient(linear, left top, right top, from(#fe672e), to(#c90678)) border-box;
     background: linear-gradient(#FBFBFB 0 0) padding-box, linear-gradient(90deg, #fe672e 0%, #c90678 100%) border-box;
     border-color: transparent;
   }
   .btn_secondary:hover {
-    background-position-y: top;
+    background-position-y: 30%;
   }
   .btn_circle:hover {
     background: linear-gradient(54deg, #f47213 0%, #f47213 98%);
   }
 }
 .btn_outline:active {
-  color: #feb72e;
+  color: #fdcc75;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FBFBFB)) padding-box, -webkit-gradient(linear, left top, right top, from(#fe672e), to(#c90678)) border-box;
   background: linear-gradient(#FBFBFB 0 0) padding-box, linear-gradient(90deg, #fe672e 0%, #c90678 100%) border-box;
   border-color: transparent;
@@ -993,7 +993,7 @@ select::-ms-expand {
 }
 
 .btn_secondary:active {
-  background-position-y: top;
+  background-position-y: 30%;
   -webkit-transform: translateY(1px);
   -ms-transform: translateY(1px);
   transform: translateY(1px);
@@ -2085,7 +2085,7 @@ textarea::-moz-placeholder {
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  background-image: linear-gradient(94.72deg, #feb72e -12.19%, #fe672e 108.86%);
+  background-image: linear-gradient(94.72deg, #fdcc75 -12.19%, #fe672e 108.86%);
 }
 .menu-item-has-children:hover > .sub-menu {
   opacity: 1;
@@ -2161,7 +2161,7 @@ textarea::-moz-placeholder {
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  background-image: linear-gradient(94.72deg, #feb72e -12.19%, #fe672e 108.86%);
+  background-image: linear-gradient(94.72deg, #fdcc75 -12.19%, #fe672e 108.86%);
   -webkit-transition: none;
   transition: none;
 }
@@ -2607,7 +2607,7 @@ textarea::-moz-placeholder {
   bottom: 0;
   left: 0;
   z-index: -1;
-  background-image: linear-gradient(168deg, #feb72e 0%, #fe672e 57%, #ac3001 100%);
+  background-image: linear-gradient(168deg, #fdcc75 0%, #fe672e 57%, #ac3001 100%);
   background-size: 100% 150%;
   background-position-y: bottom;
   -webkit-transition: background 0.3s;
@@ -2643,7 +2643,7 @@ textarea::-moz-placeholder {
 
 @media (hover: hover) and (pointer: fine) {
   .presentation__item:hover::after {
-    background-position-y: top;
+    background-position-y: 50%;
   }
 }
 .presentation__item:active::after {
@@ -2929,7 +2929,7 @@ textarea::-moz-placeholder {
 
 @media (hover: hover) and (pointer: fine) {
   .footer-menu-item a:hover {
-    color: #feb72e;
+    color: #fdcc75;
   }
   .footer__social-link:hover {
     -webkit-transform: translateY(-1px);
@@ -2938,7 +2938,7 @@ textarea::-moz-placeholder {
   }
 }
 .footer-menu-item a:active {
-  color: #feb72e;
+  color: #fdcc75;
 }
 
 /* Order modal */
@@ -3536,16 +3536,16 @@ textarea::-moz-placeholder {
   }
   .menu-mobile-collapse .menu-item:not(.current-menu-item):active > a:before,
   .menu-mobile-collapse .menu-item:not(.current-menu-item):active > a:after {
-    background: #feb72e;
+    background: #fdcc75;
   }
   .menu-mobile-collapse .menu-item-has-children.lv1.open > a {
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
-    background-image: linear-gradient(94.72deg, #feb72e -12.19%, #fe672e 108.86%);
+    background-image: linear-gradient(94.72deg, #fdcc75 -12.19%, #fe672e 108.86%);
   }
   .menu-mobile-collapse .menu-item-has-children.lv1.open > a:before, .menu-mobile-collapse .menu-item-has-children.lv1.open > a:after {
-    background: #feb72e;
+    background: #fdcc75;
   }
   .menu-mobile-collapse .menu-item-has-children.lv1.open > a:before {
     -webkit-transform: rotate(-45deg);
@@ -3567,7 +3567,7 @@ textarea::-moz-placeholder {
     visibility: visible;
   }
   .menu-item:not(.current-menu-item):active > a {
-    color: #feb72e;
+    color: #fdcc75;
   }
   /* Tabs */
   .tabs {
@@ -3715,18 +3715,18 @@ textarea::-moz-placeholder {
     transform: rotate(-45deg);
   }
   .js-footer-collapse span:active {
-    color: #feb72e;
+    color: #fdcc75;
   }
   .js-footer-collapse span:active::before,
   .js-footer-collapse span:active::after {
-    background: #feb72e;
+    background: #fdcc75;
   }
   .js-footer-collapse.open span {
-    color: #feb72e;
+    color: #fdcc75;
   }
   .js-footer-collapse.open span::before,
   .js-footer-collapse.open span::after {
-    background: #feb72e;
+    background: #fdcc75;
   }
   .js-footer-collapse.open span::before {
     -webkit-transform: rotate(-45deg);
