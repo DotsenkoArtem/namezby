@@ -1,0 +1,86 @@
+header.header.header_nontransparent
+  .container_fluid
+    .header__inner
+
+      .header__left
+        a(href="index.html")
+          .header-logo 
+            picture
+              //- source(media='(max-width: 575px)', srcset='img/', type='image/webp')
+              //- source(media='(max-width: 575px)', srcset='img/', type='image/png')
+              //- source(srcset='img/logo.webp', type='image/webp')
+              |
+              |
+              img(src='img/logo.svg', alt='Логотип', width="200", height="45.02")
+
+      .header__right
+        .header__contacts 
+          span.contacts-link.contacts-link--phone.header__contacts-link
+            a(href="tel:+375333305935") 
+              <svg role="presentation" class="contacts-link__icon contacts-link__icon--phone" id="Layer_1" width="21" height="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140">
+                <path d="M130.6 111.2l-28.1-28.3c-1.9-1.9-4.9-1.9-6.8 0L93.6 85 81.1 97.6c-3 3-7.8 3-10.7 0L56.3 83.5l-.3-.3-14.1-14.1c-3-3-3-7.8 0-10.7l12.7-12.5 2.1-2.1c1.9-1.9 1.9-4.9 0-6.8L28.3 8.9c-2-2-5.3-1.8-7.1.3-9 11-29.1 45 16.2 91.4l.7.7.7.7c46.4 45.3 80.4 25.2 91.4 16.2 2.2-1.7 2.4-5 .4-7z" fill="#7f7f7f" stroke="#7f7f7f" stroke-width="6" stroke-miterlimit="10"></path></svg>
+              |+375 (33) 330-59-35
+
+
+      .header-menu.js-header-menu
+        .header-menu__inner
+
+          .header-menu__header
+            .header-menu__logo
+              a(href="#") 
+                img(src='img/logo.svg', alt='Логотип', width="200", height="45.02")
+          .header-menu__body.header-menu-scrollable
+            +menu2LevelForWP
+          .header-menu__footer
+            span.contacts-link.contacts-link--phone
+              a(href="tel:+375333305935") 
+                <svg role="presentation" class="contacts-link__icon contacts-link__icon--phone" id="Layer_1" width="21" height="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140">
+                  <path d="M130.6 111.2l-28.1-28.3c-1.9-1.9-4.9-1.9-6.8 0L93.6 85 81.1 97.6c-3 3-7.8 3-10.7 0L56.3 83.5l-.3-.3-14.1-14.1c-3-3-3-7.8 0-10.7l12.7-12.5 2.1-2.1c1.9-1.9 1.9-4.9 0-6.8L28.3 8.9c-2-2-5.3-1.8-7.1.3-9 11-29.1 45 16.2 91.4l.7.7.7.7c46.4 45.3 80.4 25.2 91.4 16.2 2.2-1.7 2.4-5 .4-7z" fill="#7f7f7f" stroke="#7f7f7f" stroke-width="6" stroke-miterlimit="10"></path></svg>
+                |+375 (33) 330-59-35
+
+      .header__menu-trigger
+        button.menu-trigger.js-menu-trigger
+          .menu-trigger__dash
+          .menu-trigger__dash
+          .menu-trigger__dash
+
+      .header-menu-overl.js-overl
+
+.breadcrumbs-wrapper
+  .breadcrumbs-wrapper__top
+  .breadcrumbs-wrapper__bottom
+    .container
+      nav
+        ul.breadcrumbs
+          li 
+            a.home(href="/")  Главная
+          li.breadcrumbs-sep ›
+          li 
+            a.home(href="/serviceindex.html")  Услуги
+          li.breadcrumbs-sep ›
+          li.current-item Услуга
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

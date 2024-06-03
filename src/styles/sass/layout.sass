@@ -66,6 +66,10 @@ $menu-trigger-height: 2.6rem
 $menu-trigger-dash-height: 2px
 
 /* Header */
+:root
+  --header-inner-py: 1.35rem
+  --header-logo-py: .4rem
+  --header-logo-height: 4.5rem
 .header
   position: fixed
   top: 0
@@ -73,8 +77,11 @@ $menu-trigger-dash-height: 2px
   left: 0
   z-index: 100
   transition: background-color calc( v.$transition-main * 2 )
+  &_nontransparent
+    background-color: v.$white
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, .2 )
   &__inner
-    padding: 1.35rem 0
+    padding: var(--header-inner-py, 1.35rem) 0
     display: flex
     align-items: center
 
@@ -85,10 +92,12 @@ $menu-trigger-dash-height: 2px
     margin-right: calc( $menu-trigger-offset-r + $menu-trigger-width + 3rem )
 
   &-logo
-    padding: .4rem 1rem
+    padding: var(--header-logo-py, .4rem) 1rem
     max-width: 22rem
     background: v.$white
     border-radius: .5rem
+    img
+      height: var(--header-logo-height, 4.5rem)
 
   &__menu-trigger
     position: absolute
@@ -331,6 +340,29 @@ $menu-item-lv1-max-width: 36rem
     opacity: 1
     visibility: visible
 
+// Breadcrumbs
+.breadcrumbs
+  display: flex
+  align-items: center
+  flex-wrap: wrap
+  font-size: 1.6rem
+  &-wrapper__top
+    padding-top: calc( 2rem + (var(--header-inner-py) * 2) + (var(--header-logo-py) * 2) + var(--header-logo-height) )
+  // &-wrapper__bottom
+  //   padding-top: .5rem 
+  //   padding-bottom: .5rem
+  //   background-color: #f1f1f1
+  &-sep
+    margin-inline: .5em
+  a
+    display: inline-block
+    padding: .25em .5em
+    color: v.$grey-primary
+    transition: color calc( v.$transition-main / 3 )
+  .current-item
+    background: linear-gradient(0deg, transparent 15%, v.$highlight 15% 45%, transparent 55%) 
+
+
 @media (hover: hover) and (pointer: fine)
   .menu-trigger:hover
     .menu-trigger__dash
@@ -354,6 +386,10 @@ $menu-item-lv1-max-width: 36rem
     .contacts-link__icon path
       fill: v.$grey-primary
       stroke: v.$grey-primary
+
+  .breadcrumbs a:hover
+    color: v.$bc-link-hover
+
 
 // Active
 .menu-trigger:active
@@ -390,6 +426,10 @@ $menu-item-lv1-max-width: 36rem
     background-clip: text
     background-image: linear-gradient(94.72deg, v.$yellow-start -12.19%, v.$yellow-end 108.86%)
     transition: none
+
+.breadcrumbs a:active
+  color: v.$bc-link-hover
+
 
 /* Entry section */
 .entry
@@ -526,7 +566,8 @@ $menu-item-lv1-max-width: 36rem
     position: relative
     width: calc( 55% - v.$gutter )
     max-width: 60rem
-    border-radius: 2rem
+    // border-radius: 2rem
+    border-radius: 1rem
     box-shadow: 0px 4px 34px 0px rgba(217, 217, 217, 1)
     overflow: hidden
     &::after
@@ -602,7 +643,7 @@ $menu-item-lv1-max-width: 36rem
     max-height: 24rem
     position: relative
     z-index: 1
-    border-radius: 20px
+    border-radius: 10px
     overflow: hidden
   &__item-content
     max-width: var(--item-content-max-width)
@@ -620,6 +661,7 @@ $menu-item-lv1-max-width: 36rem
     font-size: 15px
     p
       margin-bottom: unset
+      font-size: 15px
 
 @media (hover: hover) and (pointer: fine)
   .advantages__item:hover
@@ -690,7 +732,8 @@ $menu-item-lv1-max-width: 36rem
 /* Presentation section */
 .presentation
   --item-padding: 4rem
-  --item-radius: 2rem
+  // --item-radius: 2rem
+  --item-radius: 1rem
   padding-bottom: 10rem
   background: v.$grey-primary
   background: darken(v.$pink-end, 25%)
@@ -713,7 +756,7 @@ $menu-item-lv1-max-width: 36rem
     font-size: 27px
     font-weight: 500
     line-height: 1.2
-    border-radius: var(--item-radius, 2rem)
+    border-radius: var(--item-radius, 1rem)
     transition: calc( v.$transition-main / 3 )
 
     &::after
@@ -734,7 +777,7 @@ $menu-item-lv1-max-width: 36rem
       background-position-y: bottom 
       transition: background v.$transition-main
 
-      border-radius: var(--item-radius, 3rem)
+      border-radius: var(--item-radius, 1rem)
     &-title
       text-align: center
       transition: v.$transition-main
@@ -943,6 +986,560 @@ $menu-item-lv1-max-width: 36rem
 .footer
   &-menu-item a:active
     color: v.$yellow-start
+
+
+
+
+// SERVICES - PAGE
+.services-grid
+  --grid-item-m-inline: 1.5rem
+
+  display: flex
+  flex-wrap: wrap
+  margin-inline: calc( var(--grid-item-m-inline) * (-1) )
+  &__item
+    position: relative
+    flex: 1
+    margin-inline: var(--grid-item-m-inline)
+    margin-top: var(--grid-item-m-inline)
+    margin-bottom: var(--grid-item-m-inline)
+
+    width: calc( 100% / 3 - var(--grid-item-m-inline) * 2)
+    height: 30.1rem 
+    border-radius: 1rem
+    overflow: hidden
+    transition: v.$transition-main
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25)
+
+    &-title
+      font-size: 24px
+      font-weight: 400
+      color: v.$white
+      opacity: 0
+      transform: translateY(3rem)
+      h3
+        color: inherit
+      
+    &-text
+      margin-bottom: 1.5em
+      font-size: 17px
+      font-weight: 400
+      color: v.$white
+      opacity: 0
+      transform: translateY(3rem)
+    &-btn
+      display: flex
+      flex: none
+      justify-content: center
+      align-items: center
+      width: 4rem
+      height: 4rem
+      border: solid 1px v.$white
+      border-radius: 50%
+      background-color: transparent
+      opacity: 0
+      transform: translateY(3rem)
+      transition: transform 0, opacity 0, background-color v.$transition-main
+      svg
+        width: 30%
+        height: 60%
+        // fill: v.$grey-primary
+        // stroke: v.$grey-primary
+        .arr-svg
+          fill: v.$white
+          stroke: v.$white
+          transition: v.$transition-main
+          
+
+  &__item-img
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 5
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      object-position: center
+
+  &__item-info
+    position: absolute
+    padding: calc( var(--grid-item-m-inline) * 2 )
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: flex-end
+
+    width: 100%
+    height: 100%
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 10
+    opacity: 0
+    transition: v.$transition-main
+    background: rgba(5, 5, 5, 0.92)
+
+
+@media (hover:hover) and (pointer: fine)
+.services-grid__item:hover
+  flex-grow: 1.4
+  .services-grid__item-img
+    filter: blur(3px)
+  .services-grid__item-info
+    opacity: 1
+  .services-grid__item-title
+    opacity: 1
+    transform: translateY(0)
+    // transition: calc( v.$transition-main * .5 ) ease-out v.$transition-main
+    transition: transform calc( v.$transition-main * .5 ) ease-out calc( v.$transition-main * .75 ), opacity calc( v.$transition-main * 3 ) ease-out calc( v.$transition-main * .75 )
+  .services-grid__item-text
+    opacity: 1
+    transform: translateY(0)
+    // transition: calc( v.$transition-main * .5 ) ease-out calc( v.$transition-main * 1.25 )
+    transition: transform calc( v.$transition-main * .5 ) ease-out calc( v.$transition-main * .75 ), opacity calc( v.$transition-main * 3 ) ease-out calc( v.$transition-main * .75 )
+  .services-grid__item-btn
+    opacity: 1
+    transform: translateY(0)
+    // transition: calc( v.$transition-main * .5 ) ease-out calc( v.$transition-main * 1.5 )
+    transition: transform calc( v.$transition-main * .5 ) ease-out calc( v.$transition-main * .75 ), opacity calc( v.$transition-main * 3 ) ease-out calc( v.$transition-main * .75 ), background-color v.$transition-main
+
+// .services-grid__item .services-grid__item-btn:hover
+//   opacity: 0.75
+//   transition: opacity v.$transition-main  
+.services-grid__item-btn:hover
+  background-color: v.$white
+  svg .arr-svg
+    fill: v.$grey-primary
+    stroke: v.$grey-primary
+
+
+// VAR TWO
+.services-grid-2
+  --grid-item-m-inline: 1.5rem
+  display: flex
+  flex-wrap: wrap
+  margin-inline: calc( var(--grid-item-m-inline) * (-1) )
+  &__item
+    position: relative
+    flex: 1
+    margin-inline: var(--grid-item-m-inline)
+    margin-top: var(--grid-item-m-inline)
+    margin-bottom: var(--grid-item-m-inline)
+
+    width: calc( 100% / 3 - var(--grid-item-m-inline) * 2)
+    height: 30.1rem 
+    border-radius: 1rem
+    overflow: hidden
+    transition: v.$transition-main
+
+
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25)
+    &-title
+      font-size: 24px
+      font-weight: 400
+      color: v.$white
+      opacity: 0
+      transform: translateY(1rem)
+      h3
+        color: inherit
+      
+    &-text
+      margin-bottom: 1.5em
+      font-size: 17px
+      font-weight: 400
+      color: v.$white
+      opacity: 0
+      transform: translateY(1rem)
+    &-btn
+      display: inline-block
+      flex: none
+      padding: $btn-padding-y $btn-padding-x
+      text-align: center
+      font-family: $btn-ff
+      font-size: $btn-fz
+      line-height: 1
+      white-space: nowrap
+      color: v.$white
+      border-radius: .5rem
+      border: solid 1px v.$white
+      opacity: 0
+      transform: translateY(1rem)
+
+  &__item-img
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 5
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      object-position: center
+
+  &__item-info
+    position: absolute
+    padding: calc( var(--grid-item-m-inline) * 2 )
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: flex-end
+
+    width: 100%
+    height: 100%
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 10
+    opacity: 0
+    transition: v.$transition-main
+    background: rgba(5, 5, 5, 0.92)
+
+
+@media (hover:hover) and (pointer: fine)
+.services-grid-2__item:hover
+  flex-grow: 1.4
+  .services-grid-2__item-img
+    filter: blur(3px)
+  .services-grid-2__item-info
+    opacity: 1
+  .services-grid-2__item-title
+    opacity: 1
+    transform: translateY(0)
+    transition: calc( v.$transition-main * 1.5 ) ease calc( v.$transition-main * .75 )
+  .services-grid-2__item-text
+    opacity: 1
+    transform: translateY(0)
+    transition: calc( v.$transition-main * 1.5 ) ease calc( v.$transition-main * 1 )
+  .services-grid-2__item-btn
+    opacity: 1
+    transform: translateY(0)
+    transition: transform calc( v.$transition-main * 1.5 ) ease calc( v.$transition-main * 1.25 ), opacity calc( v.$transition-main * 1.5 ) ease calc( v.$transition-main * 1.25 ), background-color v.$transition-main ease 0s, color v.$transition-main ease 0s
+
+.services-grid-2__item-btn:hover
+  background-color: v.$white
+  color: v.$grey-primary
+    
+
+
+// VAR THREE
+.services-grid-3
+  --grid-item-m-inline: 1.5rem
+  display: flex
+  flex-wrap: wrap
+  margin-inline: calc( var(--grid-item-m-inline) * (-1) )
+  &__item
+    position: relative
+    flex: 1
+    margin-inline: var(--grid-item-m-inline)
+    margin-top: var(--grid-item-m-inline)
+    margin-bottom: var(--grid-item-m-inline)
+
+    width: calc( 100% / 3 - var(--grid-item-m-inline) * 2)
+    height: 30.1rem 
+    border-radius: 1rem
+    overflow: hidden
+    transition: v.$transition-main
+
+
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25)
+    &-title
+      font-size: 24px
+      font-weight: 400
+      color: v.$white
+      opacity: 0
+      transform: translateX(5rem)
+      h3
+        color: inherit
+      
+    &-text
+      margin-bottom: 1.5em
+      font-size: 17px
+      font-weight: 400
+      color: v.$white
+      opacity: 0
+      transform: translateX(5rem)
+    &-btn
+      display: inline-flex
+      flex: none
+      padding: calc($btn-padding-y / 2) calc($btn-padding-y / 2)
+      justify-content: center
+      align-items: center
+      font-family: $btn-ff
+      font-size: $btn-fz
+      line-height: 1
+      white-space: nowrap
+      color: v.$white
+      border: solid 1px v.$white
+      
+      border-radius: .5rem
+      border-radius: 50%
+      opacity: 0
+      transform: translateX(5rem)
+
+
+      position: relative
+      height: calc( 16px + $btn-padding-y )
+      min-width: calc( 16px + $btn-padding-y )
+      &>span
+        display: inline-block
+        
+
+
+        overflow: hidden
+
+        max-width: 0
+        
+      svg
+        position: absolute
+        right: 10px
+        width: 8px
+        height: 16px
+        // fill: v.$grey-primary
+        // stroke: v.$grey-primary
+        .arr-svg
+          fill: v.$white
+          stroke: v.$white
+          transition: v.$transition-main
+
+  &__item-img
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 5
+    transform: scale(1.15)
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      object-position: center
+
+  &__item-info
+    position: absolute
+    padding: calc( var(--grid-item-m-inline) * 2 )
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: flex-end
+
+    width: 100%
+    height: 100%
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 10
+    opacity: 0
+    transition: v.$transition-main
+    background: rgba(5, 5, 5, 0.75)
+
+
+@media (hover:hover) and (pointer: fine)
+.services-grid-3__item:hover
+  flex-grow: 1.4
+  // box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .55)
+  box-shadow: 0 0px 2px 0 rgba(0, 0, 0, .35)
+  // transform: translateY(-5px)
+  .services-grid-3__item-img
+    filter: blur(3px)
+    transform: scale(1)
+    transition: filter calc( v.$transition-main * .15 ) ease-out, transform calc( v.$transition-main * 1 ) ease-out
+  .services-grid-3__item-info
+    opacity: 1
+    transition: opacity calc( v.$transition-main * 1 ) ease-out calc( v.$transition-main * .5 )
+  .services-grid-3__item-title
+    opacity: 1
+    transform: translateX(0)
+    transition: transform calc( v.$transition-main * .75 ) cubic-bezier(.4,1.09,.81,1.3) calc( v.$transition-main * 1 ), opacity calc( v.$transition-main * 2 ) ease-out calc( v.$transition-main * 1 )
+
+  .services-grid-3__item-text
+    opacity: 1
+    transform: translateX(0)
+    transition: transform calc( v.$transition-main * .75 ) cubic-bezier(.4,1.09,.81,1.3) calc( v.$transition-main * 1.1 ), opacity calc( v.$transition-main * 2 ) ease-out calc( v.$transition-main * 1 )
+
+  .services-grid-3__item-btn
+    opacity: 1
+    transform: translateX(0)
+    transition: transform calc( v.$transition-main * .75 ) cubic-bezier(.4,1.09,.81,1.3) calc( v.$transition-main * 1.2 ), opacity calc( v.$transition-main * 2 ) ease-out calc( v.$transition-main * 1 ), border-radius .2s
+
+.services-grid-3__item-btn:hover
+  border-radius: .5rem
+  &>span
+    margin-right: 15px
+    max-width: 120px
+    transition: max-width calc( v.$transition-main * 1 ) cubic-bezier(.4,1.09,.81,1.3) .1s
+    // transition: max-width calc( v.$transition-main * 1 ) ease-in .2s
+
+// Sevice-dynamic
+.service-dynamic
+  .service-columns 
+    margin-bottom: 5rem
+    columns: auto 2
+    column-gap: calc( v.$gutter * 2 )
+  .service-thumb
+    position: relative
+    margin-bottom: 5rem
+    width: 100%
+    border-radius: 1rem
+    overflow: hidden
+    &::after
+      content: ''
+      display: block
+      width: 100%
+      height: 0
+      padding-bottom: 67.5%
+      background-color: #af4040
+    img
+      // display: none
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: 5
+      width: 100%
+      height: 100%
+      object-fit: cover
+      object-position: center
+
+  table 
+    padding: 2rem
+    width: 100%
+    font-size: 17px
+    font-weight: 300
+    // line-height: 2.4rem
+
+  // tr:first-child 
+  //   color: #ffffff
+  //   background: v.$grey-primary
+
+
+  tr 
+    display: flex
+    justify-content: space-between
+    align-items: center
+    // border: solid 1px #DEDEDE
+    // border-radius: 5px
+  
+  thead
+    // background: lighten(v.$grey-primary, 20%)
+    // color: v.$white
+
+    background: darken(v.$white-dark-1, 15%)
+    color: v.$grey-primary
+    th
+      font-weight: 400
+
+  tbody
+    tr:nth-child(2n) 
+      background: lighten(v.$white-dark-1, 5%)
+  
+    tr:nth-child(2n + 1) 
+      background: v.$white-dark-1
+
+
+
+  th, td 
+    padding: 1.4rem 2rem
+    text-align: left
+    border: none
+    vertical-align: center
+
+  td:last-child 
+    flex: none
+    width: 20rem
+    text-align: right
+
+@media (hover:hover) and (pointer:fine)
+  .service-dynamic
+    tbody
+      tr:nth-child(2n),
+      tr:nth-child(2n + 1)
+        &:hover
+          background: darken(v.$white-dark-1, 8%)
+          color: #000
+
+
+  // YELLOW
+.service-dynamic
+  table.table_yellow 
+    padding: 2rem
+    width: 100%
+    font-size: 17px
+    font-weight: 300
+    // line-height: 2.4rem
+
+  // tr:first-child 
+  //   color: #ffffff
+  //   background: v.$grey-primary
+
+
+  tr 
+    display: flex
+    justify-content: space-between
+    align-items: center
+    border-bottom: solid 1px v.$white
+    // border: solid 1px #DEDEDE
+    // border-radius: 5px
+  
+  thead.table_yellow
+    background: lighten(v.$highlight, 5%)
+    color: v.$grey-primary
+    th
+      font-weight: 300
+
+  tbody.table_yellow
+    tr:nth-child(2n + 1) 
+      background: lighten(v.$highlight, 15%)
+  
+    tr:nth-child(2n) 
+      background: lighten(v.$highlight, 20%)
+
+
+
+  th, td 
+    padding: 1.4rem 2rem
+    text-align: left
+    border: none
+    vertical-align: center
+
+  td:last-child 
+    flex: none
+    width: 20rem
+    text-align: right
+
+@media (hover:hover) and (pointer:fine)
+  .service-dynamic
+    tbody.table_yellow
+      tr:nth-child(2n),
+      tr:nth-child(2n + 1)
+        &:hover
+          background: darken(v.$white-dark-1, 10%)
+          color: #000
+
+
+
+
+
+
+  
+
+
+
 
 
 

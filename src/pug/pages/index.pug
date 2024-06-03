@@ -181,48 +181,7 @@ block main
 
 
 
-
-    section.section.section_bg-grey.advantages
-      .container 
-        .section-title.advantages__title
-          h2 
-            |Мы выполняем свою работу с 
-            span.text-accent любовью
-
-        .advantages__box 
-          .advantages__box-img
-            //- img(src="img/adv.png", alt="")
-            img(src="img/adv-line.png", alt="")
-
-          .advantages__item
-            .advantages__item-content
-              .advantages__item-title.mark-before 
-                h3 Удобно и профессионально
-              .advantages__item-descr 
-                p У нас есть собственная дизайн-студия в Москве. В нашем дизайн бюро работают эксперты по корпоративному и товарному брендингу, за плечами которых множество успешных проектов. Каждый наш проект не только привлекателен внешне, но и, в первую очередь, — эффективен.
-
-          .advantages__item
-            .advantages__item-content
-              .advantages__item-title.mark-before 
-                h3 Эффективно
-              .advantages__item-descr 
-                p Наша цель — это решение стратегических задач по привлечению внимания к бренду. Мы создаём бренды с хорошим настроением, что становится основанием для создания устойчивой и длительной связи с потребителями.Эффективно
-
-          .advantages__item
-            .advantages__item-content
-              .advantages__item-title.mark-before 
-                h3 Всё-в-одном
-              .advantages__item-descr 
-                p Наша команда обеспечивает комплексный подход к реализации маркетинговых задач. Мы ведём проекты от разработки идеи бренда и создания коммуникативной стратегии — до практической реализации и создания дизайн-макетов.
-
-          .advantages__item
-            .advantages__item-content
-              .advantages__item-title.mark-before 
-                h3 Наши кейсы
-              .advantages__item-descr 
-                p Яркими иллюстрациями профессионализма и креативности нашей команды служат успешные работы, с которыми Вы можете ознакомиться, скачав нашу презентацию ниже или перейдя в раздел «Портфолио».
-
-
+    include ../_includes/_advantages-section.pug
 
 
     section.section.clients
@@ -304,51 +263,7 @@ block main
 
 
 
-
-    section.section.proposal
-      .container 
-        .section-title.proposal__title.text-center
-          h2 
-            |Получите 
-            span.text-accent коммерческое предложение
-
-        .proposal-form__action.text-center 
-          .proposal-form__action-title Введите ваши данные и кратко опишите задачу. Мы подготовим коммерческое предложение и свяжемся с вами для дальнейшего обсуждения.
-
-        .proposal-form-wrap 
-          form.form.proposal-form
-            .proposal-form__inner
-
-
-              .proposal-form__part.proposal-form__part-fields
-                .form-group.form-group_float-label 
-                  input#firstName.form-control.proposal-form__control(type="text", name="firstName", required)
-                  label.form-label.proposal__form-label(for="firstName") Ваше имя
-
-                .form-group.form-group_float-label
-                  input#phone.form-control.proposal-form__control(type="tel", name="phone", required, data-mask)
-                  label.form-label.proposal__form-label(for="phone") Ваш телефон
-
-                .form-group.form-group_float-label
-                  input#email.form-control.proposal-form__control(type="email", name="email")
-                  label.form-label.proposal__form-label(for="email") E-mail
-
-
-
-
-              .proposal-form__part.proposal-form__submit-wrap
-                .form-group.form-group_float-label 
-                  textarea#msg.form-control-message.proposal__form-control-message(name="msg", cols="30", rows="4")
-                  label.form-label.proposal__form-label(for="msg") Комментарий 
-
-                .form-checkbox-wrap.form-personal-data.proposal__checkbox-wrap
-                  input#checkbox1.form-checkbox(type="checkbox", name="checkbox1", value="true")
-                  label.form-label-checkbox(for="checkbox1") Я даю согласие на обработку моих персональных данных
-
-                .form-fgoup.submit-btn-align-right-xs
-                  //- button.form-submit.btn.btn_circle.proposal-form__submit(type="button") Отправить
-                  button.form-submit.btn.btn_secondary.btn_rounded.proposal-form__submit(type="button") Отправить
-
+    include ../_includes/_proposal-section.pug
 
 
 

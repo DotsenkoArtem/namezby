@@ -139,8 +139,6 @@
 
 
 
-
-
   /* Proposal section */
   .proposal
     &-form__inner
@@ -164,6 +162,22 @@
       &-none
         &_lg
           display: none
+
+
+
+
+// SERVICES - PAGE
+.services-grid,
+.services-grid-2,
+.services-grid-3
+  &__item
+    height: 26.3rem
+
+
+
+
+
+
 
 
 
@@ -319,7 +333,30 @@
     &-top__col
       margin-bottom: calc( v.$section-py / 2 )
       width: 50%
-        
+
+
+
+
+
+  // SERVICES - PAGE
+  .services-grid-wrap
+    margin-inline: calc( var(--grid-item-m-inline) * (-1) )
+    display: flex
+  .services-grid,
+  .services-grid-2,
+  .services-grid-3
+    margin-inline: var(--grid-item-m-inline)
+    flex-direction: column
+    width: 50%
+    flex: 1
+
+    &__item
+      flex: none
+      margin-inline: unset
+      width: 100%
+      height: 27rem 
+
+         
         
 
 
@@ -413,6 +450,8 @@
         font-size: 20px
     &__item-descr
       font-size: 14px
+      p
+        font-size: 14px
 
 
 
@@ -451,6 +490,30 @@
         
     .form-personal-data .form-label-checkbox
       display: inline
+
+
+
+
+
+
+
+
+  // SERVICES - PAGE
+  .services-grid,
+  .services-grid-2,
+  .services-grid-3
+    --grid-item-m-inline: .75rem
+    &__item
+      height: 23.5rem  
+      &-title
+        h3
+          font-size: 20px
+      &-text
+        font-size: 15px
+      &-btn
+        font-size: 14px
+
+
 
 
 
@@ -780,6 +843,27 @@
 
 
 
+
+  // SERVICES - PAGE
+  .services-grid-wrap
+    margin-inline: unset
+    display: block
+  .services-grid,
+  .services-grid-2,
+  .services-grid-3
+    flex-direction: column
+    --grid-item-m-inline: 1rem
+    margin-inline: unset
+    width: 100%
+    &__item
+      height: 40rem  
+    
+
+
+
+
+
+
   /* Modal form */
   .order-modal
     &__title
@@ -874,6 +958,20 @@
   .js-footer-collapse span
     max-width: none
 
+
+
+
+  // SERVICES - PAGE
+  .services-grid,
+  .services-grid-2,
+  .services-grid-3
+
+    &__item
+      margin-inline: auto
+      max-width: 320px
+      height: calc( 275 * $index ) 
+      max-height: 275px
+
  
     
 
@@ -920,6 +1018,8 @@
         font-size: calc(20 * $index) 
     &__item-descr
       font-size: calc(14 * $index) 
+      p
+        font-size: calc(14 * $index) 
 
 
   /* Proposal section */
@@ -941,6 +1041,24 @@
       font-size: calc( 20 * $index )
     &__copy 
       font-size: calc( 15 * $index )
+
+
+
+
+  // SERVICES - PAGE
+  .services-grid,
+  .services-grid-2,
+  .services-grid-3
+    &__item
+      &-title
+        h3
+          font-size: calc( 20 * $index )
+      &-text
+        font-size: calc( 15 * $index )
+      &-btn
+        font-size: calc( 14 * $index )
+
+
 
   /* Modal form */
   .order-modal

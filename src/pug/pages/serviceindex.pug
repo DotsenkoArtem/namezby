@@ -1,0 +1,56 @@
+extends ../_templates/_serviceindex.pug
+
+block page-vars
+  -
+    let page = pages.serviceindex;
+
+
+
+
+
+block main 
+  main.main
+
+
+    section.section.services-entry 
+      .container 
+        .section-title.services__title
+          h1 ВСЕ Наши
+            span.text-accent услуги
+
+      .container 
+
+
+        //- .services-grid
+
+
+          .services-grid__item 
+            .services-grid__item-img
+              img(src="img/service-item-1.jpg", alt="")
+            a(href="#").services-grid__item-info
+              .services-grid__item-title Название услуги
+              .services-grid__item-text Краткое описание услуни
+              .services-grid__item-btn Кнопка
+        
+          .services-grid__item 
+            .services-grid__item-img
+              img(src="img/service-item-1.jpg", alt="")
+            a(href="#").services-grid__item-info
+              .services-grid__item-title Название услуги
+              .services-grid__item-text Краткое описание услуни
+              .services-grid__item-btn Кнопка
+        
+          .services-grid__item 
+            .services-grid__item-img
+              img(src="img/service-item-1.jpg", alt="")
+            a(href="#").services-grid__item-info
+              .services-grid__item-title Название услуги
+              .services-grid__item-text Краткое описание услуни
+              .services-grid__item-btn Кнопка
+    
+
+  
+    include ../_includes/_advantages-section.pug
+
+
+    include ../_includes/_proposal-section.pug
