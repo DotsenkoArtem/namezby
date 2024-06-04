@@ -345,7 +345,7 @@ $menu-item-lv1-max-width: 36rem
   display: flex
   align-items: center
   flex-wrap: wrap
-  font-size: 1.6rem
+  font-size: 16px
   &-wrapper__top
     padding-top: calc( 2rem + (var(--header-inner-py) * 2) + (var(--header-logo-py) * 2) + var(--header-logo-height) )
   // &-wrapper__bottom
@@ -1283,7 +1283,7 @@ $menu-item-lv1-max-width: 36rem
       border: solid 1px v.$white
       
       border-radius: .5rem
-      border-radius: 50%
+      // border-radius: 50%
       opacity: 0
       transform: translateX(5rem)
 
@@ -1293,20 +1293,15 @@ $menu-item-lv1-max-width: 36rem
       min-width: calc( 16px + $btn-padding-y )
       &>span
         display: inline-block
-        
-
-
         overflow: hidden
-
-        max-width: 0
+        margin-right: 15px
+        max-width: 120px
         
       svg
         position: absolute
         right: 10px
         width: 8px
         height: 16px
-        // fill: v.$grey-primary
-        // stroke: v.$grey-primary
         .arr-svg
           fill: v.$white
           stroke: v.$white
@@ -1349,6 +1344,23 @@ $menu-item-lv1-max-width: 36rem
 
 
 @media (hover:hover) and (pointer: fine)
+  .services-grid-3
+    &__item
+      &-btn
+        border-radius: 50%
+        &>span
+          max-width: 0
+
+  .services-grid-3__item-btn:hover
+    border-radius: .5rem
+    &>span
+      margin-right: 15px
+      max-width: 120px
+      transition: max-width calc( v.$transition-main * 1 ) cubic-bezier(.4,1.09,.81,1.3) .1s
+      // transition: max-width calc( v.$transition-main * 1 ) ease-in .2s
+
+
+
 .services-grid-3__item:hover
   flex-grow: 1.4
   // box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .55)
@@ -1376,13 +1388,7 @@ $menu-item-lv1-max-width: 36rem
     transform: translateX(0)
     transition: transform calc( v.$transition-main * .75 ) cubic-bezier(.4,1.09,.81,1.3) calc( v.$transition-main * 1.2 ), opacity calc( v.$transition-main * 2 ) ease-out calc( v.$transition-main * 1 ), border-radius .2s
 
-.services-grid-3__item-btn:hover
-  border-radius: .5rem
-  &>span
-    margin-right: 15px
-    max-width: 120px
-    transition: max-width calc( v.$transition-main * 1 ) cubic-bezier(.4,1.09,.81,1.3) .1s
-    // transition: max-width calc( v.$transition-main * 1 ) ease-in .2s
+
 
 // Sevice-dynamic
 .service-dynamic
@@ -1420,7 +1426,7 @@ $menu-item-lv1-max-width: 36rem
     padding: 2rem
     width: 100%
     font-size: 17px
-    font-weight: 300
+    font-weight: 400
     // line-height: 2.4rem
 
   // tr:first-child 
@@ -1445,6 +1451,7 @@ $menu-item-lv1-max-width: 36rem
       font-weight: 400
 
   tbody
+    color: lighten(v.$grey-primary, 8%)
     tr:nth-child(2n) 
       background: lighten(v.$white-dark-1, 5%)
   
@@ -1457,7 +1464,7 @@ $menu-item-lv1-max-width: 36rem
     padding: 1.4rem 2rem
     text-align: left
     border: none
-    vertical-align: center
+    vertical-align: middle
 
   td:last-child 
     flex: none
@@ -1480,7 +1487,7 @@ $menu-item-lv1-max-width: 36rem
     padding: 2rem
     width: 100%
     font-size: 17px
-    font-weight: 300
+    font-weight: 400
     // line-height: 2.4rem
 
   // tr:first-child 
@@ -1499,10 +1506,12 @@ $menu-item-lv1-max-width: 36rem
   thead.table_yellow
     background: lighten(v.$highlight, 5%)
     color: v.$grey-primary
+    
     th
-      font-weight: 300
+      font-weight: 400
 
   tbody.table_yellow
+    color: lighten(v.$grey-primary, 8%)
     tr:nth-child(2n + 1) 
       background: lighten(v.$highlight, 15%)
   
@@ -1515,12 +1524,19 @@ $menu-item-lv1-max-width: 36rem
     padding: 1.4rem 2rem
     text-align: left
     border: none
-    vertical-align: center
+    vertical-align: middle
 
   td:last-child 
     flex: none
     width: 20rem
     text-align: right
+
+.table_rounded
+  thead
+    display: block
+  thead, tr
+    border-radius: 5px
+    overflow: hidden
 
 @media (hover:hover) and (pointer:fine)
   .service-dynamic
@@ -1528,7 +1544,7 @@ $menu-item-lv1-max-width: 36rem
       tr:nth-child(2n),
       tr:nth-child(2n + 1)
         &:hover
-          background: darken(v.$white-dark-1, 10%)
+          background: darken(v.$white-dark-1, 3%)
           color: #000
 
 

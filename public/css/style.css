@@ -2126,7 +2126,7 @@ textarea::-moz-placeholder {
   align-items: center;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  font-size: 1.6rem;
+  font-size: 16px;
 }
 .breadcrumbs-wrapper__top {
   padding-top: calc(2rem + var(--header-inner-py) * 2 + var(--header-logo-py) * 2 + var(--header-logo-height));
@@ -3409,7 +3409,6 @@ textarea::-moz-placeholder {
   color: #fbfbfb;
   border: solid 1px #fbfbfb;
   border-radius: 0.5rem;
-  border-radius: 50%;
   opacity: 0;
   -webkit-transform: translateX(5rem);
   -ms-transform: translateX(5rem);
@@ -3421,7 +3420,8 @@ textarea::-moz-placeholder {
 .services-grid-3__item-btn > span {
   display: inline-block;
   overflow: hidden;
-  max-width: 0;
+  margin-right: 15px;
+  max-width: 120px;
 }
 .services-grid-3__item-btn svg {
   position: absolute;
@@ -3485,6 +3485,23 @@ textarea::-moz-placeholder {
   background: rgba(5, 5, 5, 0.75);
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .services-grid-3__item-btn {
+    border-radius: 50%;
+  }
+  .services-grid-3__item-btn > span {
+    max-width: 0;
+  }
+  .services-grid-3__item-btn:hover {
+    border-radius: 0.5rem;
+  }
+  .services-grid-3__item-btn:hover > span {
+    margin-right: 15px;
+    max-width: 120px;
+    -webkit-transition: max-width 0.3s cubic-bezier(0.4, 1.09, 0.81, 1.3) 0.1s;
+    transition: max-width 0.3s cubic-bezier(0.4, 1.09, 0.81, 1.3) 0.1s;
+  }
+}
 .services-grid-3__item:hover {
   -webkit-box-flex: 1.4;
   -ms-flex-positive: 1.4;
@@ -3539,16 +3556,6 @@ textarea::-moz-placeholder {
   transition: transform 0.225s cubic-bezier(0.4, 1.09, 0.81, 1.3) 0.36s, opacity 0.6s ease-out 0.3s, border-radius 0.2s, -webkit-transform 0.225s cubic-bezier(0.4, 1.09, 0.81, 1.3) 0.36s;
 }
 
-.services-grid-3__item-btn:hover {
-  border-radius: 0.5rem;
-}
-.services-grid-3__item-btn:hover > span {
-  margin-right: 15px;
-  max-width: 120px;
-  -webkit-transition: max-width 0.3s cubic-bezier(0.4, 1.09, 0.81, 1.3) 0.1s;
-  transition: max-width 0.3s cubic-bezier(0.4, 1.09, 0.81, 1.3) 0.1s;
-}
-
 .service-dynamic .service-columns {
   margin-bottom: 5rem;
   -webkit-columns: auto 2;
@@ -3591,7 +3598,7 @@ textarea::-moz-placeholder {
   padding: 2rem;
   width: 100%;
   font-size: 17px;
-  font-weight: 300;
+  font-weight: 400;
 }
 .service-dynamic tr {
   display: -webkit-box;
@@ -3611,6 +3618,9 @@ textarea::-moz-placeholder {
 .service-dynamic thead th {
   font-weight: 400;
 }
+.service-dynamic tbody {
+  color: #233043;
+}
 .service-dynamic tbody tr:nth-child(2n) {
   background: #f8f8f8;
 }
@@ -3621,7 +3631,7 @@ textarea::-moz-placeholder {
   padding: 1.4rem 2rem;
   text-align: left;
   border: none;
-  vertical-align: center;
+  vertical-align: middle;
 }
 .service-dynamic td:last-child {
   -webkit-box-flex: 0;
@@ -3642,7 +3652,7 @@ textarea::-moz-placeholder {
   padding: 2rem;
   width: 100%;
   font-size: 17px;
-  font-weight: 300;
+  font-weight: 400;
 }
 .service-dynamic tr {
   display: -webkit-box;
@@ -3661,7 +3671,10 @@ textarea::-moz-placeholder {
   color: #151d28;
 }
 .service-dynamic thead.table_yellow th {
-  font-weight: 300;
+  font-weight: 400;
+}
+.service-dynamic tbody.table_yellow {
+  color: #233043;
 }
 .service-dynamic tbody.table_yellow tr:nth-child(2n+1) {
   background: #fee8c0;
@@ -3673,7 +3686,7 @@ textarea::-moz-placeholder {
   padding: 1.4rem 2rem;
   text-align: left;
   border: none;
-  vertical-align: center;
+  vertical-align: middle;
 }
 .service-dynamic td:last-child {
   -webkit-box-flex: 0;
@@ -3683,10 +3696,18 @@ textarea::-moz-placeholder {
   text-align: right;
 }
 
+.table_rounded thead {
+  display: block;
+}
+.table_rounded thead, .table_rounded tr {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .service-dynamic tbody.table_yellow tr:nth-child(2n):hover,
   .service-dynamic tbody.table_yellow tr:nth-child(2n+1):hover {
-    background: #d2d2d2;
+    background: #e3e3e3;
     color: #000;
   }
 }
@@ -4082,6 +4103,11 @@ textarea::-moz-placeholder {
     width: 100%;
     height: 27rem;
   }
+  .service-dynamic .service-columns {
+    -webkit-columns: unset;
+    -moz-columns: unset;
+    columns: unset;
+  }
   .d-block_md {
     display: block;
   }
@@ -4150,19 +4176,19 @@ textarea::-moz-placeholder {
   }
   .advantages__item {
     padding: 2.5rem 2.5rem 2.5rem 0;
+    max-height: none;
   }
   .advantages__item-content {
     max-width: none;
   }
   .advantages__item-title h3 {
     margin-bottom: 0.75em;
-    font-size: 20px;
   }
   .advantages__item-descr {
-    font-size: 14px;
+    font-size: 15px;
   }
   .advantages__item-descr p {
-    font-size: 14px;
+    font-size: 15px;
   }
   /* Proposal section */
   .proposal__title h2 {
@@ -4255,6 +4281,9 @@ textarea::-moz-placeholder {
   .btn_circle {
     padding: 1.5em;
     font-size: 18px;
+  }
+  .breadcrumbs {
+    font-size: 14px;
   }
   .menu-item.lv2 > a {
     font-size: 16px;
@@ -4466,6 +4495,9 @@ textarea::-moz-placeholder {
     font-size: 18px;
   }
   /* Proposal section */
+  .proposal-form__action-title {
+    font-size: 17px;
+  }
   .proposal-form-wrap {
     padding-bottom: unset;
   }
@@ -4570,6 +4602,13 @@ textarea::-moz-placeholder {
   .services-grid-3__item {
     height: 40rem;
   }
+  .service-dynamic .service-columns p {
+    font-size: 17px;
+  }
+  .service-dynamic table,
+  .service-dynamic table.table_yellow {
+    font-size: 14px;
+  }
   /* Modal form */
   .order-modal__title {
     font-size: 18px;
@@ -4612,6 +4651,9 @@ textarea::-moz-placeholder {
     height: 41.0628019324vw;
     font-size: 16px;
   }
+  .breadcrumbs {
+    font-size: 3.3816425121vw;
+  }
   .menu-item.lv2 > a {
     font-size: 3.3816425121vw;
   }
@@ -4626,6 +4668,10 @@ textarea::-moz-placeholder {
   }
   .advantages__item-title h3 {
     margin-bottom: 0.5em;
+    font-size: 5.7971014493vw;
+  }
+  .advantages__item-descr p {
+    font-size: 4.1062801932vw;
   }
   /* Clients section */
   .clients-slider-wrapper {
@@ -4636,7 +4682,7 @@ textarea::-moz-placeholder {
     font-size: 4.1062801932vw;
   }
   .proposal-form__action-title {
-    font-size: 4.347826087vw;
+    font-size: 4.1062801932vw;
   }
   /* Footer section */
   .footer-menu-item {
@@ -4659,6 +4705,71 @@ textarea::-moz-placeholder {
     height: 66.4251207729vw;
     max-height: 275px;
   }
+  .services-grid__item-title h3,
+  .services-grid-2__item-title h3,
+  .services-grid-3__item-title h3 {
+    font-size: 4.8309178744vw;
+  }
+  .services-grid__item-text,
+  .services-grid-2__item-text,
+  .services-grid-3__item-text {
+    font-size: 3.6231884058vw;
+  }
+  .services-grid__item-btn,
+  .services-grid-2__item-btn,
+  .services-grid-3__item-btn {
+    font-size: 3.3816425121vw;
+  }
+  .service-dynamic .service-columns p {
+    font-size: 4.1062801932vw;
+  }
+  .service-dynamic table,
+  .service-dynamic table.table_yellow {
+    font-size: 3.3816425121vw;
+  }
+  .service-dynamic table td,
+  .service-dynamic table.table_yellow td {
+    padding: 1rem 1.2rem;
+  }
+  .service-dynamic table td:last-child,
+  .service-dynamic table.table_yellow td:last-child {
+    width: 15rem;
+  }
+  .service-dynamic table.table_col-xxs tr,
+  .service-dynamic table.table_yellow.table_col-xxs tr {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+  .service-dynamic table.table_col-xxs thead,
+  .service-dynamic table.table_yellow.table_col-xxs thead {
+    background: #fee8c0;
+  }
+  .service-dynamic table.table_col-xxs thead th,
+  .service-dynamic table.table_yellow.table_col-xxs thead th {
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .service-dynamic table.table_col-xxs thead th:last-child,
+  .service-dynamic table.table_yellow.table_col-xxs thead th:last-child {
+    background: #fef1da;
+  }
+  .service-dynamic table.table_col-xxs tbody tr:nth-child(2n),
+  .service-dynamic table.table_col-xxs tbody tr:nth-child(2n+1),
+  .service-dynamic table.table_yellow.table_col-xxs tbody tr:nth-child(2n),
+  .service-dynamic table.table_yellow.table_col-xxs tbody tr:nth-child(2n+1) {
+    background: #fee8c0;
+  }
+  .service-dynamic table.table_col-xxs tbody td:last-child,
+  .service-dynamic table.table_yellow.table_col-xxs tbody td:last-child {
+    width: 100%;
+    text-align: left;
+    background: #fef1da;
+  }
   .d-block_xxs {
     display: block;
   }
@@ -4676,6 +4787,12 @@ textarea::-moz-placeholder {
   h2 {
     font-size: 7.7777777778vw;
   }
+  h3 {
+    font-size: 6.6666666667vw;
+  }
+  .breadcrumbs {
+    font-size: 3.8888888889vw;
+  }
   .menu-item.lv2 > a {
     font-size: 3.3333333333vw;
   }
@@ -4686,20 +4803,20 @@ textarea::-moz-placeholder {
     width: 16rem;
   }
   .advantages__item-title h3 {
-    font-size: 5.5555555556vw;
+    font-size: 6.6666666667vw;
   }
   .advantages__item-descr {
-    font-size: 3.8888888889vw;
+    font-size: 4.7222222222vw;
   }
   .advantages__item-descr p {
-    font-size: 3.8888888889vw;
+    font-size: 4.7222222222vw;
   }
   /* Proposal section */
   .proposal-form__action {
     font-size: 4.7222222222vw;
   }
   .proposal-form__action-title {
-    font-size: 5vw;
+    font-size: 4.7222222222vw;
   }
   .form-personal-data,
   .modal-form .form-checkbox-wrap {
@@ -4728,6 +4845,13 @@ textarea::-moz-placeholder {
   .services-grid__item-btn,
   .services-grid-2__item-btn,
   .services-grid-3__item-btn {
+    font-size: 3.8888888889vw;
+  }
+  .service-dynamic .service-columns p {
+    font-size: 4.7222222222vw;
+  }
+  .service-dynamic table,
+  .service-dynamic table.table_yellow {
     font-size: 3.8888888889vw;
   }
   /* Modal form */

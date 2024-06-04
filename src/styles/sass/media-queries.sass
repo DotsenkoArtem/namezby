@@ -356,6 +356,12 @@
       width: 100%
       height: 27rem 
 
+
+  // Sevice-dynamic
+  .service-dynamic
+    .service-columns 
+      columns: unset
+
          
         
 
@@ -442,16 +448,17 @@
       display: none
     &__item
       padding: 2.5rem 2.5rem 2.5rem 0
+      max-height: none
       &-content
         max-width: none
     &__item-title
       h3
         margin-bottom: 0.75em
-        font-size: 20px
+        // font-size: 20px
     &__item-descr
-      font-size: 14px
+      font-size: 15px
       p
-        font-size: 14px
+        font-size: 15px
 
 
 
@@ -561,6 +568,10 @@
   @import "../../components/buttons/component-xs"
   // @import "../../components/form/component-xs"
   // @import "../../components/modal/component-xs"
+
+  .breadcrumbs
+    font-size: 14px
+
   .menu-item.lv2 > a 
     font-size: 16px
 
@@ -767,6 +778,8 @@
 
   /* Proposal section */
   .proposal
+    &-form__action-title
+      font-size: 17px
     &-form-wrap
       padding-bottom: unset
     &-form__submit-wrap
@@ -857,6 +870,17 @@
     width: 100%
     &__item
       height: 40rem  
+
+
+  // Sevice-dynamic
+  .service-dynamic
+    .service-columns 
+      p
+        font-size: 17px
+    
+    table,
+    table.table_yellow 
+      font-size: 14px
     
 
 
@@ -910,6 +934,10 @@
   // @import "../../components/form/component-xxs"
   // @import "../../components/modal/component-xxs"
 
+  // Breadcrumbs
+  .breadcrumbs
+    font-size: calc( 14 * $index )
+
   .menu-item.lv2 > a 
     font-size: calc( 14 * $index )
 
@@ -925,6 +953,10 @@
     &__item-title
       h3
         margin-bottom: 0.5em
+        font-size: calc(24 * $index) 
+    &__item-descr p
+      font-size: calc(17 * $index)
+
 
   
   /* Clients section */
@@ -940,7 +972,7 @@
     &-form__action 
       font-size: calc( 17 * $index )
       &-title
-        font-size: calc( 18 * $index )
+        font-size: calc( 17 * $index )
 
 
 
@@ -965,12 +997,56 @@
   .services-grid,
   .services-grid-2,
   .services-grid-3
-
     &__item
       margin-inline: auto
       max-width: 320px
       height: calc( 275 * $index ) 
       max-height: 275px
+    &__item-title h3
+      font-size: calc( 20 * $index ) 
+    &__item-text
+      font-size: calc( 15 * $index ) 
+    &__item-btn 
+      font-size: calc( 14 * $index ) 
+
+
+  // Sevice-dynamic
+  .service-dynamic
+    .service-columns 
+      p
+        font-size: calc( 17 * $index ) 
+    
+    table,
+    table.table_yellow 
+      font-size: calc( 14 * $index ) 
+      td
+        padding: 1rem 1.2rem
+      td:last-child 
+        width: 15rem
+
+      &.table_col-xxs
+        tr
+          flex-direction: column
+          align-items: stretch
+        thead
+          // background: lighten(v.$highlight, 5%)
+          background: lighten(v.$highlight, 15%)
+          th
+            font-weight: 500
+            text-transform: uppercase
+          th:last-child
+
+            // background: lighten(v.$highlight, 10%)
+            background: lighten(v.$highlight, 20%)
+          
+        tbody tr:nth-child(2n),
+        tbody tr:nth-child(2n+1)
+          background: lighten(v.$highlight, 15%)
+        tbody td:last-child
+          width: 100%
+          text-align: left
+          background: lighten(v.$highlight, 20%)
+
 
  
     
@@ -1000,6 +1076,14 @@
     font-size: calc($index * 28)
   h2
     font-size: calc($index * 28)
+  h3
+    font-size: calc($index * 24)
+
+  
+  
+  // Breadcrumbs
+  .breadcrumbs
+    font-size: calc( 14 * $index )
 
   .menu-item.lv2 > a 
     font-size: calc( 12 * $index )
@@ -1015,11 +1099,11 @@
       width: 16rem
     &__item-title
       h3
-        font-size: calc(20 * $index) 
+        font-size: calc(24 * $index) 
     &__item-descr
-      font-size: calc(14 * $index) 
+      font-size: calc(17 * $index) 
       p
-        font-size: calc(14 * $index) 
+        font-size: calc(17 * $index) 
 
 
   /* Proposal section */
@@ -1027,7 +1111,7 @@
     &-form__action 
       font-size: calc( 17 * $index )
       &-title
-        font-size: calc( 18 * $index )
+        font-size: calc( 17 * $index )
 
   .form-personal-data,
   .modal-form .form-checkbox-wrap
@@ -1058,6 +1142,15 @@
       &-btn
         font-size: calc( 14 * $index )
 
+  // Sevice-dynamic
+  .service-dynamic
+    .service-columns 
+      p
+        font-size: calc( 17 * $index ) 
+    
+    table,
+    table.table_yellow 
+      font-size: calc( 14 * $index ) 
 
 
   /* Modal form */
