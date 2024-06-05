@@ -8,7 +8,7 @@ window.addEventListener("load", function () {
 
   // INPUT MASK
   var selector = document.querySelectorAll('[type="tel"]');
-  var im = new Inputmask("+7 (\\999) 999-99-99");
+  var im = new Inputmask("+375 (99) 999-99-99");
   im.mask(selector);
   // - - - - - - - - - - - - - - - - - - -
 });
