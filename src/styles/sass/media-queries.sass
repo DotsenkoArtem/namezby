@@ -630,7 +630,7 @@
       position: absolute
       top: 1em
       width: .5em
-      height: 3px
+      height: 2px
       background: v.$grey-primary
       transition: transform v.$transition-main, background-color v.$transition-main
     .menu-item-has-children.lv1>a:before 
@@ -878,8 +878,7 @@
       p
         font-size: 17px
     
-    table,
-    table.table_yellow 
+    .table
       font-size: 14px
     
 
@@ -1016,27 +1015,25 @@
       p
         font-size: calc( 17 * $index ) 
     
-    table,
-    table.table_yellow 
+    .table
       font-size: calc( 14 * $index ) 
-      td
+      td,
+      th
         padding: 1rem 1.2rem
       td:last-child 
         width: 15rem
 
-      &.table_col-xxs
+      &.table_col-mobile
         tr
           flex-direction: column
           align-items: stretch
         thead
-          // background: lighten(v.$highlight, 5%)
           background: lighten(v.$highlight, 15%)
           th
+            font-size: calc( 13 * $index ) 
             font-weight: 500
             text-transform: uppercase
           th:last-child
-
-            // background: lighten(v.$highlight, 10%)
             background: lighten(v.$highlight, 20%)
           
         tbody tr:nth-child(2n),

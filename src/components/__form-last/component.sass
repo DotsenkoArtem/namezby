@@ -129,6 +129,8 @@ textarea::-moz-placeholder
     // Focus
     &:focus + .form-label-checkbox::before 
       box-shadow: inset 0 0 0 0 $checkbox-active-border-color, 0 0 0 0.08em $checkbox-focus-shadow-color
+    &:focus:not(:checked) + .form-label-checkbox::before 
+      box-shadow: inset 0 0 0 0 $checkbox-active-border-color, 0 0 0 0.08em transparentize($checkbox-border-color, .75)
 
     // Checked
     &:checked + .form-label-checkbox::before 

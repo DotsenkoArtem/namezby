@@ -15,13 +15,13 @@ $col-p-x: 1.2rem
 // /- ADDITIONAL STYLES
   
 // $primary-color: v.$primary-color
-$primary-color: #0066ff
+$primary-color: v.$yellow-end
 
 $input-placeholder-color: v.$grey-primary
 $not-txt-label-color: #4b4b4b
 
 $input-border-color: v.$grey-primary
-$input-focus-border-color: #0066ff
+$input-focus-border-color: v.$yellow-end
 $backdrop-bgc: rgba(0, 0, 0, .75)
 
 $error-color: #cc0000
@@ -60,24 +60,30 @@ $radio-transition: 0.2s
 // CHECKBOX
 // Checkbox colors
 $checkbox-border-color: rgb(173, 181, 189)
-$checkbox-checked-border-color: #0066ff
+// $checkbox-checked-border-color: #0066ff
+$checkbox-checked-border-color: v.$yellow-end
+
 $checkbox-hover-border-color: lighten($checkbox-checked-border-color, 15%)
 $checkbox-active-border-color: $checkbox-checked-border-color
-$checkbox-focus-shadow-color: rgba(0, 123, 255, 0.35)
-$checkbox-bg: rgba(196, 196, 196, 0.25)
+$checkbox-focus-shadow-color: transparentize(v.$yellow-end, .75)
+$checkbox-bg: rgba(196, 196, 196, 0.25)  
+
 // checkbox sizes
 $checkbox-offset-rigth: .5em
 $checkbox-width: 1em
+
 // checkbox transition
 $checkbox-transition: 0.2s
+
 // label
 $label-paddding-left: $checkbox-width + $checkbox-offset-rigth
+
 // arrow
 $arrow-width: $checkbox-width * .4
 $arrow-height: $checkbox-width * .6
 $arrow-left-offset: calc(($checkbox-width - $arrow-width) / 2)
 $arrow-translate-y: calc($checkbox-width / (-9))
-$arrow-color: #0066ff
+$arrow-color: v.$yellow-end
 // - - - - - - - - - - - - - - - - - -
 
   
@@ -116,17 +122,23 @@ textarea::-moz-placeholder
       .form-control,
       .form-control-message
         &.has-value + .form-label
-          transform: translateY(-1.2em) scale(.75) 
+          transform: translateY(-1.2em) scale(.75)
+
+ 
 
       .form-control,
       .form-control-message
         &:hover + .form-label
-          transform: translateY(-1.2em) scale(.75)      
+          transform: translateY(-1.2em) scale(.75)
+      
 
       .form-control,
       .form-control-message
         &:focus + .form-label
           transform: translateY(-1.2em) scale(.75)
+          color: $primary-color
+          opacity: 1
+
 
           
 
@@ -277,6 +289,8 @@ textarea::-moz-placeholder
     // Focus
     &:focus + .form-label-checkbox::before 
       box-shadow: inset 0 0 0 0 $checkbox-active-border-color, 0 0 0 0.08em $checkbox-focus-shadow-color
+    &:focus:not(:checked) + .form-label-checkbox::before 
+      box-shadow: inset 0 0 0 0 $checkbox-active-border-color, 0 0 0 0.08em transparentize($checkbox-border-color, .75)
 
     // Checked
     &:checked + .form-label-checkbox::before 

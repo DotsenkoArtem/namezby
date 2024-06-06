@@ -953,8 +953,6 @@ select::-ms-expand {
   background-image: linear-gradient(180deg, #fdcc75 0%, #fe672e 98%);
   background-size: 100% 200%;
   background-position-y: 100%;
-  -webkit-box-shadow: 0px 4px 24px 0px rgba(254, 103, 46, 0.5);
-  box-shadow: 0px 4px 24px 0px rgba(254, 103, 46, 0.5);
 }
 .btn_rounded {
   border-radius: 0.5em;
@@ -1241,6 +1239,8 @@ textarea::-moz-placeholder {
   -webkit-transform: translateY(-1.2em) scale(0.75);
   -ms-transform: translateY(-1.2em) scale(0.75);
   transform: translateY(-1.2em) scale(0.75);
+  color: #fe672e;
+  opacity: 1;
 }
 .form-control, .form-control-message {
   padding: 2.6rem 2rem 1rem;
@@ -1253,9 +1253,9 @@ textarea::-moz-placeholder {
   border-radius: 0.5rem;
 }
 .form-control:focus, .form-control-message:focus {
-  border: 1px solid #0066ff;
-  -webkit-box-shadow: 0 0 0 1px #80b3ff;
-  box-shadow: 0 0 0 1px #80b3ff;
+  border: 1px solid #fe672e;
+  -webkit-box-shadow: 0 0 0 1px #ffc3ad;
+  box-shadow: 0 0 0 1px #ffc3ad;
 }
 .form-control {
   height: 8rem;
@@ -1335,24 +1335,28 @@ textarea::-moz-placeholder {
   opacity: 0;
 }
 .form-checkbox:not(:disabled):not(:checked) + .form-label-checkbox:not(:active):hover::before {
-  border-color: #4d94ff;
+  border-color: #fe9e7a;
 }
 .form-checkbox:not(:disabled):checked + .form-label-checkbox:not(:active):hover::before {
-  border-color: #4d94ff;
+  border-color: #fe9e7a;
 }
 .form-checkbox:not(:disabled):checked + .form-label-checkbox:not(:active):hover::after {
-  border-color: #4d94ff;
+  border-color: #fe9e7a;
 }
 .form-checkbox:not(:disabled) + .form-label-checkbox:active::before {
-  -webkit-box-shadow: inset 0 0 0 0.5em #0066ff;
-  box-shadow: inset 0 0 0 0.5em #0066ff;
+  -webkit-box-shadow: inset 0 0 0 0.5em #fe672e;
+  box-shadow: inset 0 0 0 0.5em #fe672e;
 }
 .form-checkbox:focus + .form-label-checkbox::before {
-  -webkit-box-shadow: inset 0 0 0 0 #0066ff, 0 0 0 0.08em rgba(0, 123, 255, 0.35);
-  box-shadow: inset 0 0 0 0 #0066ff, 0 0 0 0.08em rgba(0, 123, 255, 0.35);
+  -webkit-box-shadow: inset 0 0 0 0 #fe672e, 0 0 0 0.08em rgba(254, 103, 46, 0.25);
+  box-shadow: inset 0 0 0 0 #fe672e, 0 0 0 0.08em rgba(254, 103, 46, 0.25);
+}
+.form-checkbox:focus:not(:checked) + .form-label-checkbox::before {
+  -webkit-box-shadow: inset 0 0 0 0 #fe672e, 0 0 0 0.08em rgba(173, 181, 189, 0.25);
+  box-shadow: inset 0 0 0 0 #fe672e, 0 0 0 0.08em rgba(173, 181, 189, 0.25);
 }
 .form-checkbox:checked + .form-label-checkbox::before {
-  border-color: #0066ff;
+  border-color: #fe672e;
 }
 .form-checkbox:checked + .form-label-checkbox::after {
   display: inline-block;
@@ -1474,8 +1478,8 @@ textarea::-moz-placeholder {
   top: 0.2em;
   left: 0.3em;
   z-index: 2;
-  border-right: solid 2px #0066ff;
-  border-bottom: solid 2px #0066ff;
+  border-right: solid 2px #fe672e;
+  border-bottom: solid 2px #fe672e;
   -webkit-transform: translateY(-0.1111111111em) rotate(45deg) skew(10deg, 10deg);
   -ms-transform: translateY(-0.1111111111em) rotate(45deg) skew(10deg, 10deg);
   transform: translateY(-0.1111111111em) rotate(45deg) skew(10deg, 10deg);
@@ -2077,7 +2081,7 @@ textarea::-moz-placeholder {
   display: block;
   padding: 1rem 0;
   font-size: 37px;
-  font-weight: 500;
+  font-weight: 400;
   color: #151d28;
 }
 .menu-item.current-menu-item > a {
@@ -2234,18 +2238,22 @@ textarea::-moz-placeholder {
 }
 .entry-slider {
   --swiper-navigation-size: 4.4rem;
-  --swiper-navigation-color: #c90678;
+  --swiper-navigation-color: #f7f7f7;
   width: 100%;
   height: 100%;
 }
 .entry-slider .swiper-button-prev,
 .entry-slider .swiper-button-next {
+  width: calc(var(--swiper-navigation-size) * 1.1);
+  height: calc(var(--swiper-navigation-size) * 1.1);
+  background: rgba(189, 189, 189, 0.3);
+  border-radius: 50%;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 .entry-slider .swiper-button-prev::after,
 .entry-slider .swiper-button-next::after {
-  font-size: calc(var(--swiper-navigation-size) * 0.75);
+  font-size: calc(var(--swiper-navigation-size) * 0.5);
   color: var(--swiper-navigation-color);
 }
 .entry-slider .swiper-button-prev {
@@ -2281,19 +2289,16 @@ textarea::-moz-placeholder {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .swiper-button-prev:hover::after,
-  .swiper-button-next:hover::after {
-    color: var(--swiper-navigation-color);
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    background: rgba(164, 164, 164, 0.45);
   }
 }
 .swiper-button-prev:active,
 .swiper-button-next:active {
   -webkit-transition: none;
   transition: none;
-}
-.swiper-button-prev:active::after,
-.swiper-button-next:active::after {
-  color: var(--swiper-navigation-color);
+  background: rgba(164, 164, 164, 0.45);
 }
 
 /* Services section */
@@ -2558,18 +2563,22 @@ textarea::-moz-placeholder {
 }
 .clients-slider-wrapper {
   --swiper-navigation-size: 4.4rem;
-  --swiper-navigation-color: #c90678;
+  --swiper-navigation-color: #7f7f7f;
   position: relative;
   height: 16rem;
 }
 .clients-slider-wrapper .swiper-button-prev,
 .clients-slider-wrapper .swiper-button-next {
+  width: calc(var(--swiper-navigation-size) * 1);
+  height: calc(var(--swiper-navigation-size) * 1);
+  background: rgba(189, 189, 189, 0.3);
+  border-radius: 50%;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 .clients-slider-wrapper .swiper-button-prev::after,
 .clients-slider-wrapper .swiper-button-next::after {
-  font-size: calc(var(--swiper-navigation-size) * 0.75);
+  font-size: calc(var(--swiper-navigation-size) * 0.4);
 }
 .clients-slider-wrapper .swiper-button-prev {
   left: 3rem;
@@ -2601,7 +2610,7 @@ textarea::-moz-placeholder {
 @media (hover: hover) and (pointer: fine) {
   .clients-slider-wrapper .swiper-button-prev:hover::after,
   .clients-slider-wrapper .swiper-button-next:hover::after {
-    color: var(--swiper-navigation-color);
+    color: #666666;
   }
 }
 .clients-slide:hover {
@@ -2612,6 +2621,11 @@ textarea::-moz-placeholder {
 .clients-slide:active {
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
+}
+
+.clients-slider-wrapper .swiper-button-prev:active::after,
+.clients-slider-wrapper .swiper-button-next:active::after {
+  color: #666666;
 }
 
 .clients-slider-wrapper .swiper-button-prev:active,
@@ -3265,67 +3279,16 @@ textarea::-moz-placeholder {
   -o-object-position: center;
   object-position: center;
 }
-.service-dynamic table {
+.service-dynamic .table {
   padding: 2rem;
   width: 100%;
   font-size: 17px;
   font-weight: 400;
 }
-.service-dynamic tr {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-.service-dynamic thead {
-  background: #c5c5c5;
-  color: #151d28;
-}
-.service-dynamic thead th {
+.service-dynamic .table th {
   font-weight: 400;
 }
-.service-dynamic tbody {
-  color: #233043;
-}
-.service-dynamic tbody tr:nth-child(2n) {
-  background: #f8f8f8;
-}
-.service-dynamic tbody tr:nth-child(2n+1) {
-  background: #ebebeb;
-}
-.service-dynamic th, .service-dynamic td {
-  padding: 1.4rem 2rem;
-  text-align: left;
-  border: none;
-  vertical-align: middle;
-}
-.service-dynamic td:last-child {
-  -webkit-box-flex: 0;
-  -ms-flex: none;
-  flex: none;
-  width: 20rem;
-  text-align: right;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .service-dynamic tbody tr:nth-child(2n):hover,
-  .service-dynamic tbody tr:nth-child(2n+1):hover {
-    background: #d7d7d7;
-    color: #000;
-  }
-}
-.service-dynamic table.table_yellow {
-  padding: 2rem;
-  width: 100%;
-  font-size: 17px;
-  font-weight: 400;
-}
-.service-dynamic tr {
+.service-dynamic .table tr {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3337,47 +3300,63 @@ textarea::-moz-placeholder {
   align-items: center;
   border-bottom: solid 1px #fbfbfb;
 }
-.service-dynamic thead.table_yellow {
-  background: #fdd58e;
-  color: #151d28;
-}
-.service-dynamic thead.table_yellow th {
-  font-weight: 400;
-}
-.service-dynamic tbody.table_yellow {
-  color: #233043;
-}
-.service-dynamic tbody.table_yellow tr:nth-child(2n+1) {
-  background: #fee8c0;
-}
-.service-dynamic tbody.table_yellow tr:nth-child(2n) {
-  background: #fef1da;
-}
-.service-dynamic th, .service-dynamic td {
+.service-dynamic .table th,
+.service-dynamic .table td {
   padding: 1.4rem 2rem;
   text-align: left;
   border: none;
   vertical-align: middle;
 }
-.service-dynamic td:last-child {
+.service-dynamic .table td:last-child {
   -webkit-box-flex: 0;
   -ms-flex: none;
   flex: none;
   width: 20rem;
   text-align: right;
 }
-
-.table_rounded thead {
+.service-dynamic .table_rounded thead {
   display: block;
 }
-.table_rounded thead, .table_rounded tr {
+.service-dynamic .table_rounded thead,
+.service-dynamic .table_rounded tr {
   border-radius: 5px;
   overflow: hidden;
 }
+.service-dynamic .table_default-color thead {
+  background: #c5c5c5;
+  color: #151d28;
+}
+.service-dynamic .table_default-color tbody {
+  color: #233043;
+}
+.service-dynamic .table_default-color tbody tr:nth-child(2n) {
+  background: #f8f8f8;
+}
+.service-dynamic .table_default-color tbody tr:nth-child(2n+1) {
+  background: #ebebeb;
+}
+.service-dynamic .table_yellow-color thead {
+  background: #fdd58e;
+  color: #151d28;
+}
+.service-dynamic .table_yellow-color tbody {
+  color: #233043;
+}
+.service-dynamic .table_yellow-color tbody tr:nth-child(2n+1) {
+  background: #fee8c0;
+}
+.service-dynamic .table_yellow-color tbody tr:nth-child(2n) {
+  background: #fef1da;
+}
 
 @media (hover: hover) and (pointer: fine) {
-  .service-dynamic tbody.table_yellow tr:nth-child(2n):hover,
-  .service-dynamic tbody.table_yellow tr:nth-child(2n+1):hover {
+  .service-dynamic .table_default-color tbody tr:nth-child(2n):hover,
+  .service-dynamic .table_default-color tbody tr:nth-child(2n+1):hover {
+    background: #d7d7d7;
+    color: #000;
+  }
+  .service-dynamic .table_yellow-color tbody tr:nth-child(2n):hover,
+  .service-dynamic .table_yellow-color tbody tr:nth-child(2n+1):hover {
     background: #e3e3e3;
     color: #000;
   }
@@ -4016,7 +3995,7 @@ textarea::-moz-placeholder {
     position: absolute;
     top: 1em;
     width: 0.5em;
-    height: 3px;
+    height: 2px;
     background: #151d28;
     -webkit-transition: background-color 0.3s, -webkit-transform 0.3s;
     transition: background-color 0.3s, -webkit-transform 0.3s;
@@ -4276,8 +4255,7 @@ textarea::-moz-placeholder {
   .service-dynamic .service-columns p {
     font-size: 17px;
   }
-  .service-dynamic table,
-  .service-dynamic table.table_yellow {
+  .service-dynamic .table {
     font-size: 14px;
   }
   /* Modal form */
@@ -4394,20 +4372,17 @@ textarea::-moz-placeholder {
   .service-dynamic .service-columns p {
     font-size: 4.1062801932vw;
   }
-  .service-dynamic table,
-  .service-dynamic table.table_yellow {
+  .service-dynamic .table {
     font-size: 3.3816425121vw;
   }
-  .service-dynamic table td,
-  .service-dynamic table.table_yellow td {
+  .service-dynamic .table td,
+  .service-dynamic .table th {
     padding: 1rem 1.2rem;
   }
-  .service-dynamic table td:last-child,
-  .service-dynamic table.table_yellow td:last-child {
+  .service-dynamic .table td:last-child {
     width: 15rem;
   }
-  .service-dynamic table.table_col-xxs tr,
-  .service-dynamic table.table_yellow.table_col-xxs tr {
+  .service-dynamic .table.table_col-mobile tr {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -4416,27 +4391,22 @@ textarea::-moz-placeholder {
     -ms-flex-align: stretch;
     align-items: stretch;
   }
-  .service-dynamic table.table_col-xxs thead,
-  .service-dynamic table.table_yellow.table_col-xxs thead {
+  .service-dynamic .table.table_col-mobile thead {
     background: #fee8c0;
   }
-  .service-dynamic table.table_col-xxs thead th,
-  .service-dynamic table.table_yellow.table_col-xxs thead th {
+  .service-dynamic .table.table_col-mobile thead th {
+    font-size: 3.1400966184vw;
     font-weight: 500;
     text-transform: uppercase;
   }
-  .service-dynamic table.table_col-xxs thead th:last-child,
-  .service-dynamic table.table_yellow.table_col-xxs thead th:last-child {
+  .service-dynamic .table.table_col-mobile thead th:last-child {
     background: #fef1da;
   }
-  .service-dynamic table.table_col-xxs tbody tr:nth-child(2n),
-  .service-dynamic table.table_col-xxs tbody tr:nth-child(2n+1),
-  .service-dynamic table.table_yellow.table_col-xxs tbody tr:nth-child(2n),
-  .service-dynamic table.table_yellow.table_col-xxs tbody tr:nth-child(2n+1) {
+  .service-dynamic .table.table_col-mobile tbody tr:nth-child(2n),
+  .service-dynamic .table.table_col-mobile tbody tr:nth-child(2n+1) {
     background: #fee8c0;
   }
-  .service-dynamic table.table_col-xxs tbody td:last-child,
-  .service-dynamic table.table_yellow.table_col-xxs tbody td:last-child {
+  .service-dynamic .table.table_col-mobile tbody td:last-child {
     width: 100%;
     text-align: left;
     background: #fef1da;
