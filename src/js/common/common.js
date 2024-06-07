@@ -77,7 +77,7 @@ function navBarHandle(menuToggle, menu) {
 
 // Collapses - used in mobile menu
 const menuItemCollapses = document.querySelectorAll(
-  ".menu-mobile-collapse .menu-item-has-children.lv1"
+  ".menu-mobile-collapse > .menu-item-has-children"
 );
 
 if (menuItemCollapses) {
@@ -111,7 +111,7 @@ if (menuItemCollapses) {
     // menuItemCollapseLink.addEventListener('click', (e) => {
     //   e.preventDefault();
     // })
-    let collapseContent = menuItemCollapse.querySelector(".sub-menu.lv2");
+    let collapseContent = menuItemCollapse.querySelector(".menu .sub-menu");
 
     menuItemCollapseLink.addEventListener("click", function () {
       if (!collapseContent.offsetHeight) {

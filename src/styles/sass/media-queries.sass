@@ -92,13 +92,14 @@
   .menu
     &-item > a
       font-size: 30px 
-    &-item.lv1
+    &>.menu-item
       max-width: $menu-item-lv1-max-width
-    &-item.lv2 > a
-      font-size: 16px
+
   
-  .sub-menu.lv2
+  .sub-menu
     left: $menu-item-lv1-max-width
+    .menu-item > a
+      font-size: 16px
 
   .menu-trigger
     width: $menu-trigger-width
@@ -433,10 +434,10 @@
   .menu
     &-item > a
       font-size: 24px
-    &-item.lv1
+    &>.menu-item
       max-width: $menu-item-lv1-max-width
 
-  .sub-menu.lv2
+  .sub-menu
     padding-top: unset
     left: $menu-item-lv1-max-width
 
@@ -572,7 +573,7 @@
   .breadcrumbs
     font-size: 14px
 
-  .menu-item.lv2 > a 
+  .sub-menu > .menu-item > a 
     font-size: 16px
 
   // vars
@@ -608,23 +609,22 @@
 
 
 
-  .menu-item.lv1
+  .menu>.menu-item
     max-width: none
     & > a
       max-width: 10em
   .sub-menu
-    &.lv2
-      position: static
-    &-item > a
+    position: static
+    &>.menu-item > a
       font-size: 16px
 
 
   .menu-mobile-collapse
 
-    .menu-item-has-children.lv1>a
+    &>.menu-item-has-children>a
       position: relative
-    .menu-item-has-children.lv1>a:before,
-    .menu-item-has-children.lv1>a:after
+    &>.menu-item-has-children>a:before,
+    &>.menu-item-has-children>a:after
       content: ""
       display: inline-block
       position: absolute
@@ -633,10 +633,10 @@
       height: 2px
       background: v.$grey-primary
       transition: transform v.$transition-main, background-color v.$transition-main
-    .menu-item-has-children.lv1>a:before 
+    &>.menu-item-has-children>a:before 
       right: -0.1em
       transform: rotate(45deg)
-    .menu-item-has-children.lv1>a:after 
+    &>.menu-item-has-children>a:after 
       right: -.365em
       transform: rotate(-45deg)
 
@@ -645,16 +645,15 @@
       max-height: 0px
       transition: v.$transition-main
       overflow: hidden
-      &.lv2
-        opacity: 1
-        visibility: visible
+      opacity: 1
+      visibility: visible
 
     .menu-item:not(.current-menu-item):active > a:before,
     .menu-item:not(.current-menu-item):active > a:after
       background: v.$yellow-start
 
     // open
-    .menu-item-has-children.lv1.open
+    &>.menu-item.menu-item-has-children.open
       &>a
         color: transparent
         -webkit-background-clip: text
@@ -670,15 +669,16 @@
 
 
   // Hovers
-  .menu
-    &-item:not(.current-menu-item):hover > a
-      color: v.$grey-primary
-      background-clip: unset
-      background-image: none
+  .menu-mobile-collapse
+    .menu
+      &-item:not(.current-menu-item):hover > a
+        color: v.$grey-primary
+        background-clip: unset
+        background-image: none
 
-    &-item-has-children:hover > .sub-menu
-      opacity: 1
-      visibility: visible
+      &-item-has-children:hover > .sub-menu
+        opacity: 1
+        visibility: visible
 
   // Actives
   .menu
@@ -919,7 +919,7 @@
 // ИНДЕКС ДЛЯ ШРИФТОВ ИСПОЛЬЗУЕМ ЗДЕСЬ
 @media (max-width: 413.98px)
   $index: calc(100vw / 414) 
-  body
+  body, p, .dynamic-content p
     font-size: calc(20 * $index)
   .container
     max-width: 100%
@@ -937,7 +937,7 @@
   .breadcrumbs
     font-size: calc( 14 * $index )
 
-  .menu-item.lv2 > a 
+  .sub-menu .menu-item > a 
     font-size: calc( 14 * $index )
 
   .service-item
@@ -979,8 +979,10 @@
 
   /* Footer section */
   .footer
-    &-menu-item
-      font-size: calc( 16 * $index )
+    .menu-item
+      &>a,
+      &>span
+        font-size: calc( 16 * $index )
     &-top__col-title span
       font-size: calc( 20 * $index )
     &__copy 
@@ -1067,7 +1069,8 @@
 
 @media (max-width: 359.99px)
   $index: calc(100vw / 360) 
-
+  body, p, .dynamic-content p
+    font-size: calc(20 * $index)
   
   h1
     font-size: calc($index * 28)
@@ -1082,7 +1085,7 @@
   .breadcrumbs
     font-size: calc( 14 * $index )
 
-  .menu-item.lv2 > a 
+  .sub-menu .menu-item > a 
     font-size: calc( 12 * $index )
 
 
@@ -1116,8 +1119,10 @@
 
   /* Footer section */
   .footer
-    &-menu-item
-      font-size: calc( 16 * $index )
+    .menu-item
+      &>a,
+      &>span
+        font-size: calc( 16 * $index )
     &-top__col-title span
       font-size: calc( 20 * $index )
     &__copy 

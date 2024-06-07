@@ -88,7 +88,7 @@ function navBarHandle(menuToggle, menu) {
 }
 
 // Collapses - used in mobile menu
-var menuItemCollapses = document.querySelectorAll(".menu-mobile-collapse .menu-item-has-children.lv1");
+var menuItemCollapses = document.querySelectorAll(".menu-mobile-collapse > .menu-item-has-children");
 if (menuItemCollapses) {
   var _loop = function _loop() {
     var menuItemCollapse = menuItemCollapses[i];
@@ -114,7 +114,7 @@ if (menuItemCollapses) {
     // menuItemCollapseLink.addEventListener('click', (e) => {
     //   e.preventDefault();
     // })
-    var collapseContent = menuItemCollapse.querySelector(".sub-menu.lv2");
+    var collapseContent = menuItemCollapse.querySelector(".menu .sub-menu");
     menuItemCollapseLink.addEventListener("click", function () {
       if (!collapseContent.offsetHeight) {
         menuItemCollapse.classList.add("open");
