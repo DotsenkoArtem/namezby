@@ -1238,10 +1238,13 @@ $menu-item-lv1-max-width: 36rem
   &__item
     position: relative
     flex: 1
+    max-width: 40%
+
     margin-inline: var(--grid-item-m-inline)
     margin-top: var(--grid-item-m-inline)
     margin-bottom: var(--grid-item-m-inline)
     width: calc( 100% / 3 - var(--grid-item-m-inline) * 2)
+    min-width: 23%
     height: 30.1rem
     border-radius: 1rem
     overflow: hidden
@@ -1336,8 +1339,67 @@ $menu-item-lv1-max-width: 36rem
     transition: v.$transition-main
     background: rgba(5, 5, 5, 0.75)
 
+
+// Services - gallery
+.gallery
+  --grid-item-m-inline: 1.5rem
+  &__item
+    position: relative
+    flex: 1
+    max-width: 40%
+    margin-inline: var(--grid-item-m-inline)
+    margin-top: var(--grid-item-m-inline)
+    margin-bottom: var(--grid-item-m-inline)
+    width: calc( 100% / 3 - var(--grid-item-m-inline) * 2)
+    min-width: 23%
+    height: 30.1rem
+    border-radius: 1rem
+    overflow: hidden
+    transition: v.$transition-main
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25)
+
+  &__item-img
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 5
+    // filter: blur(0px)
+    transform: scale(1)
+    transition: transform calc( v.$transition-main * 1 ) ease-out
+    img
+      display: block
+      width: 100%
+      height: 100%
+      object-fit: cover
+      object-position: center
+    &::after
+      content: ''
+      padding: calc( var(--grid-item-m-inline) * 2 )
+      display: block
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: 10
+      opacity: 0
+      transition: v.$transition-main
+      background: rgba(5, 5, 5, 0.5) url(../img/icons/zoom-out-white-200.svg) center no-repeat
+      background-size: 5.5rem 5.5rem
+
+
+
+
+
 .services-grid__item:hover
   flex-grow: 1.4
+  max-width: 50%
   box-shadow: 0 0px 2px 0 rgba(0, 0, 0, .35)
   .services-grid__item-img
     filter: blur(3px)
@@ -1366,6 +1428,22 @@ $menu-item-lv1-max-width: 36rem
     opacity: 1
     transform: translateX(0)
     transition: transform calc( v.$transition-main * .75 ) cubic-bezier(.4,1.09,.81,1.3) calc( v.$transition-main * 1.2 ), opacity calc( v.$transition-main * 2 ) ease-out calc( v.$transition-main * 1 ), border-radius .2s, border-width 0s 0.01s, width 0s 0.01s, min-width 0s 0.01s, height 0s 0.01s, padding 0s 0.01s
+
+.gallery__item:hover
+  flex-grow: 1.4
+  max-width: 50%
+  box-shadow: 0 0px 2px 0 rgba(0, 0, 0, .35)
+  .gallery__item-img
+    // filter: blur(0px)
+    transform: scale(1.15)
+    // transition: filter calc( v.$transition-main * .15 ) ease-out, transform calc( v.$transition-main * 1 ) ease-out
+    
+  .gallery__item-img::after
+    opacity: 1
+    transition: opacity calc( v.$transition-main * 1 ) ease-out calc( v.$transition-main * .5 )
+
+
+
 
 @media (hover:hover) and (pointer: fine)
   .services-grid
