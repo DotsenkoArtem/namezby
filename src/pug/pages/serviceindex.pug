@@ -11,6 +11,20 @@ block page-vars
 block main 
   main.main
 
+    section.section_pt7-5.dynamic-content 
+      .container 
+        .row.mx-1
+          .px1.col-3.col-5_md.col-12_md
+            p С ее помощью можно защитить бизнес от кризиса, вывести организацию на новый уровень или в новый сегмент рынка.
+
+          .px1.col-9.col-7_md.col-12_md
+            p 
+              strong С ее помощью можно защитить бизнес от кризиса, вывести организацию на новый уровень или в новый сегмент рынка.
+            p Как следствие, создание стратегии позволяет повысить показатели продаж и увеличить долю, занимаемую на рынке вашим бизнесом.
+            p Построение стратегии идет в 
+              strong паре с другим процессом — брендингом. 
+              |Правильный брендинг является отправной точкой для успешной реализации стратегии. Вы можете изучить информацию по брендингу у агентства Neologika, нажав на ссылку ниже.
+
 
     section.section.services-entry 
       .container 
@@ -50,7 +64,10 @@ block main
     
 
   
-    include ../_includes/_advantages-section.pug
+    
+
+      //- .container
+      include ../_includes/_services-gallery-grid.pug
 
 
     include ../_includes/_proposal-section.pug

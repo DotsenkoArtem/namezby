@@ -247,6 +247,7 @@ var forms = Array.from(document.forms);
 forms.forEach(function (form) {
   setRequiredMark(form);
   fixLabel(form);
+  setAlert(form);
 });
 
 // Functions
@@ -267,6 +268,60 @@ function fixLabel(form) {
       this.value ? this.classList.add("has-value") : this.classList.remove("has-value");
     });
   });
+}
+
+// Окно оповешения
+function setAlert(form) {
+  var modalBtn = form.querySelector('button.form-submit');
+  var duration;
+  var modal = document.querySelector("#formAlert");
+  var modalTitle = modal.querySelector('.modal-message__title ');
+  var modalSubtitle = modal.querySelector('.modal-message__subtitle ');
+  var modalClose = modal.querySelector(".modal__close");
+  var result;
+  // result = 'success'
+  result = 'error';
+  var modalData = {
+    title: {
+      success: '<p>Спасибо!</p>',
+      error: '<p>Ошибка!</p>'
+    },
+    subtitle: {
+      success: '<p>Заявка принята <br>В ближайшее время мы с Вами свяжемся!</p>',
+      error: '<p>Пожалуйста, попробуйте еще раз</p>'
+    }
+  };
+  var modalBackdrop = document.createElement("div");
+  modalBackdrop.className = "modal-backdrop";
+  modalBtn.addEventListener("click", openModal);
+  modalBackdrop.addEventListener("click", closeModal);
+  modalClose.addEventListener("click", closeModal);
+
+  // Open-close functions
+  function openModal() {
+    // Если в дата-атрибуте значение указано равным 0, то продолжительность анимации 0.
+    modalBtn.dataset.duration === "0" ? duration = 0 :
+    // В остальных случаях, если указано целочисленное значение, то берем его, если нет, то 350 по умолчанию.
+    duration = +modalBtn.dataset.duration || 350; // В
+    modal.style.transition = "".concat(duration, "ms ease-out");
+    modal.classList.add("modal-message_".concat(result));
+    modalTitle.innerHTML = modalData.title[result];
+    modalSubtitle.innerHTML = modalData.subtitle[result];
+    modal.style.display = "flex";
+    // Таймаут для того, чтобы отрабатывала анимация
+    setTimeout(function () {
+      modal.classList.add("shown");
+    }, 0);
+    modal.append(modalBackdrop);
+  }
+  function closeModal() {
+    modal.classList.remove("shown");
+    setTimeout(function () {
+      modal.style = "";
+      modal.classList.remove("modal-message_".concat(result));
+      modalBackdrop.remove();
+    }, duration);
+  }
 }
 window.addEventListener("load", setPreloader);
 

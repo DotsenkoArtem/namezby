@@ -19,6 +19,11 @@
   overflow: hidden
   position: relative
 
+.px1
+  padding-inline: v.$gutter
+.mx-1
+  margin-inline: calc( v.$gutter * (-1)  )
+
 .section-title
   h2
     margin-bottom: 6rem
@@ -38,6 +43,8 @@
   &_py-0
     padding-top: 0
     padding-bottom: 0
+  &_pt7-5
+    padding-top: 7.5rem
   &_bg-grey
     background-color: #edeeef
 
@@ -878,13 +885,17 @@ $menu-item-lv1-max-width: 36rem
 .proposal
   background-image: linear-gradient(102deg, rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%)
 
+  form.wpcf7-form
+    max-height: 60rem
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
   &-form__inner
     max-height: 60rem
     display: flex
     flex-wrap: wrap
     justify-content: space-between
-    // flex-direction: column
-    // flex-wrap: wrap
   &-form__part
     width: calc( 50% - .5rem )
     flex: none
@@ -906,8 +917,8 @@ $menu-item-lv1-max-width: 36rem
     // padding-top: 1.5rem
     // max-width: 36rem
     // font-size: 15px
-    p
-      max-width: 28rem
+    // p
+    //   max-width: 28rem
     &-title
       margin-bottom: 3rem
       // font-size: 24px
@@ -1368,7 +1379,7 @@ $menu-item-lv1-max-width: 36rem
     left: 0
     z-index: 5
     // filter: blur(0px)
-    transform: scale(1)
+    transform: scale(1.15)
     transition: transform calc( v.$transition-main * 1 ) ease-out
     img
       display: block
@@ -1435,7 +1446,7 @@ $menu-item-lv1-max-width: 36rem
   box-shadow: 0 0px 2px 0 rgba(0, 0, 0, .35)
   .gallery__item-img
     // filter: blur(0px)
-    transform: scale(1.15)
+    transform: scale(1)
     // transition: filter calc( v.$transition-main * .15 ) ease-out, transform calc( v.$transition-main * 1 ) ease-out
     
   .gallery__item-img::after
@@ -1646,6 +1657,68 @@ $menu-item-lv1-max-width: 36rem
     height: auto
   .form-label
     top: 1.5em
+
+
+/* Modal-message */
+$modal-close-color: v.$yellow-end
+.modal-message
+  &__close
+    top: 1rem
+    right: 1rem
+  &__close::after,
+  &__close::before
+    height: 2px
+    background-color: $modal-close-color
+  &__inner
+    padding: 5rem 3rem
+    min-height: 20rem
+    justify-content: center
+  &__content
+    padding-right: unset
+    align-items: center
+  &__icon
+    margin-bottom: 2rem
+    display: none
+  &__title
+    p
+      margin-bottom: 0.75em
+      font-size: 24px
+  &__subtitle
+    text-align: center
+
+.modal-message_error
+  .modal-message__icon
+    display: none
+
+.modal-message_success
+  .modal-message__icon
+    display: block
+    path
+      fill: v.$yellow-end
+
+
+
+
+
+@media (hover:hover) and (pointer:fine)
+  .modal-message
+    &__close:hover
+      transform: scale(.95)
+    &__close:hover::after,
+    &__close:hover::before
+      background-color: lighten($modal-close-color, 10%)
+ 
+
+
+.modal-message
+  &__close:active
+    transform: scale(.95)
+  &__close:active::after,
+  &__close:active::before
+    background-color: lighten($modal-close-color, 10%)
+    
+
+
 
 // Lazy 
 // -------------------------

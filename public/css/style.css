@@ -172,6 +172,9 @@ h3 {
   line-height: 1.2;
 }
 
+.dynamic-content {
+  font-size: 20px;
+}
 .dynamic-content h2 {
   margin-bottom: 1em;
 }
@@ -1753,6 +1756,14 @@ textarea::-moz-placeholder {
   position: relative;
 }
 
+.px1 {
+  padding-inline: 15px;
+}
+
+.mx-1 {
+  margin-inline: -15px;
+}
+
 .section-title h2 {
   margin-bottom: 6rem;
 }
@@ -1763,6 +1774,9 @@ textarea::-moz-placeholder {
 .section_py-0 {
   padding-top: 0;
   padding-bottom: 0;
+}
+.section_pt7-5 {
+  padding-top: 7.5rem;
 }
 .section_bg-grey {
   background-color: #edeeef;
@@ -2877,6 +2891,17 @@ textarea::-moz-placeholder {
 .proposal {
   background-image: linear-gradient(102deg, rgb(255, 255, 255) 0%, rgb(224, 224, 224) 100%);
 }
+.proposal form.wpcf7-form {
+  max-height: 60rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
 .proposal-form__inner {
   max-height: 60rem;
   display: -webkit-box;
@@ -2909,9 +2934,6 @@ textarea::-moz-placeholder {
 }
 .proposal-form__action {
   margin-bottom: 3rem;
-}
-.proposal-form__action p {
-  max-width: 28rem;
 }
 .proposal-form__action-title {
   margin-bottom: 3rem;
@@ -3212,9 +3234,9 @@ textarea::-moz-placeholder {
   bottom: 0;
   left: 0;
   z-index: 5;
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
+  -webkit-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  transform: scale(1.15);
   -webkit-transition: -webkit-transform 0.3s ease-out;
   transition: -webkit-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
@@ -3317,9 +3339,9 @@ textarea::-moz-placeholder {
   box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.35);
 }
 .gallery__item:hover .gallery__item-img {
-  -webkit-transform: scale(1.15);
-  -ms-transform: scale(1.15);
-  transform: scale(1.15);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 .gallery__item:hover .gallery__item-img::after {
   opacity: 1;
@@ -3531,6 +3553,70 @@ textarea::-moz-placeholder {
 }
 .modal-form .form-label {
   top: 1.5em;
+}
+
+/* Modal-message */
+.modal-message__close {
+  top: 1rem;
+  right: 1rem;
+}
+.modal-message__close::after, .modal-message__close::before {
+  height: 2px;
+  background-color: #fe672e;
+}
+.modal-message__inner {
+  padding: 5rem 3rem;
+  min-height: 20rem;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.modal-message__content {
+  padding-right: unset;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.modal-message__icon {
+  margin-bottom: 2rem;
+  display: none;
+}
+.modal-message__title p {
+  margin-bottom: 0.75em;
+  font-size: 24px;
+}
+.modal-message__subtitle {
+  text-align: center;
+}
+
+.modal-message_error .modal-message__icon {
+  display: none;
+}
+
+.modal-message_success .modal-message__icon {
+  display: block;
+}
+.modal-message_success .modal-message__icon path {
+  fill: #fe672e;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .modal-message__close:hover {
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+  .modal-message__close:hover::after, .modal-message__close:hover::before {
+    background-color: #fe8c61;
+  }
+}
+.modal-message__close:active {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+.modal-message__close:active::after, .modal-message__close:active::before {
+  background-color: #fe8c61;
 }
 
 .fake-class-to-add-import-rule {
@@ -4008,6 +4094,12 @@ textarea::-moz-placeholder {
   .container_sm {
     max-width: 100%;
   }
+  .dynamic-content {
+    font-size: 17px;
+  }
+  .dynamic-content p {
+    font-size: 17px;
+  }
   .clients-slider {
     max-width: 410px;
   }
@@ -4369,8 +4461,11 @@ textarea::-moz-placeholder {
 /* XS - 480 */
 /* XXS */
 @media (max-width: 413.98px) {
-  body, p, .dynamic-content p {
-    font-size: 4.8309178744vw;
+  body,
+  p,
+  .dynamic-content,
+  .dynamic-content p {
+    font-size: 4.1062801932vw;
   }
   .container {
     max-width: 100%;
@@ -4506,8 +4601,11 @@ textarea::-moz-placeholder {
   }
 }
 @media (max-width: 359.99px) {
-  body, p, .dynamic-content p {
-    font-size: 5.5555555556vw;
+  body,
+  p,
+  .dynamic-content,
+  .dynamic-content p {
+    font-size: 4.7222222222vw;
   }
   h1 {
     font-size: 7.7777777778vw;

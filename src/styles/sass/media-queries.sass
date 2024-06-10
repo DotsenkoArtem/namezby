@@ -564,6 +564,12 @@
     &_sm
       max-width: 100%
 
+  // Dynamic-content-settings
+  .dynamic-content
+    font-size: 17px
+    p
+      font-size: 17px
+
 
   .clients-slider
     max-width: 410px
@@ -932,8 +938,11 @@
 // ИНДЕКС ДЛЯ ШРИФТОВ ИСПОЛЬЗУЕМ ЗДЕСЬ
 @media (max-width: 413.98px)
   $index: calc(100vw / 414) 
-  body, p, .dynamic-content p
-    font-size: calc(20 * $index)
+  body,
+  p,
+  .dynamic-content,
+  .dynamic-content p
+    font-size: calc(17 * $index)
   .container
     max-width: 100%
 
@@ -1085,8 +1094,11 @@
 
 @media (max-width: 359.99px)
   $index: calc(100vw / 360) 
-  body, p, .dynamic-content p
-    font-size: calc(20 * $index)
+  body,
+  p,
+  .dynamic-content,
+  .dynamic-content p
+    font-size: calc(17 * $index)
   
   h1
     font-size: calc($index * 28)
