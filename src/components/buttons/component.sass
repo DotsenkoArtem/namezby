@@ -28,8 +28,16 @@ $btn-second-color: v.$white
 
 // $btn-second-bg-active: $btn-second-bg
 
+// .btn_pink
+$btn-pink-bg: linear-gradient(180deg, v.$pink-btn-start 0%, v.$pink-btn-end 98%)
+
+// .btn_grey
+$btn-grey-bg: #737373
+$btn-grey-color: v.$white
+
 // .btn_rounded
 $btn-radius: .5em
+$btn-radius-3: .5em
 
 
 
@@ -55,11 +63,23 @@ $btn-radius: .5em
     background-size: 100% 200%
     background-position-y: 100% 
     // box-shadow: 0px 4px 24px 0px transparentize(v.$yellow-end, .5)
+
+  &_pink
+    color: $btn-second-color
+    background-image: $btn-pink-bg
+    background-size: 100% 100%
+    background-position-y: 100% 
+
+  &_grey
+    color: $btn-grey-color
+    background-color: $btn-grey-bg
   
   // &_fluid
   //   width: 100%
   &_rounded
     border-radius: $btn-radius
+  &_rounded-3
+    border-radius: $btn-radius-3
 
   &_outline
     color: v.$grey-primary
@@ -92,13 +112,17 @@ $btn-radius: .5em
     // background-image: linear-gradient(90deg, #fe672e 0%, #c90678 100%)
     background: linear-gradient(#FBFBFB 0 0) padding-box, linear-gradient(90deg, #fe672e 0%, #c90678 100%) border-box
     border-color: transparent
-  .btn_secondary
+  .btn_secondary,
+  .btn_pink
     &:hover
       // background-color: v.$secondary-color
       // background-image: none
       // color: v.$grey-primary
       // transition: none
-      background-position-y: 30% 
+      background-size: 100% 200%
+      background-position-y: 100% 
+  .btn_grey:hover
+    background-color: darken($btn-grey-bg, 10%)
   .btn_circle:hover
       background: linear-gradient(54deg, #f47213 0%, #f47213 98%)
 
@@ -124,9 +148,11 @@ $btn-radius: .5em
   border-color: transparent
   transition: none
 
-.btn_secondary:active
+.btn_secondary:active,
+.btn_pink:active
   // background-color: v.$secondary-color
-  background-position-y: 30% 
+  background-size: 100% 200%
+  background-position-y: 100% 
   // background-image: none
   // color: v.$grey-primary
   transform: translateY(1px)

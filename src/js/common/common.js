@@ -246,7 +246,8 @@ const forms = Array.from(document.forms);
 forms.forEach((form) => {
   setRequiredMark(form);
   fixLabel(form);
-  setAlert(form);
+  
+  handleForm(form)
 });
 
 // Functions
@@ -262,7 +263,7 @@ function setRequiredMark(form) {
 function fixLabel(form) {
   const groups = form.querySelectorAll(".form-group_float-label ");
   groups.forEach((group) => {
-    let input = group.firstElementChild;
+    let input = group.querySelector('input') || group.querySelector('textarea');
     let label = group.lastElementChild;
     input.addEventListener("blur", function () {
       this.value
@@ -272,11 +273,146 @@ function fixLabel(form) {
   });
 }
 
+function handleForm(form) {
+  let modalBtn = form.querySelector('button.form-submit') || form.querySelector('input[type="submit"]');
+  modalBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    let requiredFields = Array.from(form.querySelectorAll("[required]"));
+    // let requiredFormGroups = requiredFields.map(item => item.closest('.form-group'))
+
+
+
+    
+
+    function formValidate(form, requiredFields) {
+      // const fieldsMessages = {}
+      let invalidFields = [];
+      // Required Fields
+      requiredFields.forEach((requiredField) => {
+        // Label for required fields
+        let requiredFieldLabel = requiredField.parentNode.querySelector("label");
+        requiredFieldLabel.dataset.requiredLabel = "";
+    
+        requiredField.oninput = () => {
+          requiredField.dataset.required = "";
+          requiredFieldLabel.dataset.requiredLabel = "";
+        };
+    
+        // For input[type="text"] - проверка на пустоту
+        if (requiredField.getAttribute("type") === "text") {
+          if (requiredField.value.trim() === "") {
+            // Empty string reset
+            requiredField.value = "";
+            setFiedsAndLabelsState("invalid");
+            invalidFields.push(1);
+          } else {
+            setFiedsAndLabelsState("valid");
+          }
+        }
+    
+        // For input[type="text" data-mask] - проверка на комплекность маски поля
+        if (
+          requiredField.getAttribute("type") === "tel" &&
+          requiredField.hasAttribute("data-mask")
+        ) {
+          if (requiredField.inputmask && !requiredField.inputmask.isComplete()) {
+            setFiedsAndLabelsState("invalid");
+            invalidFields.push(2);
+          } else {
+            setFiedsAndLabelsState("valid");
+          }
+        }
+    
+        // For input[type="email"] - проверка регулярным выражением
+        if (requiredField.getAttribute("type") === "email") {
+          let regExp = /[-.\w]+@([\w-]+\.)+[\w-]+/;
+          if (!regExp.test(requiredField.value.trim())) {
+            setFiedsAndLabelsState("invalid");
+            invalidFields.push(3);
+          } else {
+            setFiedsAndLabelsState("valid");
+          }
+        }
+    
+        function setFiedsAndLabelsState(state) {
+          requiredField.dataset.required = `${state}`;
+          requiredFieldLabel.dataset.requiredLabel = `${state}`;
+        }
+      });
+      return invalidFields.length ? false : true;
+    }
+    let result;
+
+    if (formValidate(form, requiredFields)) {
+      
+      const req = new XMLHttpRequest();
+      const formAction = form.action;
+      req.open("POST", formAction, true);
+    
+      req.onload = function (){
+        if(this.status >= 200 && this.status < 400) {
+          result = 'success'
+        } else {
+          result = 'error'
+        }
+        setAlert(form, result)
+      }
+
+      req.onerror = function (){
+        result = 'error'
+        setAlert(form, result)
+      }
+
+      req.send(new FormData(form));
+
+
+
+
+      
+
+      
+      // submitBtn.setAttribute("disabled", "");
+      // send(url, form, submitBtn, requiredFields, selectedFileInfo);
+
+      // document.addEventListener("click", removeAlertBackdrop);
+      // Удаление .form-alert & .form-alert-backdrop
+
+
+      // function removeAlertBackdrop(e) {
+      //   if (
+      //     e.target === wrapper.querySelector(".form-alert__close") ||
+      //     e.target === wrapper.querySelector(".form-alert-backdrop")
+      //   ) {
+      //     removeAlert(submitBtn);
+      //     // Удалить слушатель событий после первого клика на .form-alert или .form-alert-backdrop
+      //     document.removeEventListener("click", removeAlertBackdrop);
+      //     // Генерация события удления .form-alert & .form-alert-backdrop для последующего использования при автоматическом их удалении по таймауту (то есть, если они не были удалены по клмку на них)
+      //     e.target.dispatchEvent(
+      //       new CustomEvent("alertRemoved", {
+      //         bubbles: true,
+      //       })
+      //     );
+      //   }
+      // }
+    }
+
+
+
+
+    
+
+   
+  })
+
+  
+  // setAlert(form);
+}
 // Окно оповешения
-function setAlert(form) {
-  let modalBtn = form.querySelector('button.form-submit');
+function setAlert(form, result) {
+  let modalBtn = form.querySelector('button.form-submit') || form.querySelector('input[type="submit"]');
 
-
+  
   let duration;
   let modal = document.querySelector(`#formAlert`);
   let modalTitle = modal.querySelector('.modal-message__title ')
@@ -285,9 +421,7 @@ function setAlert(form) {
 
   let modalClose = modal.querySelector(".modal__close");
 
-  let result;
-  // result = 'success'
-  result = 'error'
+
 
   let modalData = {
     title: {
@@ -303,12 +437,13 @@ function setAlert(form) {
   let modalBackdrop = document.createElement("div");
   modalBackdrop.className = "modal-backdrop";
 
-  modalBtn.addEventListener("click", openModal);
+
+  openModal(form);
   modalBackdrop.addEventListener("click", closeModal);
   modalClose.addEventListener("click", closeModal);
 
   // Open-close functions
-  function openModal() {
+  function openModal(form) {
     // Если в дата-атрибуте значение указано равным 0, то продолжительность анимации 0.
     modalBtn.dataset.duration === "0"
       ? (duration = 0)
@@ -336,6 +471,19 @@ function setAlert(form) {
 
   function closeModal() {
     modal.classList.remove("shown");
+    form.reset()
+    form.querySelectorAll('[data-required]').forEach((field) =>{
+      field.dataset.required = ``
+    })
+    form.querySelectorAll('[data-required-label]').forEach((field) =>{
+      field.dataset.requiredLabel = ``
+    })
+    form.querySelectorAll('input').forEach((field) =>{
+      field.classList.remove('has-value')
+    })
+    form.querySelectorAll('textarea').forEach((field) =>{
+      field.classList.remove('has-value')
+    })
     
     setTimeout(() => {
       modal.style = ``;
@@ -345,5 +493,9 @@ function setAlert(form) {
   }
 
 
-
+  setTimeout(() => {
+    
+    closeModal()
+  }, 5000)
 }
+

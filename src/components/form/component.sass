@@ -14,18 +14,20 @@ $col-p-x: 1.2rem
     width: 50%
 // /- ADDITIONAL STYLES
   
-// $primary-color: v.$primary-color
-$primary-color: v.$yellow-end
+
+// $primary-color: v.$yellow-end
+$primary-color: lighten(v.$pink-btn-start, 15%)
 
 $input-placeholder-color: v.$grey-primary
 $not-txt-label-color: #4b4b4b
 
 $input-border-color: v.$grey-primary
-$input-focus-border-color: v.$yellow-end
+// $input-focus-border-color: $primary-color
+$input-focus-border-color: $primary-color
 $backdrop-bgc: rgba(0, 0, 0, .75)
 
-$error-color: #cc0000
-$success-color: #009900
+$error-color: v.$error-color
+$success-color: v.$success-color
 
 $alert-success-desaturate: 60%
 $alert-error-desaturate: 40%
@@ -61,11 +63,13 @@ $radio-transition: 0.2s
 // Checkbox colors
 $checkbox-border-color: rgb(173, 181, 189)
 // $checkbox-checked-border-color: #0066ff
-$checkbox-checked-border-color: v.$yellow-end
+// $checkbox-checked-border-color: v.$yellow-end
+$checkbox-checked-border-color: $primary-color
 
 $checkbox-hover-border-color: lighten($checkbox-checked-border-color, 15%)
 $checkbox-active-border-color: $checkbox-checked-border-color
-$checkbox-focus-shadow-color: transparentize(v.$yellow-end, .75)
+// $checkbox-focus-shadow-color: transparentize(v.$yellow-end, .75)
+$checkbox-focus-shadow-color: transparentize($primary-color, .75)
 $checkbox-bg: rgba(196, 196, 196, 0.25)  
 
 // checkbox sizes
@@ -83,7 +87,8 @@ $arrow-width: $checkbox-width * .4
 $arrow-height: $checkbox-width * .6
 $arrow-left-offset: calc(($checkbox-width - $arrow-width) / 2)
 $arrow-translate-y: calc($checkbox-width / (-9))
-$arrow-color: v.$yellow-end
+// $arrow-color: v.$yellow-end
+$arrow-color: $primary-color
 // - - - - - - - - - - - - - - - - - -
 
   
@@ -138,6 +143,12 @@ textarea::-moz-placeholder
           transform: translateY(-1.2em) scale(.75)
           color: $primary-color
           opacity: 1
+        &:focus + .form-label[data-required-label="valid"]
+          color: $success-color
+        &:focus + .form-label[data-required-label="invalid"]
+          color: $error-color
+        
+
 
 
           
@@ -536,7 +547,7 @@ textarea::-moz-placeholder
         z-index: 99990
 
   // States
-  &-label[data-required-label="valid"]::after
+  &-label[data-required-label="valid"]
     color: $success-color
 
   &-control[data-required="valid"]
@@ -550,7 +561,7 @@ textarea::-moz-placeholder
       color: $success-color
 
 
-  &-label[data-required-label="invalid"]::after
+  &-label[data-required-label="invalid"]
     color: $error-color
 
   &-control[data-required="invalid"]

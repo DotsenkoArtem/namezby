@@ -247,7 +247,7 @@ var forms = Array.from(document.forms);
 forms.forEach(function (form) {
   setRequiredMark(form);
   fixLabel(form);
-  setAlert(form);
+  handleForm(form);
 });
 
 // Functions
@@ -262,25 +262,126 @@ function setRequiredMark(form) {
 function fixLabel(form) {
   var groups = form.querySelectorAll(".form-group_float-label ");
   groups.forEach(function (group) {
-    var input = group.firstElementChild;
+    var input = group.querySelector('input') || group.querySelector('textarea');
     var label = group.lastElementChild;
     input.addEventListener("blur", function () {
       this.value ? this.classList.add("has-value") : this.classList.remove("has-value");
     });
   });
 }
+function handleForm(form) {
+  var modalBtn = form.querySelector('button.form-submit') || form.querySelector('input[type="submit"]');
+  modalBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    var requiredFields = Array.from(form.querySelectorAll("[required]"));
+    // let requiredFormGroups = requiredFields.map(item => item.closest('.form-group'))
 
+    function formValidate(form, requiredFields) {
+      // const fieldsMessages = {}
+      var invalidFields = [];
+      // Required Fields
+      requiredFields.forEach(function (requiredField) {
+        // Label for required fields
+        var requiredFieldLabel = requiredField.parentNode.querySelector("label");
+        requiredFieldLabel.dataset.requiredLabel = "";
+        requiredField.oninput = function () {
+          requiredField.dataset.required = "";
+          requiredFieldLabel.dataset.requiredLabel = "";
+        };
+
+        // For input[type="text"] - проверка на пустоту
+        if (requiredField.getAttribute("type") === "text") {
+          if (requiredField.value.trim() === "") {
+            // Empty string reset
+            requiredField.value = "";
+            setFiedsAndLabelsState("invalid");
+            invalidFields.push(1);
+          } else {
+            setFiedsAndLabelsState("valid");
+          }
+        }
+
+        // For input[type="text" data-mask] - проверка на комплекность маски поля
+        if (requiredField.getAttribute("type") === "tel" && requiredField.hasAttribute("data-mask")) {
+          if (requiredField.inputmask && !requiredField.inputmask.isComplete()) {
+            setFiedsAndLabelsState("invalid");
+            invalidFields.push(2);
+          } else {
+            setFiedsAndLabelsState("valid");
+          }
+        }
+
+        // For input[type="email"] - проверка регулярным выражением
+        if (requiredField.getAttribute("type") === "email") {
+          var regExp = /[-.\w]+@([\w-]+\.)+[\w-]+/;
+          if (!regExp.test(requiredField.value.trim())) {
+            setFiedsAndLabelsState("invalid");
+            invalidFields.push(3);
+          } else {
+            setFiedsAndLabelsState("valid");
+          }
+        }
+        function setFiedsAndLabelsState(state) {
+          requiredField.dataset.required = "".concat(state);
+          requiredFieldLabel.dataset.requiredLabel = "".concat(state);
+        }
+      });
+      return invalidFields.length ? false : true;
+    }
+    var result;
+    if (formValidate(form, requiredFields)) {
+      var req = new XMLHttpRequest();
+      var formAction = form.action;
+      req.open("POST", formAction, true);
+      req.onload = function () {
+        if (this.status >= 200 && this.status < 400) {
+          result = 'success';
+        } else {
+          result = 'error';
+        }
+        setAlert(form, result);
+      };
+      req.onerror = function () {
+        result = 'error';
+        setAlert(form, result);
+      };
+      req.send(new FormData(form));
+
+      // submitBtn.setAttribute("disabled", "");
+      // send(url, form, submitBtn, requiredFields, selectedFileInfo);
+
+      // document.addEventListener("click", removeAlertBackdrop);
+      // Удаление .form-alert & .form-alert-backdrop
+
+      // function removeAlertBackdrop(e) {
+      //   if (
+      //     e.target === wrapper.querySelector(".form-alert__close") ||
+      //     e.target === wrapper.querySelector(".form-alert-backdrop")
+      //   ) {
+      //     removeAlert(submitBtn);
+      //     // Удалить слушатель событий после первого клика на .form-alert или .form-alert-backdrop
+      //     document.removeEventListener("click", removeAlertBackdrop);
+      //     // Генерация события удления .form-alert & .form-alert-backdrop для последующего использования при автоматическом их удалении по таймауту (то есть, если они не были удалены по клмку на них)
+      //     e.target.dispatchEvent(
+      //       new CustomEvent("alertRemoved", {
+      //         bubbles: true,
+      //       })
+      //     );
+      //   }
+      // }
+    }
+  });
+
+  // setAlert(form);
+}
 // Окно оповешения
-function setAlert(form) {
-  var modalBtn = form.querySelector('button.form-submit');
+function setAlert(form, result) {
+  var modalBtn = form.querySelector('button.form-submit') || form.querySelector('input[type="submit"]');
   var duration;
   var modal = document.querySelector("#formAlert");
   var modalTitle = modal.querySelector('.modal-message__title ');
   var modalSubtitle = modal.querySelector('.modal-message__subtitle ');
   var modalClose = modal.querySelector(".modal__close");
-  var result;
-  // result = 'success'
-  result = 'error';
   var modalData = {
     title: {
       success: '<p>Спасибо!</p>',
@@ -293,12 +394,12 @@ function setAlert(form) {
   };
   var modalBackdrop = document.createElement("div");
   modalBackdrop.className = "modal-backdrop";
-  modalBtn.addEventListener("click", openModal);
+  openModal(form);
   modalBackdrop.addEventListener("click", closeModal);
   modalClose.addEventListener("click", closeModal);
 
   // Open-close functions
-  function openModal() {
+  function openModal(form) {
     // Если в дата-атрибуте значение указано равным 0, то продолжительность анимации 0.
     modalBtn.dataset.duration === "0" ? duration = 0 :
     // В остальных случаях, если указано целочисленное значение, то берем его, если нет, то 350 по умолчанию.
@@ -316,12 +417,28 @@ function setAlert(form) {
   }
   function closeModal() {
     modal.classList.remove("shown");
+    form.reset();
+    form.querySelectorAll('[data-required]').forEach(function (field) {
+      field.dataset.required = "";
+    });
+    form.querySelectorAll('[data-required-label]').forEach(function (field) {
+      field.dataset.requiredLabel = "";
+    });
+    form.querySelectorAll('input').forEach(function (field) {
+      field.classList.remove('has-value');
+    });
+    form.querySelectorAll('textarea').forEach(function (field) {
+      field.classList.remove('has-value');
+    });
     setTimeout(function () {
       modal.style = "";
       modal.classList.remove("modal-message_".concat(result));
       modalBackdrop.remove();
     }, duration);
   }
+  setTimeout(function () {
+    closeModal();
+  }, 5000);
 }
 window.addEventListener("load", setPreloader);
 

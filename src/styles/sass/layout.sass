@@ -507,14 +507,20 @@ $menu-item-lv1-max-width: 36rem
 
   &__btn
     margin-bottom: 1rem
+    font-weight: 400
+    color: $btn-grey-color
+    background-color: $btn-grey-bg
 
   &__btn:not(:last-child)
     margin-right: 1rem
 
   &__btn.active
-    color: v.$grey-primary
-    background: linear-gradient(#FBFBFB 0 0) padding-box, linear-gradient(90deg, #fe672e 0%, #c90678 100%) border-box
-    border: 1px solid transparent
+    color: v.$white
+    // background: linear-gradient(#FBFBFB 0 0) padding-box, linear-gradient(90deg, #fe672e 0%, #c90678 100%) border-box
+    background: $btn-grey-bg linear-gradient(0deg, #ce0c6d 0%, #fe692b 100%)
+    background-position: center 50%
+    background-size: 100% 100% 
+    // border: 1px solid transparent
 
   &-content
     position: relative
@@ -540,18 +546,26 @@ $menu-item-lv1-max-width: 36rem
     margin: 10px auto
 
 @media (hover: hover) and (pointer: fine)
+  .tabs__btn:hover
+    background-color: darken($btn-grey-bg, 10%)
   .tabs__btn.active:hover
-    color: v.$grey-primary
+    // color: v.$grey-primary
     // background-image: linear-gradient(93deg, rgba(0,0,255,1) 0%, rgba(184,0,255,1) 100%)
     // background-image: linear-gradient(90deg, #fe672e 0%, #c90678 100%)
-    background: linear-gradient(#FBFBFB 0 0) padding-box, linear-gradient(90deg, #fe672e 0%, #c90678 100%) border-box
+    // background: linear-gradient(#FBFBFB 0 0) padding-box, linear-gradient(90deg, #fe672e 0%, #c90678 100%) border-box
+    background-size: 100% 200% 
+    background-position: center 100%
 
 // Actives
+.tabs__btn:active
+  background-color: darken($btn-grey-bg, 10%)
 .tabs__btn.active:active
-  color: v.$grey-primary
+  // color: v.$grey-primary
   // background-image: linear-gradient(93deg, rgba(0,0,255,1) 0%, rgba(184,0,255,1) 100%)
   // background-image: linear-gradient(90deg, #fe672e 0%, #c90678 100%)
-  background: linear-gradient(#FBFBFB 0 0) padding-box, linear-gradient(90deg, #fe672e 0%, #c90678 100%) border-box
+  // background: linear-gradient(#FBFBFB 0 0) padding-box, linear-gradient(90deg, #fe672e 0%, #c90678 100%) border-box
+  background-size: 100% 200% 
+  background-position: center 100%
 
 .service-item
   display: flex
@@ -614,7 +628,7 @@ $menu-item-lv1-max-width: 36rem
     margin-right: 0.5em
     width: 1.27em
     height: .87em
-    background: url(../img/icons/eye.svg) center no-repeat
+    background: url(../img/icons/eye.png) center no-repeat
     background-size: contain
     transition: transform v.$transition-main
 
@@ -765,6 +779,9 @@ $menu-item-lv1-max-width: 36rem
     flex-wrap: nowrap
     gap: v.$gutter
     width: 100%
+
+    flex-wrap: wrap
+    justify-content: center
   &__item
     padding: var(--item-padding, 2rem)
     position: relative
@@ -774,6 +791,9 @@ $menu-item-lv1-max-width: 36rem
     line-height: 1.2
     border-radius: var(--item-radius, 1rem)
     transition: calc( v.$transition-main / 3 )
+
+
+    max-width: 25%
 
     &::after
       content: ''
@@ -1662,6 +1682,7 @@ $menu-item-lv1-max-width: 36rem
 /* Modal-message */
 $modal-close-color: v.$yellow-end
 .modal-message
+  z-index: 99999
   &__close
     top: 1rem
     right: 1rem
@@ -1685,6 +1706,9 @@ $modal-close-color: v.$yellow-end
       font-size: 24px
   &__subtitle
     text-align: center
+
+.modal-message.shown
+  z-index: 99999
 
 .modal-message_error
   .modal-message__icon
