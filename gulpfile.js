@@ -157,7 +157,7 @@ const components = [
   // 'btn-vawe',
 ];
 
-const jsSrcConcatFiles = ['src/js/common/*.js', ...getComponentJsPath(components)];
+const jsSrcConcatFiles = [...getComponentJsPath(components), 'src/js/common/*.js'];
 gulp.task("js-concat", function () {
   return gulp
     .src(jsSrcConcatFiles)

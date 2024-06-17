@@ -3,6 +3,58 @@
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+window.addEventListener("load", setPreloader);
+
+// PAGE PRELOADER FUNCTION
+// добавить #preloader.preloader в html
+function setPreloader() {
+  var PRELOADERTRANSITION = 1500;
+  preloader.style.transition = "opacity ".concat(PRELOADERTRANSITION, "ms");
+  preloader.classList.add("fade-out");
+  setTimeout(function () {
+    preloader.remove();
+  }, PRELOADERTRANSITION);
+}
+// - - - - - - - - - - - - - - - - - - -
+
+function handleModals() {
+  var modalBtns = document.querySelectorAll(".js-modal-trigger");
+  modalBtns.forEach(function (modalBtn) {
+    // Продолжительность анимации
+    var duration;
+    var modal = document.querySelector("#".concat(modalBtn.dataset.target));
+    var modalClose = modal.querySelector(".modal__close");
+    var modalBackdrop = document.createElement("div");
+    modalBackdrop.className = "modal-backdrop";
+    modalBtn.addEventListener("click", openModal);
+    modalBackdrop.addEventListener("click", closeModal);
+    modalClose.addEventListener("click", closeModal);
+
+    // Open-close functions
+    function openModal() {
+      // Если в дата-атрибуте значение указано равным 0, то продолжительность анимации 0.
+      modalBtn.dataset.duration === "0" ? duration = 0 :
+      // В остальных случаях, если указано целочисленное значение, то берем его, если нет, то 350 по умолчанию.
+      duration = +modalBtn.dataset.duration || 350; // В
+      modal.style.transition = "".concat(duration, "ms ease-out");
+      modal.style.display = "flex";
+      // Таймаут для того, чтобы отрабатывала анимация
+      setTimeout(function () {
+        modal.classList.add("shown");
+      }, 0);
+      modal.append(modalBackdrop);
+    }
+    function closeModal() {
+      modal.classList.remove("shown");
+      setTimeout(function () {
+        modal.style = "";
+        modalBackdrop.remove();
+      }, duration);
+    }
+  });
+}
+handleModals();
+"use strict";
 window.addEventListener("load", function () {
   handleHeader();
 
@@ -130,11 +182,33 @@ if (menuItemCollapses) {
   }
 }
 
+// Collapses - used in faq
+var faqCollapses = document.querySelectorAll(".js-faq-collapse");
+if (faqCollapses) {
+  var _loop2 = function _loop2() {
+    var faqCollapse = faqCollapses[_i];
+    var faqCollapseBtn = faqCollapse.firstElementChild;
+    var collapseContent = faqCollapse.querySelector(".question__content");
+    faqCollapseBtn.addEventListener("click", function () {
+      if (!collapseContent.offsetHeight) {
+        faqCollapse.classList.add("open");
+        collapseContent.style.maxHeight = collapseContent.scrollHeight + "px";
+      } else {
+        faqCollapse.classList.remove("open");
+        collapseContent.style.maxHeight = "";
+      }
+    });
+  };
+  for (var _i = 0; _i < faqCollapses.length; _i++) {
+    _loop2();
+  }
+}
+
 // Collapses - used in footer
 var footerCollapses = document.querySelectorAll(".js-footer-collapse");
 if (footerCollapses) {
-  var _loop2 = function _loop2() {
-    var footerCollapse = footerCollapses[_i];
+  var _loop3 = function _loop3() {
+    var footerCollapse = footerCollapses[_i2];
     var footerCollapseBtn = footerCollapse.firstElementChild;
 
     /*     footerCollapseBtn.addEventListener("click", setLinkBehaviour);
@@ -168,16 +242,16 @@ if (footerCollapses) {
       }
     });
   };
-  for (var _i = 0; _i < footerCollapses.length; _i++) {
-    _loop2();
+  for (var _i2 = 0; _i2 < footerCollapses.length; _i2++) {
+    _loop3();
   }
 }
 
 // Swiper
 var swiper = new Swiper(".entry-slider", {
-  // autoplay: {
-  //   delay: 5000,
-  // },
+  autoplay: {
+    delay: 7500
+  },
   loop: true,
   speed: 500,
   navigation: {
@@ -185,44 +259,47 @@ var swiper = new Swiper(".entry-slider", {
     prevEl: ".swiper-button-prev"
   }
 });
-var clientsSlider = new Swiper(".clients-slider", {
-  slidesPerView: 2,
-  slidesPerGroup: 2,
-  autoplay: {
-    delay: 5000
-  },
-  loop: true,
-  speed: 500,
-  grid: {
-    rows: 2
-  },
-  spaceBetween: 15,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev"
-  },
-  // Responsive breakpoints
-  breakpoints: {
-    // when window width is >= 640px
-    576: {
-      slidesPerView: 4,
-      spaceBetween: 40,
-      grid: {
-        rows: 1
+if (document.querySelector('.clients-slider .swiper-wrapper > .swiper-slide')) {
+  var clientsSlider = new Swiper(".clients-slider", {
+    slidesPerView: 2,
+    slidesPerGroup: 2,
+    autoplay: {
+      delay: 7500
+    },
+    loop: true,
+    speed: 500,
+    grid: {
+      rows: 2
+    },
+    spaceBetween: 15,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    // Responsive breakpoints
+    breakpoints: {
+      // when window width is >= 640px
+      576: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+        grid: {
+          rows: 1
+        }
       }
     }
-  }
-});
+  });
+}
+
 // ======================================================
 
 // T A B S
 var tabsBoxes = document.querySelectorAll(".tabs-wrap");
-var _loop3 = function _loop3() {
-  var tabs = tabsBoxes[_i2].querySelectorAll(".tabs__btn");
-  var tabsContent = tabsBoxes[_i2].querySelector(".tabs-content");
+var _loop4 = function _loop4() {
+  var tabs = tabsBoxes[_i3].querySelectorAll(".tabs__btn");
+  var tabsContent = tabsBoxes[_i3].querySelector(".tabs-content");
   var tabsContentItems = tabsContent.querySelectorAll(".tabs-content__item");
-  for (var _i3 = 0; _i3 < tabs.length; _i3++) {
-    var tab = tabs[_i3];
+  for (var _i4 = 0; _i4 < tabs.length; _i4++) {
+    var tab = tabs[_i4];
     tab.addEventListener("click", function () {
       for (var j = 0; j < tabs.length; j++) {
         tabs[j].classList.remove("active");
@@ -236,8 +313,8 @@ var _loop3 = function _loop3() {
     });
   }
 };
-for (var _i2 = 0; _i2 < tabsBoxes.length; _i2++) {
-  _loop3();
+for (var _i3 = 0; _i3 < tabsBoxes.length; _i3++) {
+  _loop4();
 }
 
 // ======================================================
@@ -440,54 +517,3 @@ function setAlert(form, result) {
     closeModal();
   }, 5000);
 }
-window.addEventListener("load", setPreloader);
-
-// PAGE PRELOADER FUNCTION
-// добавить #preloader.preloader в html
-function setPreloader() {
-  var PRELOADERTRANSITION = 1500;
-  preloader.style.transition = "opacity ".concat(PRELOADERTRANSITION, "ms");
-  preloader.classList.add("fade-out");
-  setTimeout(function () {
-    preloader.remove();
-  }, PRELOADERTRANSITION);
-}
-// - - - - - - - - - - - - - - - - - - -
-
-function handleModals() {
-  var modalBtns = document.querySelectorAll(".js-modal-trigger");
-  modalBtns.forEach(function (modalBtn) {
-    // Продолжительность анимации
-    var duration;
-    var modal = document.querySelector("#".concat(modalBtn.dataset.target));
-    var modalClose = modal.querySelector(".modal__close");
-    var modalBackdrop = document.createElement("div");
-    modalBackdrop.className = "modal-backdrop";
-    modalBtn.addEventListener("click", openModal);
-    modalBackdrop.addEventListener("click", closeModal);
-    modalClose.addEventListener("click", closeModal);
-
-    // Open-close functions
-    function openModal() {
-      // Если в дата-атрибуте значение указано равным 0, то продолжительность анимации 0.
-      modalBtn.dataset.duration === "0" ? duration = 0 :
-      // В остальных случаях, если указано целочисленное значение, то берем его, если нет, то 350 по умолчанию.
-      duration = +modalBtn.dataset.duration || 350; // В
-      modal.style.transition = "".concat(duration, "ms ease-out");
-      modal.style.display = "flex";
-      // Таймаут для того, чтобы отрабатывала анимация
-      setTimeout(function () {
-        modal.classList.add("shown");
-      }, 0);
-      modal.append(modalBackdrop);
-    }
-    function closeModal() {
-      modal.classList.remove("shown");
-      setTimeout(function () {
-        modal.style = "";
-        modalBackdrop.remove();
-      }, duration);
-    }
-  });
-}
-handleModals();

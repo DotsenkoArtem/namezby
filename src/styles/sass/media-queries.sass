@@ -121,21 +121,21 @@
 
 
 
-  /* Presentation section */
-  .presentation
-    --item-padding: 2.8rem
-    --item-radius: 1.5rem
-    padding-bottom: 10rem
-    &__item
-      padding: var(--item-padding, 2.8rem)
-      font-size: 24px
-      border-radius: var(--item-radius, 1.5rem)
-      &::after
-        border-radius: var(--item-radius, 1.5rem)
-      &-icon
-        margin-bottom: 2rem
-        width: 5rem
-        height: 5rem
+  // Presentation section
+  // .presentation
+  //   --item-padding: 2.8rem
+  //   --item-radius: 1.5rem
+  //   padding-bottom: 10rem
+  //   &__item
+  //     padding: var(--item-padding, 2.8rem)
+  //     font-size: 24px
+  //     border-radius: var(--item-radius, 1.5rem)
+  //     &::after
+  //       border-radius: var(--item-radius, 1.5rem)
+  //     &-icon
+  //       margin-bottom: 2rem
+  //       width: 5rem
+  //       height: 5rem
 
 
 
@@ -290,21 +290,21 @@
 
 
 
-  /* Presentation section */
-  .presentation
-    &__box
-      flex-wrap: wrap
-    &__item
-      min-width: 33%
+  // Presentation section
+  // .presentation
+  //   &__box
+  //     flex-wrap: wrap
+  //   &__item
+  //     min-width: 33%
 
-  .mooving-bg-1
-    top: -15%
-    width: 90%
-    height: 250%
-  .mooving-bg-2
-    top: -40%
-    width: 90%
-    height: 330%
+  // .mooving-bg-1
+  //   top: -15%
+  //   width: 90%
+  //   height: 250%
+  // .mooving-bg-2
+  //   top: -40%
+  //   width: 90%
+  //   height: 330%
 
 
 
@@ -465,6 +465,18 @@
 
 
 
+  /* FAQ section */
+  // .faq
+
+
+  .question
+    &__btn
+      font-size: 20px
+    &__content
+      font-size: 15px
+
+
+
 
   /* Proposal section */
   .proposal
@@ -528,6 +540,39 @@
         font-size: 15px
       &-btn
         font-size: 14px
+
+
+  .service-dynamic
+    // Table rotated
+    .table_rotated
+      tbody
+        flex-direction: column
+      tr
+        width: 100%
+        &:not(:last-child)
+          margin-bottom: calc( var(--col-gap, 1.5rem) * 2 )
+          
+    // Table rotated-2
+    .table_rotated-2
+      tbody
+        flex-direction: column
+      tr
+        width: 100%
+        &:not(:last-child)
+          margin-bottom: calc( var(--col-gap, 1.5rem) * 2 )
+          border-right: solid 1px lighten(v.$grey-light, 20%)
+
+          
+    // Table rotated-3
+    .table_rotated-3
+      tbody
+        flex-direction: column
+      tr
+        width: 100%
+        &:not(:last-child)
+          margin-bottom: calc( var(--col-gap, 1.5rem) * 2 )
+          border-right: none
+
 
 
 
@@ -774,17 +819,17 @@
 
 
 
-  /* Presentation section */
-  .presentation
-    &__item
-      width: 100%
-      min-width: auto
-      flex: none
-    &__item-icon
-      width: 4rem
-      height: 4rem
-    &__item-title
-      font-size: 18px
+  // Presentation section
+  // .presentation
+  //   &__item
+  //     width: 100%
+  //     min-width: auto
+  //     flex: none
+  //   &__item-icon
+  //     width: 4rem
+  //     height: 4rem
+  //   &__item-title
+  //     font-size: 18px
 
 
 
@@ -986,6 +1031,17 @@
       height: calc(240 * $index) 
 
 
+  /* FAQ section */
+  // .faq
+
+
+  .question
+    &__btn
+      font-size: calc( 20 * $index )
+    &__content
+      font-size: calc( 15 * $index )
+
+
 
 
   /* Proposal section */
@@ -1047,8 +1103,7 @@
       td,
       th
         padding: 1rem 1.2rem
-      td:last-child 
-        width: 15rem
+
 
       &.table_col-mobile
         tr
@@ -1072,6 +1127,14 @@
           background: lighten(v.$highlight, 20%)
 
 
+          
+    .table_2col
+      td:last-child 
+        max-width: 15rem
+          
+    .table_2col.table_col-mobile
+      td:last-child 
+        max-width: none
  
     
 
@@ -1132,6 +1195,18 @@
       font-size: calc(17 * $index) 
       p
         font-size: calc(17 * $index) 
+
+
+
+  /* FAQ section */
+  // .faq
+
+
+  .question
+    &__btn
+      font-size: calc( 20 * $index )
+    &__content
+      font-size: calc( 15 * $index )
 
 
   /* Proposal section */

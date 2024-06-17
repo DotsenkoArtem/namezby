@@ -125,6 +125,29 @@ if (menuItemCollapses) {
   }
 }
 
+// Collapses - used in faq
+const faqCollapses = document.querySelectorAll(".js-faq-collapse");
+
+if (faqCollapses) {
+  for (let i = 0; i < faqCollapses.length; i++) {
+    let faqCollapse = faqCollapses[i];
+
+    let faqCollapseBtn = faqCollapse.firstElementChild;
+
+    let collapseContent = faqCollapse.querySelector(".question__content");
+
+    faqCollapseBtn.addEventListener("click", function () {
+      if (!collapseContent.offsetHeight) {
+        faqCollapse.classList.add("open");
+        collapseContent.style.maxHeight = collapseContent.scrollHeight + "px";
+      } else {
+        faqCollapse.classList.remove("open");
+        collapseContent.style.maxHeight = "";
+      }
+    });
+  }
+}
+
 // Collapses - used in footer
 const footerCollapses = document.querySelectorAll(".js-footer-collapse");
 
@@ -170,9 +193,9 @@ if (footerCollapses) {
 
 // Swiper
 const swiper = new Swiper(".entry-slider", {
-  // autoplay: {
-  //   delay: 5000,
-  // },
+  autoplay: {
+    delay: 7500,
+  },
   loop: true,
   speed: 500,
   navigation: {
@@ -181,11 +204,12 @@ const swiper = new Swiper(".entry-slider", {
   },
 });
 
-const clientsSlider = new Swiper(".clients-slider", {
+if(document.querySelector('.clients-slider .swiper-wrapper > .swiper-slide')) {
+  const clientsSlider = new Swiper(".clients-slider", {
   slidesPerView: 2,
   slidesPerGroup: 2,
   autoplay: {
-    delay: 5000,
+    delay: 7500,
   },
   loop: true,
   speed: 500,
@@ -209,6 +233,8 @@ const clientsSlider = new Swiper(".clients-slider", {
     },
   },
 });
+}
+
 // ======================================================
 
 // T A B S
