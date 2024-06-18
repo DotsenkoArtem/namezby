@@ -588,3 +588,33 @@ function setAlert(form, result) {
   }, 5000)
 }
 
+
+
+window.addEventListener('load', function(){
+
+  document.addEventListener('click', function(e) {
+    if(e.target.closest('.js-services-item')) {
+      let btns = e.target.closest('.js-services-item').querySelector('.js-services-item-btns')
+
+        console.log('btns: ', btns);
+        btns.style.pointerEvents = `unset`
+
+
+
+    }
+  })
+
+  document.addEventListener('click', function(e) {
+    if(!e.target.closest('.js-services-item')) {
+      let btns = document.querySelectorAll('.js-services-item-btns')
+      btns.forEach((btn) => {
+        btn.style.pointerEvents = ``
+      })
+    }
+  })
+
+
+
+
+
+})

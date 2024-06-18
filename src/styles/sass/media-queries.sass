@@ -121,24 +121,6 @@
 
 
 
-  // Presentation section
-  // .presentation
-  //   --item-padding: 2.8rem
-  //   --item-radius: 1.5rem
-  //   padding-bottom: 10rem
-  //   &__item
-  //     padding: var(--item-padding, 2.8rem)
-  //     font-size: 24px
-  //     border-radius: var(--item-radius, 1.5rem)
-  //     &::after
-  //       border-radius: var(--item-radius, 1.5rem)
-  //     &-icon
-  //       margin-bottom: 2rem
-  //       width: 5rem
-  //       height: 5rem
-
-
-
 
   /* Proposal section */
   .proposal
@@ -167,11 +149,14 @@
 
 
 
-// SERVICES - PAGE
-.services-grid,
-.gallery
-  &__item
-    height: 26.3rem
+  // SERVICES - PAGE
+  .services-grid
+    &__item
+      --item-text-fz: 12px
+      
+  .gallery
+    &__item
+      height: 26.3rem
 
 
 
@@ -290,25 +275,6 @@
 
 
 
-  // Presentation section
-  // .presentation
-  //   &__box
-  //     flex-wrap: wrap
-  //   &__item
-  //     min-width: 33%
-
-  // .mooving-bg-1
-  //   top: -15%
-  //   width: 90%
-  //   height: 250%
-  // .mooving-bg-2
-  //   top: -40%
-  //   width: 90%
-  //   height: 330%
-
-
-
-
   /* Proposal section */
   .proposal
     &-form__inner
@@ -341,8 +307,16 @@
   // SERVICES - PAGE
   .services-grid-wrap
     margin-inline: calc( var(--grid-item-m-inline) * (-1) )
-    // display: flex
-  .services-grid,
+
+  .services-grid
+    margin-inline: calc(var(--grid-item-m-inline) * (-1))
+    &__item
+      --item-width: calc( 100% / 2 - var(--grid-item-m-inline) * 2)
+      --item-text-fz: 12px
+    &__item-btns
+      pointer-events: none
+
+
   .gallery
     margin-inline: var(--grid-item-m-inline)
     // flex-direction: column
@@ -521,7 +495,27 @@
 
 
   // SERVICES - PAGE
+  
   .services-grid,
+  .gallery
+    --grid-item-m-inline: .75rem
+  
+  .services-grid
+    margin-inline: calc(var(--grid-item-m-inline) * (-1))
+    justify-content: center
+    &__item
+      --item-width: 380px
+      --item-text-fz: 12px
+      &-title
+        h3
+          font-size: 18px
+      // &-text
+      //   font-size: 15px
+      // &-btn
+      //   font-size: 14px
+
+
+
   .gallery
     --grid-item-m-inline: .75rem
     margin-inline: var(--grid-item-m-inline)
@@ -531,15 +525,6 @@
       height: 23.5rem  
 
 
-  .services-grid
-    &__item
-      &-title
-        h3
-          font-size: 20px
-      &-text
-        font-size: 15px
-      &-btn
-        font-size: 14px
 
 
   .service-dynamic
@@ -920,11 +905,28 @@
   .services-grid-wrap
     margin-inline: unset
     display: block
+
   .services-grid,
   .gallery
     --grid-item-m-inline: 1rem
     margin-inline: unset
     width: 100%
+
+  
+  .services-grid
+    margin-inline: calc(var(--grid-item-m-inline) * (-1))
+    margin-inline: unset
+    &__item
+      --item-width: 100%
+      --item-text-fz: 14px
+      margin-inline: unset
+      &-title
+        h3
+          font-size: 20px
+
+  .gallery
+    --grid-item-m-inline: 1rem
+    margin-inline: unset
     &__item
       width: 100%
       height: 40rem  
@@ -1073,7 +1075,6 @@
 
 
   // SERVICES - PAGE
-  .services-grid,
   .gallery
     &__item
       margin-inline: auto
@@ -1081,13 +1082,12 @@
       height: calc( 275 * $index ) 
       max-height: 275px
 
-
-
   .services-grid
     &__item-title h3
       font-size: calc( 20 * $index ) 
-    &__item-text
-      font-size: calc( 15 * $index ) 
+    &__item-text,
+    &__item-text *
+      font-size: calc( 14 * $index ) 
     &__item-btn 
       font-size: calc( 14 * $index ) 
 
@@ -1240,8 +1240,9 @@
       &-title
         h3
           font-size: calc( 20 * $index )
-      &-text
-        font-size: calc( 15 * $index )
+      &-text,
+      &-text *
+        font-size: calc( 14 * $index )
       &-btn
         font-size: calc( 14 * $index )
 

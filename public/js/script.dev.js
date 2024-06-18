@@ -517,3 +517,20 @@ function setAlert(form, result) {
     closeModal();
   }, 5000);
 }
+window.addEventListener('load', function () {
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('.js-services-item')) {
+      var btns = e.target.closest('.js-services-item').querySelector('.js-services-item-btns');
+      console.log('btns: ', btns);
+      btns.style.pointerEvents = "unset";
+    }
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.js-services-item')) {
+      var btns = document.querySelectorAll('.js-services-item-btns');
+      btns.forEach(function (btn) {
+        btn.style.pointerEvents = "";
+      });
+    }
+  });
+});

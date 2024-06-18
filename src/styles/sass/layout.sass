@@ -1097,346 +1097,158 @@ $menu-item-lv1-max-width: 36rem
     color: v.$yellow-start
 
 // SERVICES - PAGE
-// .services-grid
-//   --grid-item-m-inline: 1.5rem
 
-//   display: flex
-//   flex-wrap: wrap
-//   margin-inline: calc( var(--grid-item-m-inline) * (-1) )
-//   &__item
-//     position: relative
-//     flex: 1
-//     margin-inline: var(--grid-item-m-inline)
-//     margin-top: var(--grid-item-m-inline)
-//     margin-bottom: var(--grid-item-m-inline)
-
-//     width: calc( 100% / 3 - var(--grid-item-m-inline) * 2)
-//     height: 30.1rem 
-//     border-radius: 1rem
-//     overflow: hidden
-//     transition: v.$transition-main
-//     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25)
-
-//     &-title
-//       font-size: 24px
-//       font-weight: 400
-//       color: v.$white
-//       opacity: 0
-//       transform: translateY(3rem)
-//       h3
-//         color: inherit
-
-//     &-text
-//       margin-bottom: 1.5em
-//       font-size: 17px
-//       font-weight: 400
-//       color: v.$white
-//       opacity: 0
-//       transform: translateY(3rem)
-//     &-btn
-//       display: flex
-//       flex: none
-//       justify-content: center
-//       align-items: center
-//       width: 4rem
-//       height: 4rem
-//       border: solid 1px v.$white
-//       border-radius: 50%
-//       background-color: transparent
-//       opacity: 0
-//       transform: translateY(3rem)
-//       transition: transform 0, opacity 0, background-color v.$transition-main
-//       svg
-//         width: 30%
-//         height: 60%
-//         // fill: v.$grey-primary
-//         // stroke: v.$grey-primary
-//         .arr-svg
-//           fill: v.$white
-//           stroke: v.$white
-//           transition: v.$transition-main
-
-//   &__item-img
-//     position: absolute
-//     width: 100%
-//     height: 100%
-//     top: 0
-//     right: 0
-//     bottom: 0
-//     left: 0
-//     z-index: 5
-//     img
-//       width: 100%
-//       height: 100%
-//       object-fit: cover
-//       object-position: center
-
-//   &__item-info
-//     position: absolute
-//     padding: calc( var(--grid-item-m-inline) * 2 )
-//     display: flex
-//     flex-direction: column
-//     align-items: flex-start
-//     justify-content: flex-end
-
-//     width: 100%
-//     height: 100%
-//     top: 0
-//     right: 0
-//     bottom: 0
-//     left: 0
-//     z-index: 10
-//     opacity: 0
-//     transition: v.$transition-main
-//     background: rgba(5, 5, 5, 0.92)
-
-// @media (hover:hover) and (pointer: fine)
-// .services-grid__item:hover
-//   flex-grow: 1.4
-//   .services-grid__item-img
-//     filter: blur(3px)
-//   .services-grid__item-info
-//     opacity: 1
-//   .services-grid__item-title
-//     opacity: 1
-//     transform: translateY(0)
-//     // transition: calc( v.$transition-main * .5 ) ease-out v.$transition-main
-//     transition: transform calc( v.$transition-main * .5 ) ease-out calc( v.$transition-main * .75 ), opacity calc( v.$transition-main * 3 ) ease-out calc( v.$transition-main * .75 )
-//   .services-grid__item-text
-//     opacity: 1
-//     transform: translateY(0)
-//     // transition: calc( v.$transition-main * .5 ) ease-out calc( v.$transition-main * 1.25 )
-//     transition: transform calc( v.$transition-main * .5 ) ease-out calc( v.$transition-main * .75 ), opacity calc( v.$transition-main * 3 ) ease-out calc( v.$transition-main * .75 )
-//   .services-grid__item-btn
-//     opacity: 1
-//     transform: translateY(0)
-//     // transition: calc( v.$transition-main * .5 ) ease-out calc( v.$transition-main * 1.5 )
-//     transition: transform calc( v.$transition-main * .5 ) ease-out calc( v.$transition-main * .75 ), opacity calc( v.$transition-main * 3 ) ease-out calc( v.$transition-main * .75 ), background-color v.$transition-main
-
-// .services-grid__item-btn:hover
-//   background-color: v.$white
-//   svg .arr-svg
-//     fill: v.$grey-primary
-//     stroke: v.$grey-primary
-
-// // VAR TWO
-// .services-grid-2
-//   --grid-item-m-inline: 1.5rem
-//   display: flex
-//   flex-wrap: wrap
-//   margin-inline: calc( var(--grid-item-m-inline) * (-1) )
-//   &__item
-//     position: relative
-//     flex: 1
-//     margin-inline: var(--grid-item-m-inline)
-//     margin-top: var(--grid-item-m-inline)
-//     margin-bottom: var(--grid-item-m-inline)
-
-//     width: calc( 100% / 3 - var(--grid-item-m-inline) * 2)
-//     height: 30.1rem 
-//     border-radius: 1rem
-//     overflow: hidden
-//     transition: v.$transition-main
-
-//     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25)
-//     &-title
-//       font-size: 24px
-//       font-weight: 400
-//       color: v.$white
-//       opacity: 0
-//       transform: translateY(1rem)
-//       h3
-//         color: inherit
-
-//     &-text
-//       margin-bottom: 1.5em
-//       font-size: 17px
-//       font-weight: 400
-//       color: v.$white
-//       opacity: 0
-//       transform: translateY(1rem)
-//     &-btn
-//       display: inline-block
-//       flex: none
-//       padding: $btn-padding-y $btn-padding-x
-//       text-align: center
-//       font-family: $btn-ff
-//       font-size: $btn-fz
-//       line-height: 1
-//       white-space: nowrap
-//       color: v.$white
-//       border-radius: .5rem
-//       border: solid 1px v.$white
-//       opacity: 0
-//       transform: translateY(1rem)
-
-//   &__item-img
-//     position: absolute
-//     width: 100%
-//     height: 100%
-//     top: 0
-//     right: 0
-//     bottom: 0
-//     left: 0
-//     z-index: 5
-//     img
-//       width: 100%
-//       height: 100%
-//       object-fit: cover
-//       object-position: center
-
-//   &__item-info
-//     position: absolute
-//     padding: calc( var(--grid-item-m-inline) * 2 )
-//     display: flex
-//     flex-direction: column
-//     align-items: flex-start
-//     justify-content: flex-end
-
-//     width: 100%
-//     height: 100%
-//     top: 0
-//     right: 0
-//     bottom: 0
-//     left: 0
-//     z-index: 10
-//     opacity: 0
-//     transition: v.$transition-main
-//     background: rgba(5, 5, 5, 0.92)
-
-// @media (hover:hover) and (pointer: fine)
-// .services-grid-2__item:hover
-//   flex-grow: 1.4
-//   .services-grid-2__item-img
-//     filter: blur(3px)
-//   .services-grid-2__item-info
-//     opacity: 1
-//   .services-grid-2__item-title
-//     opacity: 1
-//     transform: translateY(0)
-//     transition: calc( v.$transition-main * 1.5 ) ease calc( v.$transition-main * .75 )
-//   .services-grid-2__item-text
-//     opacity: 1
-//     transform: translateY(0)
-//     transition: calc( v.$transition-main * 1.5 ) ease calc( v.$transition-main * 1 )
-//   .services-grid-2__item-btn
-//     opacity: 1
-//     transform: translateY(0)
-//     transition: transform calc( v.$transition-main * 1.5 ) ease calc( v.$transition-main * 1.25 ), opacity calc( v.$transition-main * 1.5 ) ease calc( v.$transition-main * 1.25 ), background-color v.$transition-main ease 0s, color v.$transition-main ease 0s
-
-// .services-grid-2__item-btn:hover
-//   background-color: v.$white
-//   color: v.$grey-primary
-
-// WAS VAR THREE
 .services-grid
   --grid-item-m-inline: 1.5rem
+  
+
+  margin-inline: calc(var(--grid-item-m-inline) * (-1))
   display: flex
   flex-wrap: wrap
-  margin-inline: calc( var(--grid-item-m-inline) * (-1) )
   &__item
+    --item-width: calc( 100% / 3 - var(--grid-item-m-inline) * 2)
+    --item-text-fz: 14px
+
+
+
     position: relative
-    flex: 1
-    max-width: 40%
+    flex: none
 
     margin-inline: var(--grid-item-m-inline)
     margin-top: var(--grid-item-m-inline)
     margin-bottom: var(--grid-item-m-inline)
-    width: calc( 100% / 3 - var(--grid-item-m-inline) * 2)
-    min-width: 23%
-    height: 30.1rem
+    padding-bottom: calc(var( --item-width) * .7)
+
+    width: var( --item-width)
+    height: 0
+
     border-radius: 1rem
     overflow: hidden
     transition: v.$transition-main
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25)
-    &-title
-      font-size: 24px
-      font-weight: 400
-      color: v.$white
-      opacity: 0
-      transform: translateX(5rem)
-      h3
-        color: inherit
 
-    &-text
-      margin-bottom: 1.5em
-      font-size: 17px
-      font-weight: 400
-      color: v.$white
-      opacity: 0
-      transform: translateX(5rem)
-    &-btn
-      display: inline-flex
-      flex: none
-      justify-content: center
-      align-items: center
-      font-family: $btn-ff
-      font-size: $btn-fz
-      line-height: 1
-      white-space: nowrap
-      color: v.$white
-      border: solid 1px v.$white
-      border-radius: .5rem
-      opacity: 0
-      transform: translateX(5rem)
-      position: relative
-      overflow: hidden
-
-      border-width: 0
-      width: 0
-      height: 0
-      min-width: auto
-      padding: 0
-
-      &>span
-        display: inline-block
-        overflow: hidden
-        margin-right: 15px
-        max-width: 120px
-
-      svg
-        position: absolute
-        right: 10px
-        width: 8px
-        height: 16px
-        .arr-svg
-          fill: v.$white
-          stroke: v.$white
-          transition: v.$transition-main
-
-  &__item-img
+  &__item-inner
+    padding: 5%
     position: absolute
-    width: 100%
-    height: 100%
     top: 0
     right: 0
     bottom: 0
     left: 0
-    z-index: 5
-    transform: scale(1.15)
+    z-index: 1
+    display: flex
+    flex-direction: column
+    background: #ffffff
+
+
+  &__item-img
+    align-self: flex-end
+    margin-bottom: auto
+    width: 75%
+    height: 60%
     img
       width: 100%
       height: 100%
-      object-fit: cover
-      object-position: center
+      object-fit: contain
+      object-position: right center
+
+  &__item-title
+    margin-bottom: .75rem
+    font-weight: 400
+    color: v.$heading-color
+    overflow: hidden
+    h3
+      font-size: 22px
+      color: inherit
+  &__item-cost 
+    font-size: var(--item-text-fz)
+    font-weight: 400
+    overflow: hidden
+
+
 
   &__item-info
+    --card-info-bg: #fe8e2b
+    --card-info-bg: #c7017c
     position: absolute
-    padding: calc( var(--grid-item-m-inline) * 2 )
+    padding: 5%
     display: flex
     flex-direction: column
     align-items: flex-start
-    justify-content: flex-end
     width: 100%
     height: 100%
     top: 0
     right: 0
     bottom: 0
     left: 0
-    z-index: 10
+
+
+    z-index: -1
     opacity: 0
-    transition: v.$transition-main
+
+
+    color: v.$white
+    // transition: opacity calc( v.$transition-main * 2 )
+    transition: opacity .5s
     background: rgba(5, 5, 5, 0.75)
+    background: v.$yellow-start
+    background: var(--card-info-bg)
+    & > *
+      color: v.$white
+  &__item-text
+    margin-top: 1rem
+    margin-bottom: .75rem
+    font-size: var(--item-text-fz)
+    font-weight: 400
+
+
+  &__item-btns
+    margin-top: auto
+    display: flex
+    align-self: stretch
+    align-items: center
+    justify-content: space-between
+
+
+    
+    
+    
+  &__item-btn
+    display: inline-flex
+    padding: 3.5% 3.5%
+    flex: auto
+    justify-content: center
+    align-items: center
+    font-size: var(--item-text-fz)
+    font-weight: 500
+    line-height: 1
+    white-space: nowrap
+    color: v.$white
+    border: solid 1px v.$white
+    border-radius: .5rem
+    position: relative
+    overflow: hidden
+
+
+    border-width: 2px
+   
+    
+    &:first-child
+      margin-right: 0.5rem
+    svg
+      flex: none
+      margin-left: 1rem
+      width: .8rem
+      height: 1.2rem
+      transition: transform calc( v.$transition-main * 1 ) cubic-bezier(.4,1.09,.81,1.3) .1s
+      .arr-svg
+        fill: v.$white
+        stroke: v.$white
+        transition: v.$transition-main
+
+  
+
+
+
 
 
 // Services - gallery
@@ -1497,36 +1309,23 @@ $menu-item-lv1-max-width: 36rem
 
 
 .services-grid__item:hover
-  flex-grow: 1.4
-  max-width: 50%
   box-shadow: 0 0px 2px 0 rgba(0, 0, 0, .35)
-  .services-grid__item-img
-    filter: blur(3px)
-    transform: scale(1)
-    transition: filter calc( v.$transition-main * .15 ) ease-out, transform calc( v.$transition-main * 1 ) ease-out
+
   .services-grid__item-info
+    opacity: 1
+    z-index: 2
 
-    opacity: 1
-    transition: opacity calc( v.$transition-main * 1 ) ease-out calc( v.$transition-main * .5 )
-  .services-grid__item-title
-    opacity: 1
-    transform: translateX(0)
-    transition: transform calc( v.$transition-main * .75 ) cubic-bezier(.4,1.09,.81,1.3) calc( v.$transition-main * 1 ), opacity calc( v.$transition-main * 2 ) ease-out calc( v.$transition-main * 1 )
 
-  .services-grid__item-text
-    opacity: 1
-    transform: translateX(0)
-    transition: transform calc( v.$transition-main * .75 ) cubic-bezier(.4,1.09,.81,1.3) calc( v.$transition-main * 1.1 ), opacity calc( v.$transition-main * 2 ) ease-out calc( v.$transition-main * 1 )
 
-  .services-grid__item-btn
-    padding: calc($btn-padding-y / 2) calc($btn-padding-y / 2)
-    width: auto
-    min-width: calc( 16px + $btn-padding-y )
-    height: calc( 16px + $btn-padding-y )
-    border-width: 1px
-    opacity: 1
-    transform: translateX(0)
-    transition: transform calc( v.$transition-main * .75 ) cubic-bezier(.4,1.09,.81,1.3) calc( v.$transition-main * 1.2 ), opacity calc( v.$transition-main * 2 ) ease-out calc( v.$transition-main * 1 ), border-radius .2s, border-width 0s 0.01s, width 0s 0.01s, min-width 0s 0.01s, height 0s 0.01s, padding 0s 0.01s
+  // .services-grid__item-info
+  //   opacity: 1
+  //   transition: opacity calc( v.$transition-main * 1 ) ease-out calc( v.$transition-main * .5 )
+
+
+
+
+
+
 
 .gallery__item:hover
   flex-grow: 1.4
@@ -1545,20 +1344,72 @@ $menu-item-lv1-max-width: 36rem
 
 
 @media (hover:hover) and (pointer: fine)
-  .services-grid
-    &__item
-      &-btn
-        border-radius: 50%
-        &>span
-          max-width: 0
-
   .services-grid__item-btn:hover
-    border-radius: .5rem
-    &>span
-      margin-right: 15px
-      max-width: 120px
-      transition: max-width calc( v.$transition-main * 1 ) cubic-bezier(.4,1.09,.81,1.3) .1s
-      // transition: max-width calc( v.$transition-main * 1 ) ease-in .2s
+    color: var(--card-info-bg)
+    background: v.$white
+
+  .services-grid__item-btn-more:hover
+    svg
+      transform: translateX(5px)
+      .arr-svg
+        fill: var(--card-info-bg)
+        stroke: var(--card-info-bg)
+
+// Actives
+.services-grid__item-btn:active
+  color: var(--card-info-bg)
+  background: v.$white
+
+.services-grid__item-btn-more:active
+  svg
+    transform: translateX(5px)
+    .arr-svg
+      fill: var(--card-info-bg)
+      stroke: var(--card-info-bg)
+
+
+
+// YELLOW CARDS
+.services-grid__item-info_yellow
+  --card-info-bg: #fe8e2b
+ 
+
+
+.services-grid__item-btn_white
+  color: var(--card-info-bg)
+  border-color: v.$white
+  background: v.$white
+  svg
+    .arr-svg
+      fill: var(--card-info-bg)
+      stroke: var(--card-info-bg)
+
+.services-grid__item-btn_rounded
+  border-radius: 3rem
+  border-width: 2px
+
+@media (hover:hover) and (pointer: fine)
+  .services-grid__item-btn_white:hover
+    color: v.$white
+    background: var(--card-info-bg)
+    svg
+      .arr-svg
+        fill: v.$white
+        stroke: v.$white
+
+// Actives
+.services-grid__item-btn_white:active
+  color: v.$white
+  background: var(--card-info-bg)
+  svg
+    .arr-svg
+      fill: v.$white
+      stroke: v.$white
+
+
+
+
+
 
 // WP-tables-correct
 .wp-block-table thead
