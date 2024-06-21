@@ -1316,17 +1316,6 @@ $menu-item-lv1-max-width: 36rem
     z-index: 2
 
 
-
-  // .services-grid__item-info
-  //   opacity: 1
-  //   transition: opacity calc( v.$transition-main * 1 ) ease-out calc( v.$transition-main * .5 )
-
-
-
-
-
-
-
 .gallery__item:hover
   flex-grow: 1.4
   max-width: 50%
@@ -1339,8 +1328,6 @@ $menu-item-lv1-max-width: 36rem
   .gallery__item-img::after
     opacity: 1
     transition: opacity calc( v.$transition-main * 1 ) ease-out calc( v.$transition-main * .5 )
-
-
 
 
 @media (hover:hover) and (pointer: fine)
@@ -1366,6 +1353,80 @@ $menu-item-lv1-max-width: 36rem
     .arr-svg
       fill: var(--card-info-bg)
       stroke: var(--card-info-bg)
+      
+      
+      
+// Portfolio - gallery
+.portfolio
+  --grid-item-m-inline: 1.5rem
+  &__item
+    position: relative
+    flex: 1
+    max-width: 40%
+    margin-inline: var(--grid-item-m-inline)
+    margin-top: var(--grid-item-m-inline)
+    margin-bottom: var(--grid-item-m-inline)
+    width: calc( 100% / 3 - var(--grid-item-m-inline) * 2)
+    min-width: 23%
+    height: 30.1rem
+    border-radius: 1rem
+    overflow: hidden
+    transition: v.$transition-main
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25)
+
+  &__item-img
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 5
+    transform: scale(1.15)
+    transition: transform calc( v.$transition-main * 1 ) ease-out
+    img
+      display: block
+      width: 100%
+      height: 100%
+      object-fit: cover
+      object-position: center
+    &::after
+      content: ''
+      padding: calc( var(--grid-item-m-inline) * 2 )
+      display: block
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: 10
+      opacity: 0
+      transition: v.$transition-main
+      background: rgba(5, 5, 5, 0.5) url(../img/icons/zoom-out-white-200.svg) center no-repeat
+      background-size: 5.5rem 5.5rem
+  &__more-btn
+    padding-top: 4rem
+    padding-bottom: 0rem
+    text-align: center
+
+.portfolio__item:hover
+  flex-grow: 1.4
+  max-width: 50%
+  box-shadow: 0 0px 2px 0 rgba(0, 0, 0, .35)
+  .portfolio__item-img
+    transform: scale(1)
+    
+  .portfolio__item-img::after
+    opacity: 1
+    transition: opacity calc( v.$transition-main * 1 ) ease-out calc( v.$transition-main * .5 )
+
+
+
+
+
 
 
 
@@ -1756,6 +1817,19 @@ $modal-close-color: v.$yellow-end
       font-size: 24px
   &__subtitle
     text-align: center
+
+      
+  .modal-backdrop
+    display: block
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 1
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.315)
 
 .modal-message.shown
   z-index: 99999

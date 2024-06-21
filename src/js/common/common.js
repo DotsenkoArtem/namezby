@@ -440,16 +440,16 @@ function setAlert(form, result) {
 
   
   let duration;
-  let modal = document.querySelector(`#formAlert`);
-  let modalTitle = modal.querySelector('.modal-message__title ')
-  let modalSubtitle = modal.querySelector('.modal-message__subtitle ')
+  let modalAlert = document.querySelector(`#formAlert`);
+  let modalAlertTitle = modalAlert.querySelector('.modal-message__title ')
+  let modalAlertSubtitle = modalAlert.querySelector('.modal-message__subtitle ')
 
 
-  let modalClose = modal.querySelector(".modal__close");
+  let modalAlertClose = modalAlert.querySelector(".modal__close");
 
 
 
-  let modalData = {
+  let modalAlertData = {
     title: {
       success: '<p>Спасибо!</p>',
       error: '<p>Ошибка!</p>',
@@ -460,13 +460,28 @@ function setAlert(form, result) {
     }
   }
 
-  let modalBackdrop = document.createElement("div");
-  modalBackdrop.className = "modal-backdrop";
 
+
+  if(document.querySelector('.modal.shown')) {
+    closeModal(document.querySelector('.modal.shown'))
+    
+
+    function closeModal(modal) {
+      modal.classList.remove("shown");
+      let modalBackdrop = modal.querySelector('.modal-backdrop')
+      setTimeout(() => {
+        modal.style = ``;
+        modalBackdrop.remove();
+      }, duration);
+    }
+  }
+
+  let modalAlertBackdrop = document.createElement("div");
+  modalAlertBackdrop.className = "modal-backdrop";
 
   openModal(form);
-  modalBackdrop.addEventListener("click", closeModal);
-  modalClose.addEventListener("click", closeModal);
+  modalAlertBackdrop.addEventListener("click", closeFormModal);
+  modalAlertClose.addEventListener("click", closeFormModal);
 
   // Open-close functions
   function openModal(form) {
@@ -475,28 +490,28 @@ function setAlert(form, result) {
       ? (duration = 0)
       : // В остальных случаях, если указано целочисленное значение, то берем его, если нет, то 350 по умолчанию.
         (duration = +modalBtn.dataset.duration || 350); // В
-    modal.style.transition = `${duration}ms ease-out`;
+        modalAlert.style.transition = `${duration}ms ease-out`;
 
 
 
 
-    modal.classList.add(`modal-message_${result}`)
-    modalTitle.innerHTML = modalData.title[result]
-    modalSubtitle.innerHTML = modalData.subtitle[result]
+        modalAlert.classList.add(`modal-message_${result}`)
+        modalAlertTitle.innerHTML = modalAlertData.title[result]
+        modalAlertSubtitle.innerHTML = modalAlertData.subtitle[result]
 
 
 
 
-    modal.style.display = `flex`;
+        modalAlert.style.display = `flex`;
     // Таймаут для того, чтобы отрабатывала анимация
     setTimeout(() => {
-      modal.classList.add("shown");
+      modalAlert.classList.add("shown");
     }, 0);
-    modal.append(modalBackdrop);
+    modalAlert.append(modalAlertBackdrop);
   }
 
-  function closeModal() {
-    modal.classList.remove("shown");
+  function closeFormModal() {
+    modalAlert.classList.remove("shown");
     form.reset()
     form.querySelectorAll('[data-required]').forEach((field) =>{
       field.dataset.required = ``
@@ -512,16 +527,15 @@ function setAlert(form, result) {
     })
     
     setTimeout(() => {
-      modal.style = ``;
-      modal.classList.remove(`modal-message_${result}`)
-      modalBackdrop.remove();
+      modalAlert.style = ``;
+      modalAlert.classList.remove(`modal-message_${result}`)
+      modalAlertBackdrop.remove();
     }, duration);
   }
 
 
   setTimeout(() => {
-    
-    closeModal()
+    closeFormModal()
   }, 5000)
 }
 
@@ -535,9 +549,6 @@ window.addEventListener('load', function(){
 
         console.log('btns: ', btns);
         btns.style.pointerEvents = `unset`
-
-
-
     }
   })
 
@@ -550,8 +561,46 @@ window.addEventListener('load', function(){
     }
   })
 
-
-
-
-
 })
+
+
+
+// PORTFOLIO
+// G A L L E R Y
+window.addEventListener("load", setFancyGAlleries);
+function setFancyGAlleries() {
+  const dataFancy = document.querySelectorAll('[data-fancybox]');
+
+  let fancyGalerries = []
+  let tmp = undefined;
+  for(let i = 0; i < dataFancy.length; i++) {
+    if(dataFancy[i].dataset.fancybox !== tmp) {
+      fancyGalerries.push(dataFancy[i].dataset.fancybox)
+    }
+    tmp = dataFancy[i].dataset.fancybox;
+  }
+
+  fancyGalerries.forEach((attr)=> {
+    Fancybox.bind(`[data-fancybox='${attr}']`, {
+      Thumbs: {
+        type: false,
+      },
+      transition: "classic",
+    });
+  })
+}
+
+
+
+// G A L L E R Y from admin
+window.addEventListener("load", setFancyFromAdmin);
+function setFancyFromAdmin() {
+  Fancybox.bind(
+    'a[href*=".jpg"]:not([data-fancybox],a[href*=".jpeg"]:not([data-fancybox],a[href*=".png"]:not([data-fancybox],a[href*=".gif"]:not([data-fancybox],a[href*=".webp"]:not([data-fancybox]',
+    {
+      groupAll: true,
+      // Your custom options
+    }
+  );
+}
+// ======================================================

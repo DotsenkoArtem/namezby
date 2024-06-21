@@ -298,8 +298,8 @@ var _loop4 = function _loop4() {
   var tabs = tabsBoxes[_i3].querySelectorAll(".tabs__btn");
   var tabsContent = tabsBoxes[_i3].querySelector(".tabs-content");
   var tabsContentItems = tabsContent.querySelectorAll(".tabs-content__item");
-  for (var _i4 = 0; _i4 < tabs.length; _i4++) {
-    var tab = tabs[_i4];
+  for (var _i5 = 0; _i5 < tabs.length; _i5++) {
+    var tab = tabs[_i5];
     tab.addEventListener("click", function () {
       for (var j = 0; j < tabs.length; j++) {
         tabs[j].classList.remove("active");
@@ -455,11 +455,11 @@ function handleForm(form) {
 function setAlert(form, result) {
   var modalBtn = form.querySelector('button.form-submit') || form.querySelector('input[type="submit"]');
   var duration;
-  var modal = document.querySelector("#formAlert");
-  var modalTitle = modal.querySelector('.modal-message__title ');
-  var modalSubtitle = modal.querySelector('.modal-message__subtitle ');
-  var modalClose = modal.querySelector(".modal__close");
-  var modalData = {
+  var modalAlert = document.querySelector("#formAlert");
+  var modalAlertTitle = modalAlert.querySelector('.modal-message__title ');
+  var modalAlertSubtitle = modalAlert.querySelector('.modal-message__subtitle ');
+  var modalAlertClose = modalAlert.querySelector(".modal__close");
+  var modalAlertData = {
     title: {
       success: '<p>Спасибо!</p>',
       error: '<p>Ошибка!</p>'
@@ -469,11 +469,22 @@ function setAlert(form, result) {
       error: '<p>Пожалуйста, попробуйте еще раз</p>'
     }
   };
-  var modalBackdrop = document.createElement("div");
-  modalBackdrop.className = "modal-backdrop";
+  if (document.querySelector('.modal.shown')) {
+    var closeModal = function closeModal(modal) {
+      modal.classList.remove("shown");
+      var modalBackdrop = modal.querySelector('.modal-backdrop');
+      setTimeout(function () {
+        modal.style = "";
+        modalBackdrop.remove();
+      }, duration);
+    };
+    closeModal(document.querySelector('.modal.shown'));
+  }
+  var modalAlertBackdrop = document.createElement("div");
+  modalAlertBackdrop.className = "modal-backdrop";
   openModal(form);
-  modalBackdrop.addEventListener("click", closeModal);
-  modalClose.addEventListener("click", closeModal);
+  modalAlertBackdrop.addEventListener("click", closeFormModal);
+  modalAlertClose.addEventListener("click", closeFormModal);
 
   // Open-close functions
   function openModal(form) {
@@ -481,19 +492,19 @@ function setAlert(form, result) {
     modalBtn.dataset.duration === "0" ? duration = 0 :
     // В остальных случаях, если указано целочисленное значение, то берем его, если нет, то 350 по умолчанию.
     duration = +modalBtn.dataset.duration || 350; // В
-    modal.style.transition = "".concat(duration, "ms ease-out");
-    modal.classList.add("modal-message_".concat(result));
-    modalTitle.innerHTML = modalData.title[result];
-    modalSubtitle.innerHTML = modalData.subtitle[result];
-    modal.style.display = "flex";
+    modalAlert.style.transition = "".concat(duration, "ms ease-out");
+    modalAlert.classList.add("modal-message_".concat(result));
+    modalAlertTitle.innerHTML = modalAlertData.title[result];
+    modalAlertSubtitle.innerHTML = modalAlertData.subtitle[result];
+    modalAlert.style.display = "flex";
     // Таймаут для того, чтобы отрабатывала анимация
     setTimeout(function () {
-      modal.classList.add("shown");
+      modalAlert.classList.add("shown");
     }, 0);
-    modal.append(modalBackdrop);
+    modalAlert.append(modalAlertBackdrop);
   }
-  function closeModal() {
-    modal.classList.remove("shown");
+  function closeFormModal() {
+    modalAlert.classList.remove("shown");
     form.reset();
     form.querySelectorAll('[data-required]').forEach(function (field) {
       field.dataset.required = "";
@@ -508,13 +519,13 @@ function setAlert(form, result) {
       field.classList.remove('has-value');
     });
     setTimeout(function () {
-      modal.style = "";
-      modal.classList.remove("modal-message_".concat(result));
-      modalBackdrop.remove();
+      modalAlert.style = "";
+      modalAlert.classList.remove("modal-message_".concat(result));
+      modalAlertBackdrop.remove();
     }, duration);
   }
   setTimeout(function () {
-    closeModal();
+    closeFormModal();
   }, 5000);
 }
 window.addEventListener('load', function () {
@@ -534,3 +545,36 @@ window.addEventListener('load', function () {
     }
   });
 });
+
+// PORTFOLIO
+// G A L L E R Y
+window.addEventListener("load", setFancyGAlleries);
+function setFancyGAlleries() {
+  var dataFancy = document.querySelectorAll('[data-fancybox]');
+  var fancyGalerries = [];
+  var tmp = undefined;
+  for (var _i4 = 0; _i4 < dataFancy.length; _i4++) {
+    if (dataFancy[_i4].dataset.fancybox !== tmp) {
+      fancyGalerries.push(dataFancy[_i4].dataset.fancybox);
+    }
+    tmp = dataFancy[_i4].dataset.fancybox;
+  }
+  fancyGalerries.forEach(function (attr) {
+    Fancybox.bind("[data-fancybox='".concat(attr, "']"), {
+      Thumbs: {
+        type: false
+      },
+      transition: "classic"
+    });
+  });
+}
+
+// G A L L E R Y from admin
+window.addEventListener("load", setFancyFromAdmin);
+function setFancyFromAdmin() {
+  Fancybox.bind('a[href*=".jpg"]:not([data-fancybox],a[href*=".jpeg"]:not([data-fancybox],a[href*=".png"]:not([data-fancybox],a[href*=".gif"]:not([data-fancybox],a[href*=".webp"]:not([data-fancybox]', {
+    groupAll: true
+    // Your custom options
+  });
+}
+// ======================================================

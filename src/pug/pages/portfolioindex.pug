@@ -1,4 +1,4 @@
-extends ../_templates/_base.pug
+extends ../_templates/_serviceindex.pug
 
 block page-vars
   -
@@ -10,3 +10,138 @@ block page-vars
 
 block main 
   main.main
+    section.section
+      .container
+        .section-title.services__title
+          h1 Посмотрите наше 
+            span.text-accent портфолио
+
+
+        .portfolio-box
+
+          .tabs-wrap
+            .tabs
+              .tabs__btn.btn.btn_rounded.active(data-target="tabs-content1") Брендинг
+              .tabs__btn.btn.btn_rounded(data-target="tabs-content2") Нейминг
+              .tabs__btn.btn.btn_rounded(data-target="tabs-content3") Фирменный стиль
+
+
+
+            .tabs-content
+
+              #tabs-content1.tabs-content__item.active 
+
+
+                .services-grid.portfolio
+
+                  .portfolio__item 
+                    a(href="img/service-item-1.jpg", data-fancybox="portfolio0")
+                      .portfolio__item-img
+                        img(src="img/service-item-1.jpg", alt="")
+
+                  .portfolio__item 
+                    a(href="img/service-item-1.jpg", data-fancybox="portfolio0")
+                      .portfolio__item-img
+                        img(src="img/service-item-1.jpg", alt="")
+
+                  .portfolio__item 
+                    a(href="img/service-item-1.jpg", data-fancybox="portfolio0")
+                      .portfolio__item-img
+                        img(src="img/service-item-1.jpg", alt="")
+
+                  .portfolio__item 
+                    a(href="img/service-item-1.jpg", data-fancybox="portfolio0")
+                      .portfolio__item-img
+                        img(src="img/service-item-1.jpg", alt="")
+
+                  .portfolio__item 
+                    a(href="img/service-item-1.jpg", data-fancybox="portfolio0")
+                      .portfolio__item-img
+                        img(src="img/service-item-1.jpg", alt="")
+
+                .portfolio__more-btn
+                  button.btn.btn_pink.btn_rounded Показать еще
+
+
+
+
+
+
+
+
+
+              #tabs-content2.tabs-content__item
+
+
+                .services-grid.portfolio
+
+                  .portfolio__item 
+                    a(href="img/service-item-2.jpg", data-fancybox="portfolio1")
+                      .portfolio__item-img
+                        img(src="img/service-item-2.jpg", alt="")
+
+                  .portfolio__item 
+                    a(href="img/service-item-2.jpg", data-fancybox="portfolio1")
+                      .portfolio__item-img
+                        img(src="img/service-item-2.jpg", alt="")
+
+                  .portfolio__item 
+                    a(href="img/service-item-2.jpg", data-fancybox="portfolio1")
+                      .portfolio__item-img
+                        img(src="img/service-item-2.jpg", alt="")
+
+                  .portfolio__item 
+                    a(href="img/service-item-2.jpg", data-fancybox="portfolio1")
+                      .portfolio__item-img
+                        img(src="img/service-item-2.jpg", alt="")
+
+                .portfolio__more-btn
+                  button.btn.btn_pink.btn_rounded Показать еще
+
+
+
+
+
+              #tabs-content3.tabs-content__item
+
+
+                .services-grid.portfolio
+
+                  .portfolio__item 
+                    a(href="img/service-item-2.jpg", data-fancybox="portfolio2")
+                      .portfolio__item-img
+                        img(src="img/service-item-2.jpg", alt="")
+
+                  .portfolio__item 
+                    a(href="img/service-item-1.jpg", data-fancybox="portfolio2")
+                      .portfolio__item-img
+                        img(src="img/service-item-1.jpg", alt="")
+
+                  .portfolio__item 
+                    a(href="img/service-item-2.jpg", data-fancybox="portfolio2")
+                      .portfolio__item-img
+                        img(src="img/service-item-2.jpg", alt="")
+
+                  .portfolio__item 
+                    a(href="img/service-item-2.jpg", data-fancybox="portfolio2")
+                      .portfolio__item-img
+                        img(src="img/service-item-2.jpg", alt="")
+
+                  .portfolio__item 
+                    a(href="img/service-item-1.jpg", data-fancybox="portfolio2")
+                      .portfolio__item-img
+                        img(src="img/service-item-1.jpg", alt="")
+
+
+
+                .portfolio__more-btn
+                  button.btn.btn_pink.btn_rounded Показать еще
+
+
+
+    include ../_includes/_proposal-section.pug
+
+
+
+
+
