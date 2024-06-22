@@ -1,4 +1,4 @@
-extends ../_templates/_base.pug
+extends ../_templates/_serviceindex.pug
 
 block page-vars
   -
@@ -10,3 +10,121 @@ block page-vars
 
 block main 
   main.main
+
+    section.section.about
+      .container
+        .section-title.services__title
+          h1 
+            span.text-accent Контакты
+
+        .contacts
+          .contacts__contacts
+            .contacts__data
+
+              .contacts__item 
+                .contacts__cap Способы связи
+                .contacts__info.contacts__info--connect
+                
+                  a(href="tel:+375333305935") +375 (33) 330-59-35 
+                  a(href="mailto:info@namez.by") info@namez.by
+
+                  .contacts__info-social-links
+                    a(href="viber://chat?number=%2B375333305935")
+                      <svg class="viber-icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g class="icon-img" fill="#8e24aa">
+                          <path d="m23.155 13.893c.716-6.027-.344-9.832-2.256-11.553l.001-.001c-3.086-2.939-13.508-3.374-17.2.132-1.658 1.715-2.242 4.232-2.306 7.348-.064 3.117-.14 8.956 5.301 10.54h.005l-.005 2.419s-.037.98.589 1.177c.716.232 1.04-.223 3.267-2.883 3.724.323 6.584-.417 6.909-.525.752-.252 5.007-.815 5.695-6.654zm-12.237 5.477s-2.357 2.939-3.09 3.702c-.24.248-.503.225-.499-.267 0-.323.018-4.016.018-4.016-4.613-1.322-4.341-6.294-4.291-8.895.05-2.602.526-4.733 1.93-6.168 3.239-3.037 12.376-2.358 14.704-.17 2.846 2.523 1.833 9.651 1.839 9.894-.585 4.874-4.033 5.183-4.667 5.394-.271.09-2.786.737-5.944.526z"></path>
+                          <path d="m12.222 4.297c-.385 0-.385.6 0 .605 2.987.023 5.447 2.105 5.474 5.924 0 .403.59.398.585-.005h-.001c-.032-4.115-2.718-6.501-6.058-6.524z"></path>
+                          <path d="m16.151 10.193c-.009.398.58.417.585.014.049-2.269-1.35-4.138-3.979-4.335-.385-.028-.425.577-.041.605 2.28.173 3.481 1.729 3.435 3.716z"></path>
+                          <path d="m15.521 12.774c-.494-.286-.997-.108-1.205.173l-.435.563c-.221.286-.634.248-.634.248-3.014-.797-3.82-3.951-3.82-3.951s-.037-.427.239-.656l.544-.45c.272-.216.444-.736.167-1.247-.74-1.337-1.237-1.798-1.49-2.152-.266-.333-.666-.408-1.082-.183h-.009c-.865.506-1.812 1.453-1.509 2.428.517 1.028 1.467 4.305 4.495 6.781 1.423 1.171 3.675 2.371 4.631 2.648l.009.014c.942.314 1.858-.67 2.347-1.561v-.007c.217-.431.145-.839-.172-1.106-.562-.548-1.41-1.153-2.076-1.542z"></path>
+                          <path d="m13.169 8.104c.961.056 1.427.558 1.477 1.589.018.403.603.375.585-.028-.064-1.346-.766-2.096-2.03-2.166-.385-.023-.421.582-.032.605z"></path>
+                        </g>
+                      </svg>
+                    
+
+                    a(href="https://wa.me/375333305935")
+                      <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="100px" height="100px">
+                        <g transform="translate(-25.6,-25.6) scale(1.2,1.2)">
+                          <g class="icon-img" fill="#2fc84b" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                            <g transform="translate(8.375,7.03125) scale(16,16)">
+                              <path d="M7.5,1c-3.58594,0 -6.5,2.91406 -6.5,6.5c0,1.29688 0.41797,2.48438 1.07031,3.5l-1.11719,3.12109l3.47656,-0.98047c0.92188,0.50391 1.94531,0.85938 3.07031,0.85938c3.58594,0 6.5,-2.91406 6.5,-6.5c0,-3.58594 -2.91406,-6.5 -6.5,-6.5zM7.5,2c3.04297,0 5.5,2.45703 5.5,5.5c0,3.04297 -2.45703,5.5 -5.5,5.5c-1.04297,0 -2.00781,-0.29297 -2.84375,-0.79687l-0.18359,-0.11328l-1.92578,0.53906l0.625,-1.73437l-0.15234,-0.21094c-0.64062,-0.90234 -1.01953,-1.99609 -1.01953,-3.18359c0,-3.04297 2.45703,-5.5 5.5,-5.5zM5.0625,4c-0.11328,0 -0.30078,0.04688 -0.46094,0.23438c-0.15625,0.18359 -0.60156,0.63281 -0.60156,1.54688c0,0.91016 0.61719,1.79297 0.70313,1.91797c0.08594,0.125 1.21484,1.99609 2.94141,2.80078c0.41016,0.19141 0.73047,0.30469 0.98047,0.39063c0.41406,0.14063 0.78906,0.12109 1.08594,0.07422c0.33203,-0.05469 1.01953,-0.44922 1.16406,-0.88281c0.14063,-0.43359 0.14453,-0.80469 0.09766,-0.88281c-0.03906,-0.07812 -0.15625,-0.125 -0.32812,-0.21484c-0.17187,-0.09375 -1.01953,-0.54297 -1.17578,-0.60156c-0.15625,-0.06641 -0.27344,-0.09375 -0.39062,0.08984c-0.11328,0.1875 -0.44141,0.60547 -0.54297,0.72656c-0.10156,0.125 -0.19922,0.14063 -0.37109,0.04688c-0.17578,-0.09375 -0.73047,-0.28906 -1.38672,-0.92187c-0.51172,-0.49219 -0.85937,-1.09766 -0.95703,-1.28516c-0.10156,-0.1875 -0.01172,-0.28516 0.07422,-0.375c0.07813,-0.08594 0.17188,-0.21875 0.25781,-0.32812c0.08594,-0.10547 0.11328,-0.1875 0.17188,-0.30859c0.05859,-0.125 0.03125,-0.23437 -0.01172,-0.32422c-0.04687,-0.09375 -0.39062,-1.00781 -0.53125,-1.37891c-0.14062,-0.35938 -0.28516,-0.3125 -0.39062,-0.31641c-0.09766,-0.00781 -0.21484,-0.00781 -0.32812,-0.00781z"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    
+
+                    a(href="https://t.me/+375333305935")
+                      <svg class="telegram-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="100px" height="100px">
+                        <g transform="translate(48.64,48.64) scale(0.62,0.62)">
+                          <g class="icon-bg" fill="none" fill-rule="nonzero" stroke="#27a9dc" stroke-width="30.72" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                            <path class="none-filled" d="M128,315.60824c-103.61317,0 -187.60824,-83.99507 -187.60824,-187.60824v0c0,-103.61317 83.99507,-187.60824 187.60824,-187.60824v0c103.61317,0 187.60824,83.99507 187.60824,187.60824v0c0,103.61317 -83.99507,187.60824 -187.60824,187.60824z" id="shape"></path>
+                          </g>
+                          <g class="icon-img" fill="#27a9dc" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                            <g transform="translate(-17.83416,-5.13054) scale(5.12,5.12)">
+                              <path d="M46.137,6.552c-0.75,-0.636 -1.928,-0.727 -3.146,-0.238h-0.002c-1.281,0.514 -36.261,15.518 -37.685,16.131c-0.259,0.09 -2.521,0.934 -2.288,2.814c0.208,1.695 2.026,2.397 2.248,2.478l8.893,3.045c0.59,1.964 2.765,9.21 3.246,10.758c0.3,0.965 0.789,2.233 1.646,2.494c0.752,0.29 1.5,0.025 1.984,-0.355l5.437,-5.043l8.777,6.845l0.209,0.125c0.596,0.264 1.167,0.396 1.712,0.396c0.421,0 0.825,-0.079 1.211,-0.237c1.315,-0.54 1.841,-1.793 1.896,-1.935l6.556,-34.077c0.4,-1.82 -0.156,-2.746 -0.694,-3.201zM22,32l-3,8l-3,-10l23,-17z"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                  
+
+
+
+
+
+
+
+
+              .contacts__item 
+                .contacts__cap Режим работы
+                .contacts__info 
+                  p пн-пт , 09 — 18
+
+              .contacts__item 
+                .contacts__cap Наш адрес
+                .contacts__info 
+                  p Головной офис: г. Брест ул. Янки Купалы 111, 37а
+                  p Офис: г. Минск, Орловская улица, 29, тел: 
+                    a(href="tel:+375333305935") +375 (33) 330-59-35
+                  p 
+                    strong Работаем по всей Беларуси.
+
+                    
+
+              .contacts__item 
+                .contacts__cap Реквизиты
+                .contacts__info 
+                  p Брендинговое агенство NAMEZ
+
+
+
+
+
+
+
+
+
+
+            .contacts__sidebar
+              .contacts__cap Обратная связь
+
+              .contacts__info.contacts__info--form
+
+                form.form.modal-form
+                  .modal-form__inner
+
+
+                    .form-group.form-group_float-label 
+                      input#firstName2.form-control(type="text", name="firstName", required)
+                      label.form-label(for="firstName2") Ваше имя
+
+                    .form-group.form-group_float-label
+                      input#phone2.form-control(type="tel", name="phone", required, data-mask)
+                      label.form-label(for="phone2") Ваш телефон
+
+                    .form-fgoup
+                      button.form-submit.btn.btn_pink.btn_rounded.proposal-form__submit(type="button") Отправить
+
+
+    section#map.section.contacts_map
+      <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A236a460d4b780f071f151cdbc3d9801791660946bf5d9c94186042badad6e101&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=false"></script>
