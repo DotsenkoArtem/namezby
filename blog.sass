@@ -364,6 +364,114 @@
     background-image: linear-gradient(180deg, v.$white 0%, rgb(224, 224, 224) 100%)
 
 
+/* POST - PAGE */
+.article-page 
+  padding: 7.5rem 0 0
+
+.blog-article-thumb-wrap 
+  position: relative
+  margin-bottom: 35px
+  padding-bottom: 40%
+  height: 0
+  border-radius: .5rem
+  overflow: hidden
+
+
+.blog-article-thumb 
+  position: absolute
+  width: 100%
+  height: 100%
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+
+
+.blog-article-thumb img 
+  width: 100%
+  height: 100%
+  object-fit: cover
+
+
+.page-content-has-sidebar .blog-article-content 
+  margin-top: -8px
+
+.article-page-title h1 
+  font-size: 50px
+  color: #262626
+  margin-bottom: 4rem
+
+
+// .article-page .section-entry__title h2 
+//   margin-bottom: 30px
+//   font-weight: 400
+//   font-size: 45px
+//   line-height: 1.2
+//   text-transform: uppercase
+//   color: #fff
+
+
+.dynamic-content>.gallery+h2 
+  margin-top: 20px
+
+
+.article-post-meta 
+  margin-bottom: 2.5rem
+
+
+.article-post-date 
+  color: #555555
+  font-size: 17px
+  font-weight: 400
+  line-height: 1.6
+
+
+
+.article-page .dynamic-content
+  font-size: 20px
+  line-height: 1.57
+  color: #262626
+  h2
+    font-size: 40px
+  h3
+    font-size: 30px
+  a
+    display: inline
+    color: v.$yellow-start
+    border-bottom: 1px solid v.$yellow-start
+    transition: .1s
+
+@media (hover: hover) and (pointer: fine)
+  .article-page .dynamic-content
+    a:hover
+      border-color: transparent
+
+
+.article-page .dynamic-content
+  a:active
+    border-color: transparent
+
+img.fancybox-image 
+  display: block
+
+
+// .article-page .section-entry 
+//   margin-top: 40px
+//   margin-bottom: 40px
+//   border-radius: 4px
+//   overflow: hidden
+
+
+// .section-entry.next-post-tumb 
+//   padding-top: 40px
+//   padding-bottom: 40px
+//   height: 444px
+
+
+
+
+
+
 
 @media (max-width: 1199.98px)
   .page-title-wrap-lg
@@ -456,6 +564,25 @@
 
   // .pagination-wrap 
   //   margin-top: 30px
+
+  .blog-article-thumb-wrap 
+    padding-bottom: 60%
+
+  .article-page-title h1 
+    font-size: 39px
+  .article-post-date
+    font-size: 15px
+
+  .article-page .dynamic-content
+    font-size: 20px
+    p
+      font-size: 20px
+    h2
+      font-size: 39px
+    h3
+      font-size: 30px
+
+
   
 
 
@@ -489,6 +616,19 @@
     font-size: 15px
   .blog-post-date
     font-size: 14px
+
+
+  .article-page-title h1 
+    font-size: 30px
+
+  .article-page .dynamic-content
+    font-size: 17px
+    p
+      font-size: 17px
+    h2
+      font-size: 30px
+    h3
+      font-size: 20px
   
 
 
@@ -507,6 +647,21 @@
     font-size: calc(15 * $index)
   .blog-post-date
     font-size: calc(14 * $index)
+  
+  .article-page-title h1 
+    font-size: calc(28 * $index)
+  .article-post-date
+    font-size: calc(15 * $index)
+
+  .article-page .dynamic-content
+    font-size: calc(17 * $index)
+    p
+      font-size: calc(17 * $index)
+    h2
+      font-size: calc(28 * $index)
+    h3
+      font-size: calc(17 * $index)
+  
 
   .blog-post-thumb 
     height: 57vw
@@ -524,5 +679,20 @@
     font-size: calc(15 * $index)
   .blog-post-date
     font-size: calc(14 * $index)
+
+  
+  .article-page-title h1 
+    font-size: calc(28 * $index)
+  .article-post-date
+    font-size: calc(15 * $index)
+
+  .article-page .dynamic-content
+    font-size: calc(17 * $index)
+    p
+      font-size: calc(17 * $index)
+    h2
+      font-size: calc(28 * $index)
+    h3
+      font-size: calc(17 * $index)
   
 
