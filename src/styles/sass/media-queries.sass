@@ -96,10 +96,10 @@
       max-width: $menu-item-lv1-max-width
 
   
-  .sub-menu
-    left: $menu-item-lv1-max-width
-    .menu-item > a
-      font-size: 16px
+    .sub-menu
+      left: $menu-item-lv1-max-width
+      .menu-item > a
+        font-size: 16px
 
   .menu-trigger
     width: $menu-trigger-width
@@ -441,9 +441,9 @@
     &>.menu-item
       max-width: $menu-item-lv1-max-width
 
-  .sub-menu
-    padding-top: unset
-    left: $menu-item-lv1-max-width
+    .sub-menu
+      padding-top: unset
+      left: $menu-item-lv1-max-width
 
   
 
@@ -664,7 +664,7 @@
   .breadcrumbs
     font-size: 14px
 
-  .sub-menu > .menu-item > a 
+  .menu .sub-menu > .menu-item > a 
     font-size: 16px
 
   // vars
@@ -704,10 +704,10 @@
     max-width: none
     & > a
       max-width: 10em
-  .sub-menu
-    position: static
-    &>.menu-item > a
-      font-size: 16px
+    .sub-menu
+      position: static
+      &>.menu-item > a
+        font-size: 16px
 
 
   .menu-mobile-collapse
@@ -1071,7 +1071,7 @@
   .breadcrumbs
     font-size: calc( 14 * $index )
 
-  .sub-menu .menu-item > a 
+  .menu .sub-menu .menu-item > a 
     font-size: calc( 14 * $index )
 
   .service-item
@@ -1261,7 +1261,7 @@
   .breadcrumbs
     font-size: calc( 14 * $index )
 
-  .sub-menu .menu-item > a 
+  .menu .sub-menu .menu-item > a 
     font-size: calc( 12 * $index )
 
 

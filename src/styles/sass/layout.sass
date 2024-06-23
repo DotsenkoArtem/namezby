@@ -12,6 +12,7 @@
 // @import "../../components/btn-vawe/component"
 @import "../../components/modal/component"
 @import "../../components/form/component"
+@import "blog.sass"
 
 .wrapper
   margin: 0 auto
@@ -40,6 +41,8 @@
 
 .section
   padding: v.$section-py 0
+  &_pt-0
+    padding-top: 0
   &_py-0
     padding-top: 0
     padding-bottom: 0
@@ -51,6 +54,9 @@
   &_light
     *
       color: v.$white
+
+.page-title
+  margin-top: 7.5rem
 
 //   &_py-60
 //     padding-top: 6rem
@@ -316,24 +322,24 @@ $menu-item-lv1-max-width: 36rem
   &-item.current-menu-item > a
     color: v.$accent-color
 
-.sub-menu
-  padding-top: 1rem
-  position: absolute
-  top: 0
-  left: $menu-item-lv1-max-width
-  right: 0
-  bottom: 0
-  overflow: auto
-  opacity: 0
-  visibility: hidden
-  transition: v.$transition-main
+  .sub-menu
+    padding-top: 1rem
+    position: absolute
+    top: 0
+    left: $menu-item-lv1-max-width
+    right: 0
+    bottom: 0
+    overflow: auto
+    opacity: 0
+    visibility: hidden
+    transition: v.$transition-main
 
-  .menu-item > a
-    // padding: 0.8rem 0
-    padding: 0.6rem 0
-    font-size: 20px
-    font-weight: 400
-    transition: none
+    .menu-item > a
+      // padding: 0.8rem 0
+      padding: 0.6rem 0
+      font-size: 20px
+      font-weight: 400
+      transition: none
 
 .menu
   // &-item:not(.current-menu-item):hover > a

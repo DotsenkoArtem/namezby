@@ -578,3 +578,25 @@ function setFancyFromAdmin() {
   });
 }
 // ======================================================
+
+// Collapses - used in sidebar menu
+window.addEventListener('DOMContentLoaded', sidebarCollapses);
+function sidebarCollapses() {
+  var sidebarMenuCollapses = document.querySelectorAll(".sidebar-menu li.menu-item-has-children");
+  if (sidebarMenuCollapses) {
+    sidebarMenuCollapses.forEach(function (sidebarMenuCollapse) {
+      var sidebarMenuCollapseBtn = sidebarMenuCollapse.firstElementChild;
+      var sidebarMenuColapseContent = sidebarMenuCollapse.querySelector("ul.sub-menu.lv2");
+      sidebarMenuCollapseBtn.addEventListener("click", function () {
+        if (!sidebarMenuColapseContent.offsetHeight) {
+          sidebarMenuCollapse.classList.add("open");
+          sidebarMenuColapseContent.style.maxHeight = sidebarMenuColapseContent.scrollHeight + "px";
+        } else {
+          sidebarMenuCollapse.classList.remove("open");
+          sidebarMenuColapseContent.style.maxHeight = "";
+        }
+      });
+    });
+  }
+}
+// ======================================================
